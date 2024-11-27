@@ -1,0 +1,8 @@
+
+// Shorthand for remove initial element `<ul>, <ol>` styles
+
+@mixin unlist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

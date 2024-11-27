@@ -1,0 +1,47 @@
+// 
+// Progress component
+// 
+// .progress            - progress element styles
+// .progress__bar       - styles for the progress bar
+
+
+// Progress styles
+
+.progress {
+    position: relative;
+    border-radius: $progress-border-radius;
+    height: $progress-height;
+    background-color: $progress-bg;
+
+    .progress__bar {
+        @include absolute(top calc(-1 * ($progressbar-height + $progress-height)));
+        @include direction(left 0);
+        width: 0;
+        height: $progressbar-height;
+        background-color: var(--primary);
+        border-radius: $progress-border-radius;
+
+        &:after {
+            content: attr(data-width);
+            @include absolute(top $progress-badge-top);
+            @include direction(right calc(-.5 * $progress-badge-width));
+            opacity: 0;
+            width: $progress-badge-width;
+            line-height: $progress-badge-line-height;
+            font-weight: $progress-badge-font-weight;
+            font-size: $progress-badge-font-size;
+            border-radius: $progress-badge-border-radius;
+            text-align: center;
+            background-color: var(--primary);
+            transition: all 0.5s ease-in-out var(--animation-duration);
+            transform: translateY(100%);
+        }
+
+        &.width {
+            &:after {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+// 
+// Card component
+// 
+// .card                - card element styles
+// .card__head          - styles for the card header
+// .card__body          - styles for the card body 
+// .card__foot          - styles for the card footer
+// .card__image         - styles for the card image 
+
+
+// Card styles
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: $card-border-radius;
+    background: $card-bg;
+    backdrop-filter: $modal-bg-blur;
+    border: $card-border-width solid $card-border-color;
+    height: 100%;
+
+    &.card--cover {
+        overflow: hidden;
+        border-color: transparent;
+        > * {
+            @include size(100%);
+            object-fit: cover;
+        }
+    }
+
+    .card__head,
+    .card__body,
+    .card__foot {
+        padding: var(--card-padding-y) var(--card-padding-x);
+    }
+
+    .card__body {
+        flex: 1;
+    }
+
+    .card__image {
+        margin: 0 $card-image-space $card-image-space;
+        border-radius: $card-image-border-radius;
+        position: relative;
+        overflow: hidden;
+        @include before {
+            padding-bottom: 70%;
+        }
+
+        > * {
+            @include absolute(top 0 left 0);
+            @include size(100%);
+            object-fit: cover;
+        }
+    }    
+}

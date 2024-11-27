@@ -1,0 +1,35 @@
+// 
+// Swiper slider
+// 
+// Override the default styles for the Swiper slider
+
+
+[data-marquee] {
+    --swiper-wrapper-transition-timing-function: linear;
+
+    .swiper-slide {
+        width: initial;
+    }
+}
+
+.swiper {
+    &.swiper--visible {
+        overflow: visible;
+    }
+    &.swiper--slide-stretch .swiper-slide {
+        height: initial;
+    }
+}
+
+.swiper-scrollbar {
+    --swiper-scrollbar-bg-color: #{rgba($swiper-scrollbar-bg, .2)};
+    --swiper-scrollbar-drag-bg-color: #{$swiper-scrollbar-bg};
+    position: relative !important;
+    left: initial !important;
+    bottom: initial !important;
+    top: initial !important;
+    width: 100% !important;
+    @include mx;
+    max-width: $swiper-scrollbar-max-width;
+    margin-top: calc(var(--section-padding-y) * .75);
+}

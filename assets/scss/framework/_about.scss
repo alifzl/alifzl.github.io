@@ -1,0 +1,233 @@
+//
+// About Page
+//
+// .info-card     - styles for the about info card
+// .analytics     - styles for the analytics data
+// .logo-card     - styles for the client's logo card
+// .logo-title    - styles for the client's logo title
+// .testimonial   - styles for the client's testimonial
+
+
+// Info card styles
+
+.info-card {
+    --gutter-y: #{$info-item-gutter};
+    --gutter-x: #{$info-item-gutter};
+    margin-bottom: $info-card-margin-bottom;
+
+    .row {
+        justify-content: space-between;
+    }
+
+    .info-card__item {
+        @include flexbox;
+        @include flex;
+    }
+
+    .info-card__icon {
+        @include size($info-icon-size);
+        @include flexbox-center;
+        background-color: $info-icon-bg;
+        border-radius: $info-icon-border-radius;
+        > * {
+            max-width: 50%;
+        }
+    }
+
+    .info-card__content {
+        --heading-margin-bottom: #{$info-title-margin-bottom};
+        @include direction(padding-left $info-content-padding-x);
+        flex: 1;
+        > a {
+            --link-color: var(--body-color);
+            --link-hover-color: #{$white};
+        }
+    }
+
+
+    // Responsive styling
+    @include media-breakpoint-up(md) {
+        .info-card__icon {
+            @include size($info-icon-size-md);
+        }
+
+        .info-card__item {
+            align-items: center;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        --card-padding-x: #{$info-card-padding-x};
+        border-radius: $border-radius-pill;
+        .info-card__item {
+            width: percentage(divide(6, 12));
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .info-card__item {
+            width: initial;
+        }
+    }
+}
+
+
+// Analytics styles
+
+.analytics {
+    --gutter-y: #{$analytics-gutter};
+    --gutter-x: #{$analytics-gutter};
+    justify-content: center;
+
+    .analytics__item {
+        @include flex(percentage(divide(6, 12)));
+        .h1 {
+            --heading-color: var(--primary);
+        }
+        .h5 {
+            margin-bottom: 0;
+            line-height: 1.25;
+        }
+    }
+
+
+    // Responsive styling
+    @include media-breakpoint-up(md) {
+        .analytics__item {
+            width: percentage(divide(3, 12));
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .analytics__item {
+            width: percentage(divide(2, 12));
+        }
+    }
+}
+
+
+// Client's logo card styles
+
+.logo-card {
+    width: $logo-card-width;
+    align-items: center;
+    justify-content: center;
+    .card__body {
+        flex: 0 0 auto;
+        > * {
+            max-width: $logo-max-width;
+            max-height: $logo-max-height;
+        }
+    }
+}
+
+.logo-title,
+.testimonial__title {
+    --heading-margin-bottom: 0;
+    --heading-line-height: 1.15;
+}
+
+
+// Client's logo title styles
+
+.logo-title {
+    --heading-margin-bottom: 0;
+    --heading-line-height: 1.15;
+    flex-direction: row;
+    align-items: center;
+    width: $logo-card-width;
+    border-radius: 0;
+    background-color: var(--primary);
+    border-top-left-radius: $border-radius-pill;
+    border-top-right-radius: $border-radius-pill;
+    @include direction(border-bottom-left-radius $border-radius-pill);
+}
+
+
+// Testimonial styles
+
+.testimonial {
+    --gutter-y: #{$grid-gutter-width * .5};
+    --gutter-x: #{$grid-gutter-width * .5};
+
+    // Testimonial image styling
+    .testimonial__image {
+        width: percentage(divide(5, 12));
+    }
+
+    // Testimonial title styling
+    .testimonial__title {
+        --heading-margin-bottom: 0;
+        --heading-line-height: 1.15;
+        width: percentage(divide(7, 12));
+        .card {
+            flex-direction: row;
+            align-items: center;
+            background: $base-gradient-bg;
+            background-position: bottom left;
+            border-top-left-radius: $border-radius-pill;
+            border-top-right-radius: $border-radius-pill;
+            @include direction(border-bottom-right-radius $border-radius-pill);
+        }
+    }
+
+    // Testimonial card styling
+    .testimonial__card {
+        --card-padding-y: #{$testimonial-padding-y};
+        position: relative;
+        color: $testimonial-color;
+        .quote {
+            @include absolute(top 1.5rem);
+            @include direction(left 2.5rem);
+        }
+
+        .testimonial__card__avatar {
+            @include flexbox-v-center;
+            .testimonial__card__avatar__image {
+                @include size($testimonial-avatar-size);
+                border-radius: $testimonial-avatar-size;
+                overflow: hidden;
+            }
+            .testimonial__card__avatar__name {
+                @include direction(padding-left $testimonial-avatar-padding-x);
+            }
+        }
+    }
+
+
+    // Responsive styling
+    @include media-breakpoint-up(sm) {
+        --gutter-y: #{$grid-gutter-width};
+        --gutter-x: #{$grid-gutter-width};
+    }
+
+    @include media-breakpoint-up(md) {
+        .testimonial__item {
+            width: percentage(divide(6, 12));
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .testimonial__item {
+            width: percentage(divide(4, 12));
+        }
+        .testimonial__title {
+            width: percentage(divide(3, 12));
+        }
+        .testimonial__image {
+            width: percentage(divide(2, 12));
+        }
+
+        @for $i from 1 through $testimonial-length {
+            $order: nth($testimonial-order, $i);
+
+            > *:nth-child(#{$i}) {
+                order: $order;
+                @if $i == 5 {
+                    @include direction(margin-left auto);
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,26 @@
+// 
+// Cursor component
+// 
+// #cursor              - magic cursor point to animating custom cursor
+// #cursor_outer        - magic bordered cursor to follow cursor point
+
+
+// Cursor styling
+
+#cursor,
+#cursor_outer {
+    @include size(var(--size));
+    position: fixed;
+    border-radius: $border-radius-pill;
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: $zIndex-cursor;
+}
+
+#cursor {
+    background-color: $white;
+}
+
+#cursor_outer {
+    border: 1px solid $white;
+}

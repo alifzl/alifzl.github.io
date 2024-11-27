@@ -1,0 +1,44 @@
+
+
+// Left arrow shorthand
+
+@mixin arrow-left {
+    .svg {
+        @include ltr {
+            transform-origin: left center;
+        }
+        @include rtl {
+            transform-origin: right center;
+            transform: scaleX(-1) translateX(100%);
+        }
+    }
+}
+
+
+// Right arrow shorthand
+
+@mixin arrow-right {
+    .svg {
+        @include ltr {
+            transform-origin: right center;
+        }
+        @include rtl {
+            transform-origin: left center;
+            transform: scaleX(-1) translateX(-100%);
+        }
+    }
+}
+
+
+// Arrow hover shorthand
+
+@mixin arrow-hover($x: 100%) {
+    .svg {
+        @include ltr {
+            transform: scaleX(1.25);
+        }
+        @include rtl {
+            transform: scaleX(-1.25) translateX($x);
+        }
+    }
+}

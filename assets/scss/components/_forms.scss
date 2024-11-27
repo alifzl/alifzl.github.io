@@ -1,0 +1,112 @@
+// 
+// Form component
+// 
+// .form-group                      - label + input group container
+// .form-label                      - label styles for form controls
+// .form-control                    - styles for input, textarea, and select elements
+// .form-error                      - form error styles
+// #form_message                    - form submitted message block styles
+
+
+// Form group styles
+
+.form-group {
+    position: relative;
+    margin-bottom: $form-group-margin-bottom;
+}
+
+
+// Form label styles
+
+.form-label {
+    display: inline-block;
+    font-size: $form-label-font-size;
+    font-weight: $form-label-font-weight;
+    color: $form-label-color;
+    margin-bottom: $form-label-margin-bottom;
+}
+
+
+// Form control styles
+
+.form-control {
+    appearance: none;
+    width: 100%;
+    display: block;
+    background-clip: padding-box;
+    padding: $form-control-padding-y $form-control-padding-x;
+    min-height: $form-control-min-height;
+    background: $form-control-bg;
+    backdrop-filter: $form-control-bg-blur;
+    border: $form-control-border-width solid $form-control-border-color;
+    border-radius: $form-control-border-radius;
+    color: $form-control-color;
+    line-height: $form-control-line-height;
+
+    &[type="file"] {
+        overflow: hidden;
+        &:not(:disabled):not([readonly]) {
+            cursor: pointer;
+        }
+    }
+    
+    &:focus {
+        border-color: $form-control-focus-border-color;
+        outline: 0;
+    }
+}
+
+
+// Form error
+
+.form-error {
+    @include absolute(top 90%);
+    @include direction(left 0.5rem);
+    font-size: $form-error-font-size;
+    padding: $form-error-padding;
+    line-height: $form-error-line-height;
+    border-radius: $form-error-border-radius;
+    background-color: var(--primary);
+    @include before {
+        @include absolute(top calc(-1 * $form-error-border-width));
+        @include direction(left calc($form-error-border-width * 2));
+        border-left: $form-error-border-width solid transparent;
+        border-right: $form-error-border-width solid transparent;
+        border-bottom: $form-error-border-width solid var(--primary);
+    }
+}
+
+
+// Form submitted message
+
+#form_message {
+    @include fixed(bottom 0 left 0);
+    width: 100%;
+    padding: $form-message-padding;
+    text-align: center;
+    z-index: $zIndex-message;
+    color: $form-message-color;
+    text-align: center;
+    transform: translateY(120px);
+    transition: all 0.5s var(--animation-timing-function);
+
+    &.show {
+        transform: translateY(0);
+    }
+
+    > * {
+        max-width: $form-message-child-width;
+        padding: $form-message-child-padding;
+        font-weight: $form-message-child-font-weight;
+        border-radius: $form-message-child-border-radius;
+        width: 100%;
+        display: inline-block;
+        text-align: var(--body-text-align);
+    }
+    .success {
+        background-color: $success;
+    }
+    .error {
+        background-color: var(--primary);
+    }
+}

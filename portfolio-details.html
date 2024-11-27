@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <!-- Meta Tag -->
     <meta charset="utf-8">
@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Seo Meta -->
-    <meta name="description" content="Ali Fazeli Personal Website">
-    <meta name="keywords" content="Ali Fazeli, alifzl, portfolio, resume, data, big data, data engineer, MLOps, AIOps">
+    <meta name="description" content="E-Bio - Personal Portfolio HTML Template">
+    <meta name="keywords" content="portfolio template, portfolio, personal template, responsive portfolio, personal, themeforest, html portfolio template, css3, html5">
 
-    <title> علی فاضلی</title>
+    <title>E-Bio - Personal Portfolio HTML Template</title>
+
     <!-- Favicon -->
     <link href="assets/images/logos/favicon.png" rel="icon">
 
@@ -30,17 +31,17 @@
     <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body data-barba="wrapper" data-magic-cursor="true">
-    
+
     <!-- Page loader [[ Find at scss/components/loader.scss ]] -->
     <div id="loader">
-        <span id="loader_text" data-splitting>بارگذاری</span>
+        <span id="loader_text" data-splitting>loading</span>
         <svg id="loader_shape" width="100%" height="100vh" preserveAspectRatio="none" viewBox="0 0 1440 800">
 			<path d="M -44,-50 C -52.71,28.52 15.86,8.186 184,14.69 383.3,22.39 462.5,12.58 638,14 835.5,15.6 987,6.4 1194,13.86 1661,30.68 1652,-36.74 1582,-140.1 1512,-243.5 15.88,-589.5 -44,-50 Z" 
             data-path="M -44,-50 C -137.1,117.4 67.86,445.5 236,452 435.3,459.7 500.5,242.6 676,244 873.5,245.6 957,522.4 1154,594 1593,753.7 1793,226.3 1582,-126 1371,-478.3 219.8,-524.2 -44,-50 Z" />
 		</svg>
     </div>
 
-    <div data-barba="container" data-barba-namespace="home">
+    <div data-barba="container" data-barba-namespace="default">
     
         <!-- Start:: Header [[ Find at scss/components/header.scss ]] -->
         <header id="header">
@@ -50,14 +51,14 @@
                 <div class="header-link">
                     <a href="index.html" class="brand">
                         <img src="assets/images/logos/logo.svg" alt="">
-                        <div class="hidden">لوگو</div>
+                        <div class="hidden">Logo</div>
                     </a>
                     <ul id="lang">
                         <li>
-                            <a href="index-en.html">English</a>
+                            <a href="index.html" class="active">English</a>
                         </li>
                         <li>
-                            <a href="index.html" class="active">فارسی</a>
+                            <a href="index.html">فارسی</a>
                         </li>
                     </ul>
                 </div>
@@ -66,9 +67,9 @@
                 <div class="header-link">
                     <a role="button" class="button button--primary" data-modal="#contact_modal">
                         <img src="assets/images/icons/email.svg" class="svg" alt="">
-                        <div class="hidden">ارسال پیام</div>
+                        <div class="hidden">Contact</div>
                         <div class="button__inner">
-                            <span data-text="ارسال پیام">ارسال پیام</span>
+                            <span data-text="Get in Touch">Get in Touch</span>
                         </div>
                     </a>
                 </div>
@@ -80,78 +81,86 @@
         <!-- Start:: Main [[ Find at scss/framework/core.scss ]] -->
         <main id="main">
 
-            <!-- Start:: Intro section [[ Find at scss/components/intro.scss ]] -->
-            <section id="intro">
+            <!-- Start:: Inner intro section [[ Find at scss/components/intro.scss ]] -->
+            <section id="inner_intro">
                 <!-- Start:: Container [[ Find at scss/utilities/grid.scss ]] -->
                 <div class="container">
-                    <!-- Start:: Intro container [[ Find at scss/components/intro.scss ]] -->
-                    <div class="intro-container">
-                        <!-- Start:: Intro head [[ Find at scss/components/intro.scss ]] -->
-                        <div class="intro-head">
-                            <div class="hero hero--3">
-                                <svg width="0" height="0" viewBox="0 0 800 640">
-                                    <defs>
-                                        <clipPath id="blob" clipPathUnits="objectBoundingBox" transform="scale(0.00125 0.0015625)">
-                                            <path id="blob_path" d="M219 112C327 52 336 47.9998 421 18.9999C554 -19.9999 713 -7.99989 778 142C818 272 774.403 434.995 691 512C623.722 574.122 534.144 610.595 436 622C329.271 634.402 223.467 628.034 139.417 575.916C74.47 535.65 30.104 478.013 10.0888 417C-12.7611 347.346 4.76802 289.635 51 232C88 194 131 167 219 112Z" fill="currentColor"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                <div class="hero__blob">
-                                    <img src="assets/images/hero/person.png" class="hero__image" alt="">
-                                </div>
-                            </div>
-                            <h1 class="intro-title" data-splitting="words">  علی فاضلی </h1>
-                        </div>
-                        <!-- End:: Intro head -->
+                    <!-- Start:: Detail container [[ Find at scss/framework/detail.scss ]] -->
+                    <div class="detail-container detail-head">
+                        <a href="portfolio.html" class="detail-arrow">
+                            <img src="assets/images/icons/arrow-left.svg" class="svg" alt="">
+                            <span class="hidden">Back to the portfolio</span>
+                        </a>
+                        <p>Sep 21, 2023</p>
+                    </div>
+                    <!-- End:: Detail container -->
 
-                        <!-- Start:: navigation [[ Find at scss/components/navigation.scss ]] -->
-                        <nav class="navigation">
-                            <div class="navigation__container">
-                                <div class="navigation__item">
-                                    <a href="about-rtl.html" class="navigation__card navigation__card--1 text-center">
-                                        <div>
-                                            <img src="assets/images/icons/user.svg" class="svg" alt="">
-                                            <div class="h5">درباره من</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="navigation__item">
-                                    <div class="navigation__link text-left">
-                                        <a href="portfolio-rtl.html">
-                                            <div class="h5">نمونه کار</div>
-                                            <div class="navigation__text"> آخرین پروژه های خلاق من را کشف کنید </div>
-                                            <img src="assets/images/icons/arrow-right.svg" class="svg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="navigation__item">
-                                    <div class="navigation__link  text-right">
-                                        <a href="blog-rtl.html">
-                                            <div class="h5">بلاگ</div>
-                                            <div class="navigation__text"> آخرین مقالات و ایده های من را کاوش کنید. </div>
-                                            <img src="assets/images/icons/arrow-left.svg" class="svg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="navigation__item">
-                                    <a href="resume-rtl.html" class="navigation__card navigation__card--2 text-center">
-                                        <div>
-                                            <img src="assets/images/icons/notepad.svg" class="svg" alt="">
-                                            <div class="h5" data-text="Resume">رزومه</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="navigation__item">
-                                    <a href="services-rtl.html" class="navigation__card navigation__card--3 text-center">
-                                        <div>
-                                            <img src="assets/images/icons/gear.svg" class="svg" alt="">
-                                            <div class="h5" data-text="Services">خدمات</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                    <!-- Detail hero [[ Find at scss/framework/detail.scss ]] -->
+                    <div class="detail-hero">
+                        <img src="assets/images/portfolio/1.jpg" alt="">
+                    </div>
+
+                    <!-- Start:: Detail container [[ Find at scss/framework/detail.scss ]] -->
+                    <div class="detail-container">
+                        <p>Client: Aron Willy &nbsp;|&nbsp; Project: Widdizy</p>
+                        <h1>Widdizy smart home App Development</h1>
+                        <p>Widdizy Smart Home App Development is a groundbreaking project that aims to revolutionize the way we interact with our living spaces. With a focus on enhancing comfort, convenience, and security, Widdizy offers a comprehensive suite of features designed to streamline daily routines and provide peace of mind.</p>
+                        <p>Through seamless integration with IoT (Internet of Things) technology, the Widdizy app allows users to control various aspects of their home environment remotely. From adjusting thermostat settings and managing lighting preferences to monitoring security cameras and accessing smart appliances, Widdizy puts the power of home automation in the palm of your hand.</p>
+                        <p>One of the key highlights of the Widdizy app is its intuitive user interface, which prioritizes simplicity and ease of use. Whether you're a tech-savvy enthusiast or a first-time user, navigating the app is effortless, thanks to its clean design and intuitive navigation.</p>
+                        <div class="image-collage">
+                            <img src="assets/images/portfolio/1.jpg" alt="">
+                            <img src="assets/images/portfolio/2.jpg" alt="">
+                            <img src="assets/images/portfolio/3.jpg" alt="">
+                        </div>
+                        <p>In addition to its practical functionalities, Widdizy also offers advanced features such as personalized automation routines and integration with voice assistants like Amazon Alexa and Google Assistant. This allows users to create custom scenarios tailored to their unique needs and preferences, further enhancing the overall smart home experience.</p>
+                        <p>With Widdizy Smart Home App Development, the future of home automation is here. Experience the convenience, comfort, and security of a truly intelligent living space with Widdizy.</p>
+                    </div>
+                    <!-- End:: Detail container -->
+                </div>
+                <!-- End:: Container -->
+            </section>
+            <!-- End:: Inner intro section -->
+
+        </main>
+        <!-- End:: Main -->
+
+        <!-- Start:: Footer [[ Find at scss/components/footer.scss ]] -->
+        <footer id="footer">
+            <!-- Start:: Container [[ Find at scss/utilities/grid.scss ]] -->
+            <div class="container">
+                <!-- Start:: Footer card [[ Find at scss/components/footer.scss ]] -->
+                <div class="footer-card">
+                    <div class="footer-top">
+                        <a role="button" class="footer-title fs-64" data-modal="#contact_modal">
+                            Get <span class="fw-light">in</span> Touch
+                        </a>
+                        <a role="button" class="footer-arrow" data-modal="#contact_modal">
+                            <img src="assets/images/icons/arrow-left-top.svg" alt="">
+                            <span class="hidden">Get in Touch</span>
+                        </a>
+                    </div>
+                    <div class="footer-content">
+                        <!-- Start:: navbar [[ Find at scss/components/navigation.scss ]] -->
+                        <nav class="navbar">
+                            <ul>
+                                <li>
+                                    <a href="about.html">About me</a>
+                                </li>
+                                <li>
+                                    <a href="resume.html">Resume</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio.html">Portfolio</a>
+                                </li>
+                                <li>
+                                    <a href="services.html">Services</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html">Blog</a>
+                                </li>
+                            </ul>
                         </nav>
-                        <!-- End:: navigation -->
+                        <!-- End:: navbar -->
 
                         <!-- Start:: Social [[ Find at scss/components/social.scss ]] -->
                         <ul class="social">
@@ -188,21 +197,15 @@
                         </ul>
                         <!-- End:: Social -->
                     </div>
-                    <!-- End:: Intro container -->
-                </div>
-                <!-- End:: Container -->
-            </section>
-            <!-- End:: Intro section -->
 
-            <!-- Email marquee slider  [[ Find at scss/framework/core.scss ]] -->
-            <!-- <div id="email" class="swiper" data-marquee="true" data-space="100">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide fw-medium">a.fazeli95@gmail.com</div>
-                </div>
-            </div> -->
 
-        </main>
-        <!-- End:: Main -->
+                </div>
+                <!-- End:: Footer card -->
+                <div class="footer-copy text-center">© alifzl 2024 All Rights Reserved</div>
+            </div>
+            <!-- End:: Container -->
+        </footer>
+        <!-- End:: Footer -->
 
 
         <!-- Start:: Contact modal [[ Find at scss/components/modal.scss ]] -->
@@ -214,26 +217,26 @@
                         <div class="hidden">Close</div>
                     </a>
                     <div class="text-center modal__dialog__head">
-                        <h2 class="fw-normal" id="contact_modal_label">ارتباط <span class="fw-light">با ما</span></h2>
-                        <p>امروز برای بحث در مورد پروژه خود یا درخواست اطلاعات بیشتر با ما تماس بگیرید</p>
+                        <h2 class="fw-normal" id="contact_modal_label">Get in <span class="fw-light">touch</span></h2>
+                        <p>Leave a message so that we can have a chat later.</p>
                     </div>
                     <form action="#">
                         <div class="form-group">
-                            <label for="name" class="form-label">اسم </label>
+                            <label for="name" class="form-label">Full Name</label>
                             <input type="text" id="name" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="mail" class="form-label">ایمیل</label>
+                            <label for="mail" class="form-label">Email ID</label>
                             <input type="text" id="mail" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="message" class="form-label">پیام</label>
+                            <label for="message" class="form-label">Message</label>
                             <textarea name="message" id="message" rows="4" class="form-control"></textarea>
                         </div>
                         <div class="text-center">
                             <button type="submit" id="contact_btn" class="button button--white">
                                 <span class="button__inner">
-                                    <span data-text="ارسال">ارسال</span>
+                                    <span data-text="Send Now">Send Now</span>
                                 </span>
                             </button>
                         </div>

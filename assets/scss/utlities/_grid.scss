@@ -1,0 +1,37 @@
+// 
+// Grid system
+// 
+// .container               - template container
+// .container-fluid         - full width container
+// .row                     - grid row
+
+
+// Container
+
+.container,
+.container-fluid {
+    @include mx;
+    @include px(calc(0.5 * var(--gutter-x)));
+    width: 100%;
+}
+
+.container {
+    max-width: var(--container-max-width);
+}
+
+
+// Row
+
+.row {
+    @include flexbox;
+    @include mx(calc(-0.5 * var(--gutter-x)));
+    margin-top: calc(-1 * var(--gutter-y));
+
+    > * {
+        @include flex;
+        @include px(calc(0.5 * var(--gutter-x)));
+        max-width: 100%;
+        margin-top: var(--gutter-y);
+    }
+}
+

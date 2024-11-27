@@ -1,0 +1,43 @@
+// 
+// Social component
+// 
+// .social      - social media links container
+
+
+// Social styles
+
+.social {
+    --link-hover-color: var(--link-color);
+    @include unlist;
+    @include flexbox-h-center;
+    margin-top: 3rem;
+    li:not(:first-child) {
+        @include direction(margin-left 1rem);
+    }
+
+
+    // Responsive styling
+    @include media-breakpoint-up(lg) {
+        #intro & {
+            @include absolute(bottom 0);
+            @include direction(left 0);
+            flex-direction: column;
+            width: 114px !important;
+            margin-top: 0;
+            align-items: center;
+            padding-bottom: 240px;
+            opacity: 0;
+            transform: translateY(48px);
+            @include after {
+                @include absolute(left 50% bottom 0);
+                @include size(1px, 200px);
+                margin-left: -1px;
+                background-color: $white;
+            }
+            li:not(:first-child) {
+                @include direction(margin-left 0);
+                margin-top: 1.5rem;
+            }
+        }
+    }
+}

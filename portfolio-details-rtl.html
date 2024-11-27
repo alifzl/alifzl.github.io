@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Seo Meta -->
-    <meta name="description" content="Ali Fazeli Personal Website">
-    <meta name="keywords" content="Ali Fazeli, alifzl, portfolio, resume, data, big data, data engineer, MLOps, AIOps">
+    <meta name="description" content="E-Bio - Personal Portfolio HTML Template">
+    <meta name="keywords" content="portfolio template, portfolio, personal template, responsive portfolio, personal, themeforest, html portfolio template, css3, html5">
 
-    <title> علی فاضلی</title>
+    <title> ای‌بیو - قالب شخصی و نمونه کار </title>
     <!-- Favicon -->
     <link href="assets/images/logos/favicon.png" rel="icon">
 
@@ -30,7 +30,7 @@
     <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body data-barba="wrapper" data-magic-cursor="true">
-    
+
     <!-- Page loader [[ Find at scss/components/loader.scss ]] -->
     <div id="loader">
         <span id="loader_text" data-splitting>بارگذاری</span>
@@ -40,7 +40,7 @@
 		</svg>
     </div>
 
-    <div data-barba="container" data-barba-namespace="home">
+    <div data-barba="container" data-barba-namespace="default">
     
         <!-- Start:: Header [[ Find at scss/components/header.scss ]] -->
         <header id="header">
@@ -54,7 +54,7 @@
                     </a>
                     <ul id="lang">
                         <li>
-                            <a href="index-en.html">English</a>
+                            <a href="index.html">English</a>
                         </li>
                         <li>
                             <a href="index.html" class="active">فارسی</a>
@@ -66,9 +66,9 @@
                 <div class="header-link">
                     <a role="button" class="button button--primary" data-modal="#contact_modal">
                         <img src="assets/images/icons/email.svg" class="svg" alt="">
-                        <div class="hidden">ارسال پیام</div>
+                        <div class="hidden">تماس</div>
                         <div class="button__inner">
-                            <span data-text="ارسال پیام">ارسال پیام</span>
+                            <span data-text="تماس با ما">تماس با ما</span>
                         </div>
                     </a>
                 </div>
@@ -80,78 +80,86 @@
         <!-- Start:: Main [[ Find at scss/framework/core.scss ]] -->
         <main id="main">
 
-            <!-- Start:: Intro section [[ Find at scss/components/intro.scss ]] -->
-            <section id="intro">
+            <!-- Start:: Inner intro section [[ Find at scss/components/intro.scss ]] -->
+            <section id="inner_intro">
                 <!-- Start:: Container [[ Find at scss/utilities/grid.scss ]] -->
                 <div class="container">
-                    <!-- Start:: Intro container [[ Find at scss/components/intro.scss ]] -->
-                    <div class="intro-container">
-                        <!-- Start:: Intro head [[ Find at scss/components/intro.scss ]] -->
-                        <div class="intro-head">
-                            <div class="hero hero--3">
-                                <svg width="0" height="0" viewBox="0 0 800 640">
-                                    <defs>
-                                        <clipPath id="blob" clipPathUnits="objectBoundingBox" transform="scale(0.00125 0.0015625)">
-                                            <path id="blob_path" d="M219 112C327 52 336 47.9998 421 18.9999C554 -19.9999 713 -7.99989 778 142C818 272 774.403 434.995 691 512C623.722 574.122 534.144 610.595 436 622C329.271 634.402 223.467 628.034 139.417 575.916C74.47 535.65 30.104 478.013 10.0888 417C-12.7611 347.346 4.76802 289.635 51 232C88 194 131 167 219 112Z" fill="currentColor"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                <div class="hero__blob">
-                                    <img src="assets/images/hero/person.png" class="hero__image" alt="">
-                                </div>
-                            </div>
-                            <h1 class="intro-title" data-splitting="words">  علی فاضلی </h1>
-                        </div>
-                        <!-- End:: Intro head -->
+                    <!-- Start:: Detail container [[ Find at scss/framework/detail.scss ]] -->
+                    <div class="detail-container detail-head">
+                        <a href="portfolio-rtl.html" class="detail-arrow">
+                            <img src="assets/images/icons/arrow-left.svg" class="svg" alt="">
+                            <span class="hidden">Back to the portfolio</span>
+                        </a>
+                        <p>دی 21, 1403</p>
+                    </div>
+                    <!-- End:: Detail container -->
 
-                        <!-- Start:: navigation [[ Find at scss/components/navigation.scss ]] -->
-                        <nav class="navigation">
-                            <div class="navigation__container">
-                                <div class="navigation__item">
-                                    <a href="about-rtl.html" class="navigation__card navigation__card--1 text-center">
-                                        <div>
-                                            <img src="assets/images/icons/user.svg" class="svg" alt="">
-                                            <div class="h5">درباره من</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="navigation__item">
-                                    <div class="navigation__link text-left">
-                                        <a href="portfolio-rtl.html">
-                                            <div class="h5">نمونه کار</div>
-                                            <div class="navigation__text"> آخرین پروژه های خلاق من را کشف کنید </div>
-                                            <img src="assets/images/icons/arrow-right.svg" class="svg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="navigation__item">
-                                    <div class="navigation__link  text-right">
-                                        <a href="blog-rtl.html">
-                                            <div class="h5">بلاگ</div>
-                                            <div class="navigation__text"> آخرین مقالات و ایده های من را کاوش کنید. </div>
-                                            <img src="assets/images/icons/arrow-left.svg" class="svg" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="navigation__item">
-                                    <a href="resume-rtl.html" class="navigation__card navigation__card--2 text-center">
-                                        <div>
-                                            <img src="assets/images/icons/notepad.svg" class="svg" alt="">
-                                            <div class="h5" data-text="Resume">رزومه</div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="navigation__item">
-                                    <a href="services-rtl.html" class="navigation__card navigation__card--3 text-center">
-                                        <div>
-                                            <img src="assets/images/icons/gear.svg" class="svg" alt="">
-                                            <div class="h5" data-text="Services">خدمات</div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                    <!-- Detail hero [[ Find at scss/framework/detail.scss ]] -->
+                    <div class="detail-hero">
+                        <img src="assets/images/portfolio/1.jpg" alt="">
+                    </div>
+
+                    <!-- Start:: Detail container [[ Find at scss/framework/detail.scss ]] -->
+                    <div class="detail-container">
+                        <p>مشتری: آرون ویلی &nbsp;|&nbsp; پروژه: ویدز</p>
+                        <h1> توسعه برنامه خانه هوشمند ویدز </h1>
+                        <p>يعد تطوير تطبيقات خانه هوشمند وند یک پروژه پیشگام با هدف انقلابی در نحوه تعامل ما با فضاهای زندگی خود است.ویدز با تمرکز بر افزایش راحتی ، مناسب بودن و ایمنی ، مجموعه ای جامع از ویژگی های طراحی شده برای ساده سازی روال روزمره و ایجاد آرامش ذهن را ارائه می دهد.</p>
+                        <p> از طریق ادغام صاف با فناوری IoT (اینترنت اشیاء) ، برنامه ویدز به کاربران امکان می دهد جنبه های مختلف محیط خانه خود را از راه دور کنترل کنند.وودز با شروع تنظیم تنظیمات ترموستات ، مدیریت ترجیحات روشنایی به دوربین های امنیتی و دسترسی به دستگاه های هوشمند ، قدرت عملیاتی خانه را در راحتی دست شما قرار می دهد.</p>
+                        <p> یکی از ویژگی های اصلی برنامه ویدز یک رابط کاربری بصری است که به سادگی و سهولت استفاده اولویت می دهد.این که آیا شما برای اولین بار از طرفداران فناوری هستید یا کاربر برای اولین بار ، به لطف طراحی تمیز و تحرک بصری ، کاربرد برنامه آسان است.</p>
+                        <div class="image-collage">
+                            <img src="assets/images/portfolio/1.jpg" alt="">
+                            <img src="assets/images/portfolio/2.jpg" alt="">
+                            <img src="assets/images/portfolio/3.jpg" alt="">
+                        </div>
+                        <p> علاوه بر عملکردهای عملی خود ، ویدز همچنین ویژگی های پیشرفته ای مانند روش های اتوماسیون شخصی و ادغام با دستیاران صوتی مانند وابسته به آمازون الکس و دستیار گوگل را ارائه می دهد.این امر به کاربران امکان می دهد سناریوهای طراحی شده خاصی را برای پاسخگویی به نیازها و ترجیحات منحصر به فرد خود ایجاد کنند ، که به طور کلی تجربه خانه هوشمند را افزایش می دهد.</p>
+                        <p> با تدوین برنامه خانه زن بزرگ ، آینده عملیات خانه در اینجا شده است.از راحتی ، راحتی و ایمنی در فضای زندگی هوشمند واقعاً با ویدز لذت ببرید.</p>
+                    </div>
+                    <!-- End:: Detail container -->
+                </div>
+                <!-- End:: Container -->
+            </section>
+            <!-- End:: Inner intro section -->
+
+        </main>
+        <!-- End:: Main -->
+
+        <!-- Start:: Footer [[ Find at scss/components/footer.scss ]] -->
+        <footer id="footer">
+            <!-- Start:: Container [[ Find at scss/utilities/grid.scss ]] -->
+            <div class="container">
+                <!-- Start:: Footer card [[ Find at scss/components/footer.scss ]] -->
+                <div class="footer-card">
+                    <div class="footer-top">
+                        <a role="button" class="footer-title fs-64" data-modal="#contact_modal">
+                            تماس <span class="fw-light">با</span> ما                   
+                        </a>
+                        <a role="button" class="footer-arrow" data-modal="#contact_modal">
+                            <img src="assets/images/icons/arrow-left-top.svg" alt="">
+                            <span class="hidden"> تماس با ما </span>
+                        </a>
+                    </div>
+                    <div class="footer-content">
+                        <!-- Start:: navbar [[ Find at scss/components/navigation.scss ]] -->
+                        <nav class="navbar">
+                            <ul>
+                                <li>
+                                    <a href="about-rtl.html">درباره من</a>
+                                </li>
+                                <li>
+                                    <a href="resume-rtl.html">رزومه</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-rtl.html">نمونه کار</a>
+                                </li>
+                                <li>
+                                    <a href="services-rtl.html">خدمات</a>
+                                </li>
+                                <li>
+                                    <a href="blog-rtl.html">بلاگ</a>
+                                </li>
+                            </ul>
                         </nav>
-                        <!-- End:: navigation -->
+                        <!-- End:: navbar -->
 
                         <!-- Start:: Social [[ Find at scss/components/social.scss ]] -->
                         <ul class="social">
@@ -188,21 +196,15 @@
                         </ul>
                         <!-- End:: Social -->
                     </div>
-                    <!-- End:: Intro container -->
-                </div>
-                <!-- End:: Container -->
-            </section>
-            <!-- End:: Intro section -->
 
-            <!-- Email marquee slider  [[ Find at scss/framework/core.scss ]] -->
-            <!-- <div id="email" class="swiper" data-marquee="true" data-space="100">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide fw-medium">a.fazeli95@gmail.com</div>
-                </div>
-            </div> -->
 
-        </main>
-        <!-- End:: Main -->
+                </div>
+                <!-- End:: Footer card -->
+                <div class="footer-copy text-center"">کلیه حقوق برای علی فاضلی محفوظ است</div>
+            </div>
+            <!-- End:: Container -->
+        </footer>
+        <!-- End:: Footer -->
 
 
         <!-- Start:: Contact modal [[ Find at scss/components/modal.scss ]] -->

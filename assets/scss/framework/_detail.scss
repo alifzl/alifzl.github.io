@@ -1,0 +1,96 @@
+// 
+// Detail page
+// 
+// .detail-container          - main container
+// .detail-head               - styles for the page head
+// .detail-hero               - styles for the page hero
+// .share                     - styles for social sharing
+// .image-collage             - styles for image collages
+
+
+
+// Detail container styles
+
+.detail-container {
+    @include mx;
+    @include px($details-container-padding-x);
+    max-width: $details-container-max-width;
+    width: 100%;
+}
+
+
+// Detail head styles
+
+.detail-head {
+    @include flexbox-v-center;
+    @include margin-bottom($details-child-margin-bottom);
+    justify-content: space-between;
+
+    .detail-arrow {
+        --link-hover-color: var(--link-color);
+        @include arrow-right;
+        @include hover {
+            @include arrow-hover(-100%);
+        }
+    
+        .svg {
+            transition: $transition-base;
+        }
+    }
+}
+
+
+// Detail hero styles
+
+.detail-hero {
+    @include mx;
+    @include margin-bottom($details-child-margin-bottom);
+    max-width: $details-hero-max-width;
+    border-radius: $details-hero-border-radius;
+    overflow: hidden;
+    position: relative;
+    background-color: $black;
+    &:before {
+        content: '';
+        display: block;
+        padding-bottom: calc(1 / 2 * 100%);
+    }
+
+    > * {
+        @include absolute(top 0 left 0);
+        @include size(100%);
+        object-fit: cover;
+    }
+
+    @include media-breakpoint-up(lg) {
+        border-radius: $details-hero-border-radius-lg;
+    }
+}
+
+
+// Share styles
+
+.share {
+    @include flexbox-v-center;
+    margin-top: $share-margin-top;
+    .social {
+        margin-top: 0;
+        justify-content: flex-start;
+        @include direction(padding-left $share-social-padding-left);
+    }
+}
+
+
+// Image collage styles
+
+.image-collage {
+    > * {
+        border-radius: $border-radius;
+        margin-bottom: $image-collage-margin-bottom;
+
+
+        @include media-breakpoint-up(sm) {
+            border-radius: $border-radius-lg;
+        }
+    }
+}

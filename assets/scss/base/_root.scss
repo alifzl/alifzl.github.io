@@ -1,0 +1,65 @@
+// 
+// Root variables
+// 
+
+
+:root {
+    // Root and body
+    // scss-docs-start root-body-variables
+    --body-font-family: #{inspect($font-family-base)};
+    --body-font-size: #{$font-size-base};
+    --body-font-weight: #{$font-weight-base};
+    --body-line-height: #{$line-height-base};
+    --body-text-align: #{$body-text-align};
+    --body-bg: #{$body-bg};
+    --body-color: #{$body-color};
+    // scss-docs-end root-body-variables
+
+    --primary: #{$primary};
+
+    --border-width: #{$border-width};
+
+    // Section variables
+    --section-padding-y: #{$section-padding-y};
+    --section-head-margin-bottom: #{$section-head-margin-bottom};
+    @include media-breakpoint-up(sm) {
+        --section-padding-y: #{$section-padding-y-sm};
+        --section-head-margin-bottom: #{$section-head-margin-bottom-sm};
+    }
+
+    // Grid system variables
+    --gutter-y: ;
+    --gutter-x: #{$grid-gutter-width};
+    @each $breakpoint, $container-max-width in $container-max-widths {
+        @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+            --container-max-width: #{$container-max-width};
+        }
+    }
+
+    // 
+    // Components variables
+    // 
+
+    // Headings `<h1>` to `<h6>`
+    --heading-color: #{$headings-color};
+    --heading-line-height: #{$headings-line-height};
+    --heading-margin-bottom: #{$headings-margin-bottom};
+
+    // Anchor tag `<a>`
+    --link-color: #{$link-color};
+    --link-hover-color: #{$link-hover-color};
+
+    // Template loader
+    --loader-bg: #{$loader-bg};
+    --loader-color: #{$loader-color};
+
+    // Card
+    --card-padding-y: #{$card-padding-y};
+    --card-padding-x: #{$card-padding-x};
+}
+
+[dir=rtl]:root {
+    --body-text-align: right;
+}
+
+

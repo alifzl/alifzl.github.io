@@ -1,0 +1,108 @@
+// 
+// Header component
+// 
+// #header              - template header styles
+// .fixed-header        - added when window is scrolled to manage header styles
+// .header-link         - header link styles set inline 
+// #lang                - language links styles
+
+
+// Shorthand mixin for language spacing
+
+@mixin lang-spacing($value) {
+    @include direction(margin-left $value);
+    @include direction(padding-left $value);
+    > li:not(:first-child) {
+        @include direction(margin-left $value * .75);
+    }
+}
+
+
+// Header styling
+
+#header {
+    --link-hover-color: var(--link-color);
+    --header-padding-y: #{$header-padding-y-sm};
+    --fixed-header-padding-y: #{$header-padding-y-sm * .5};
+
+    @include fixed(top 0 left 0);
+    width: 100%;
+    z-index: $zIndex-header;
+    padding-top: var(--header-padding-y);
+    padding-bottom: var(--header-padding-y);
+    transition: $transition-base;
+
+    &.fixed-header {
+        padding-top: var(--fixed-header-padding-y);
+        padding-bottom: var(--fixed-header-padding-y);
+        background-color: rgba($black, 0.75);
+        backdrop-filter: blur(1rem);
+    }
+
+    // Header child styling
+    #lang,
+    .container,
+    .header-link {
+        @include flexbox-v-center;
+    }
+
+    .container {
+        justify-content: space-between;
+    }
+
+    .brand {
+        display: inline-flex;
+        width: $header-brand-width;
+    }
+
+    // Language link styling
+    #lang {
+        @include unlist;
+        @include lang-spacing($header-child-margin-x);
+        @include direction((border-left, 2px solid rgba($white, 0.15)));
+        a {
+            color: $white;
+            &:not(.active) {
+                opacity: 0.3;
+            }
+        }
+    }
+
+    // Button styling
+    .button {
+        @include size($header-button-size);
+        @include flexbox-center;
+        padding: 0;
+        .button__inner {
+            display: none;
+        }
+    }
+
+
+    // Responsive styling
+    @include media-breakpoint-up(sm) {
+        #lang {
+            @include lang-spacing($header-child-margin-x-sm);
+        }
+        .button {
+            @include size(initial);
+            padding: var(--button-padding-y) var(--button-padding-x);
+            .svg {
+                display: none;
+            }
+            .button__inner {
+                display: block;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        --header-padding-y: #{$header-padding-y};
+        --fixed-header-padding-y: #{$header-padding-y * .5};
+
+        .brand {
+            width: initial;
+        }
+    }
+}
+

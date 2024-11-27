@@ -1,0 +1,113 @@
+// 
+// Portfolio page
+// 
+// .portfolio                 - main portfolio container
+// .portfolio__item           - portfolio item styles
+// .portfolio__hero           - hero styles
+// .portfolio__content        - portfolio content styles
+
+
+// Portfolio Styles
+
+.portfolio {
+    --link-hover-color: var(--link-color);
+    counter-reset: counter;
+
+    // Portfolio item styling
+    .portfolio__item {
+        @include flexbox-v-center;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        color: $portfolio-color;
+        counter-increment: counter;
+        &:not(:last-child) {
+            @include margin-bottom($portfolio-item-margin-bottom);
+        }
+
+        @include hover {
+            .portfolio__hero > * {
+                transform: scale(1.05);
+            }
+            .portfolio__arrow {
+                @include arrow-hover;
+            }
+        }
+    }
+
+    // Portfolio item child styling
+    .portfolio__hero,
+    .portfolio__content {
+        @include flex;
+    }
+
+    .portfolio__hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: $portfolio-hero-border-radius;
+        margin-bottom: $portfolio-hero-margin-bottom;
+        background-color: $black;
+        &:before {
+            content: '';
+            display: block;
+            padding-bottom: calc(2 / 3 * 100%);
+        }
+
+        > * {
+            @include absolute(top 0);
+            @include direction(left 0);
+            @include size(100%);
+            object-fit: cover;
+            transition: $transition-base;
+        }
+    }
+
+    .portfolio__subtitle {
+        position: relative;
+        margin-bottom: $portfolio-subtitle-margin-bottom;
+        color: var(--body-color);
+        @include direction(padding-left $portfolio-subtitle-padding-left);        
+        &:before {
+            @include absolute(top 0);
+            @include direction(left 0);
+            content: counter(counter, decimal-leading-zero);
+        }
+        @include after {
+            @include absolute(top 0.75rem);
+            @include direction(left 1.625rem);
+            @include size(2rem, 1px);
+            background-color: currentColor;
+        }
+    }
+
+    .portfolio__arrow {
+        margin-top: $portfolio-arrow-margin-top;
+        display: inline-block;
+        .svg {
+            transition: $transition-base;
+        }
+        @include arrow-left;
+    }
+
+
+    // Responsive styling
+    @include media-breakpoint-up(sm) {
+        .portfolio__hero {
+            border-radius: $portfolio-hero-border-radius-sm;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        .portfolio__hero {
+            @include flex(55%);
+            margin-bottom: 0;
+        }
+        .portfolio__content {
+            @include flex(35%);
+        }
+    }
+
+    @include media-breakpoint-up(xxl) {
+        @include mx;
+        width: 90%;
+    }
+}

@@ -1,0 +1,97 @@
+// 
+// Blog page
+// 
+// #blog-title          - main title of the blog
+// #blog                - styles for the blog slider section
+// .blog                - styles for the individual blog card
+
+
+// Blog title styles
+
+#blog-title {
+    @include font-size($blog-title);
+    @include absolute(top 0 left 50%);
+    opacity: $blog-title-opacity;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    white-space: nowrap;
+    margin-bottom: 0;
+    z-index: -1;
+}
+
+
+// Blog slider section styles
+
+#blog {
+    overflow: visible;
+    .swiper-slide:nth-child(even) {
+        padding-top: $blog-slide-padding-top;
+        @include media-breakpoint-up(md) {
+            padding-top: $blog-slide-padding-top-md;
+        }
+    }
+}
+
+
+// Blog card styles
+
+.blog {
+    --x: 0;
+    --y: 0;
+    --d: 50;
+    --base-duration: 500ms;
+    --base-ease: cubic-bezier(0.25, 0.46, 0.45, 0.84);
+    --link-hover-color: var(--link-color);
+
+    // Blog image styling
+    .blog__image {
+        display: block;
+        border-radius: $border-radius;
+        position: relative;
+        overflow: hidden;
+        transition: transform calc(var(--base-duration) / 4) var(--base-ease);
+        background-color: $black;
+
+        &:before {
+            content: '';
+            display: block;
+            padding-bottom: calc(4 / 3 * 100%);
+        }
+
+        > * {
+            --d: 40;
+            @include absolute(top 0 left 0);
+            @include size(120%);
+            object-fit: cover;
+            transition: transform var(--base-duration) var(--base-ease);
+            transform: scale(1.025) translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px));
+        }
+    }
+
+    // Blog content styling
+    .blog__content {
+        margin-top: $blog-content-margin-top;
+    }
+
+    .blog__subtitle {
+        font-size: $blog-subtitle-font-size;
+        font-weight: $blog-subtitle-font-weight;
+        margin-bottom: $blog-subtitle-margin-bottom;
+    }
+
+    .blog__link {
+        .svg {
+            transition: $transition-base;
+        }
+        @include arrow-left;
+    }
+
+    @include hover {
+        .blog__image {
+            transform: scale(1.025) translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px));
+        }        
+        .blog__link {
+            @include arrow-hover;
+        }
+    }
+}
