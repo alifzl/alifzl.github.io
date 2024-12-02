@@ -27,11 +27,11 @@ const Bundle = function(win, doc, body) {
     const isRTL = () => doc.documentElement.getAttribute('dir') === 'rtl';
 
     // Messages
-    const invalidNameText = isRTL() ? "من فضلك أدخل إسمك" : "Please enter your name"
-    const invalidEmailText1 = isRTL() ? "الرجاء إدخال اسم المستخدم البريد الالكتروني" : "Please enter your email id";
-    const invalidEmailText2 = isRTL() ? "الرجاء إدخال البريد الإلكتروني الصحيح" : "Please enter valid email id";
-    const emailSentText = isRTL() ? "تم ارسال رسالتك. سنتواصل معك قريبا" : "Your message has been sent. We'll be in touch with you soon";
-    const emailFailedText = isRTL() ? "فشل الإرسال، يرجى المحاولة مرة أخرى في وقت لاحق" : "Sending failed, Please try again later";    
+    const invalidNameText = isRTL() ? "لطفا نام خود را وارد نمایید" : "Please enter your name"
+    const invalidEmailText1 = isRTL() ? "آدرس پست الکترونیکی برای حفظ ارتباط‌ مان لازم است" : "Please enter your email id";
+    const invalidEmailText2 = isRTL() ? "آدرس پست الکترونیکی صحیح وارد نشده است" : "Please enter valid email id";
+    const emailSentText = isRTL() ? "پیام‌تان دریافت شد. بزودی با شما در تماس خواهم بود" : "Your message has been sent. I'll be in touch with you soon";
+    const emailFailedText = isRTL() ? "ارسال پیام با خطا مواجه شده. لطفا دوباره امتحان بفرمایید" : "Sending failed, Please try again later";    
     
 
     /**
