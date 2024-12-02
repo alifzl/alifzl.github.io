@@ -25,7 +25,7 @@
   --body-text-align: left;
   --body-bg: #000000 url("../images/hero/background.jpg") center no-repeat;
   --body-color: #8D99AE;
-  --primary: #EF233C;
+  --primary: #0c169a;
   --border-width: 1px;
   --section-padding-y: 5rem;
   --section-head-margin-bottom: 3rem;
@@ -35,7 +35,7 @@
   --heading-line-height: 1;
   --heading-margin-bottom: 1rem;
   --link-color: #FFFFFF;
-  --link-hover-color: #EF233C;
+  --link-hover-color: #0c169a;
   --loader-bg: #030712;
   --loader-color: #FFFFFF;
   --card-padding-y: 1.5rem;
@@ -858,15 +858,15 @@ html:not([dir=rtl]) .button:hover .button__inner {
 }
 
 .button.button--primary {
-  --button-bg: linear-gradient(90deg, #EF233C 0%, #b31a2d 80%);
+  --button-bg: linear-gradient(90deg, #0c169a 0%, #b31a2d 80%);
   --button-color: #FFFFFF;
   --link-hover-color: #FFFFFF;
 }
 
 .button.button--white {
   --button-bg: linear-gradient(90deg, #FFFFFF 0%, #edf2f4 80%);
-  --button-color: #EF233C;
-  --link-hover-color: #EF233C;
+  --button-color: #0c169a;
+  --link-hover-color: #0c169a;
 }
 
 @keyframes marquee-ltr {
