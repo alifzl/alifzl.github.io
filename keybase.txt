@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/alifzl
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://alifzl.com
+  * I am alifzl (https://keybase.io/alifzl) on keybase.
+  * I have a public key with fingerprint B928 2C06 9127 CB4B CD31  3F51 9CC1 9EEA 379A 4A37
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101690f78928853b5b1f3c6f1f1da8f4541385c318548f2eee49ae1947106e2ac260a",
+      "fingerprint": "b9282c069127cb4bcd313f519cc19eea379a4a37",
+      "host": "keybase.io",
+      "key_id": "9cc19eea379a4a37",
+      "kid": "0101690f78928853b5b1f3c6f1f1da8f4541385c318548f2eee49ae1947106e2ac260a",
+      "uid": "2538e1ccba892e70b2eb23fc2823d919",
+      "username": "alifzl"
+    },
+    "service": {
+      "hostname": "alifzl.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1781180386,
+  "expire_in": 157680000,
+  "prev": "d037a30d3b5220b96e0f68d7feac97644bbdf425e677aca75174612d239cc361",
+  "seqno": 2,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.17
+Comment: https://keybase.io/crypto
+
+yMIjAnicrVJdSBRRGN2t1nDJfh4iDCq5RFD+NHf+Zx8KokLCSjKWCGGduXNnHd3d
+2XZnt7VV08xAISuUiLI0lQwzRJHQl340TBCFggyDKEXJBB9EJSyt7kg9BD12H+7l
+fvecc893+F4mrbU57SN3ap2uTN9D+9CL2oitYF/rRBwohloEXHFQiFcP7FNx2PQU
+6ipwAQpSkJcoTRAlWhQ5RuEUqDGI16AGVVnUWI6FjMghBoocK2o0xpiVZAwlVoAU
+j2kZ0TwlgzSg6QEvDgVDesAksgpRoxHFS5AWkMIqSGUgo3FQQghKGMuMIMks2Qkx
+3whbDGJOkcM4QzdIjVw8q/b+gf/PviOrcjTHiBgipMhEDwuUQmOFZjREumBUCUoW
+MIxDAdmPCVr26doFHyhJA6QW1RG2YrX6+Os9Axl+wguGDNNAho/U800zGHZZPLMo
+aAHPY8XzW8Kj6AGVZEgYURwK60YAuCBBIlO3NKEgQihSjMinARwL6iHs0S0EJ/Ai
+RZb1D44SSZViBJmhVJIITVOKxGNK40VV0LCMJIFnWUVRNZbmMC8IMpIFDgosD2mV
+ZkjWDA+B1dS5gAFcNLEpe4lkWPcGZDMSwqCk73nuOpvdaUtwrLFmy+ZM3Pxn4iZz
+139PKLMvDMbqB680elTHxujpgXhO8+IWKf9HS+KmxdBS+/BYbc29y6kVZxfKe/qr
+K8UPni9Vzm0PnPHx+aYIWnEkp88f2G0r2Z/Tl5F11xfNTuk9NiHuvfF4Zq61PKl6
+aWvfnPhxV7Tx1ljN/RX3bPeyAOqm/bFS+6vtvo7ClJYNZTVtU1nTo+ln1N5vhy8d
+POUtBg1NO5525J6YmrNNFo64k9qufu5ObimoH1rKHs+c+Tn9yB275o7mtD9B1492
+Lq3svFnXO3nyorTnWd67Oe9ow9fbR16DaFPX+/nOSP+bAdYs6atctjUf70nRQWpx
+qbMKduUdGkqo+OSfdbQOv/0F2blGDA==
+=VBIF
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/alifzl
+
+==================================================================
