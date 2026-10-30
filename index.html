@@ -10,659 +10,960 @@
   <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#000000">
-  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0c2c2d">
   <meta name="author" content="Ali Fazeli">
-  <meta name="description" content="Ali Fazeli — MLOps &amp; Data Engineer with 7+ years building big-data pipelines and AI infrastructure.">
-  <meta name="keywords" content="Ali Fazeli, alifzl, علی فاضلی, MLOps, Data Engineering, Big Data, AI Infrastructure, Data Analytics">
+  <meta name="description" content="Ali Fazeli — MLOps &amp; Data Engineer with 7+ years building big-data platforms, streaming pipelines and AI infrastructure that pay for themselves.">
+  <meta name="keywords" content="Ali Fazeli, alifzl, علی فاضلی, MLOps, Data Engineering, Big Data, AI Infrastructure, Data Platform, RAG, Streaming">
   <meta property="og:image" content="https://www.alifzl.com/src/png/Preview-card-min.png">
-  <meta property="og:title" content="Ali Fazeli | Portfolio">
-  <meta property="og:description" content="MLOps &amp; Data Engineer turning raw data into reliable, production-grade intelligence.">
+  <meta property="og:title" content="Ali Fazeli | Data &amp; MLOps Engineer">
+  <meta property="og:description" content="Your data platform has a cost. I make it pay off.">
   <meta property="og:url" content="https://alifzl.com">
   <meta property="og:site_name" content="Ali Fazeli Portfolio">
-  <title>Ali Fazeli | Portfolio</title>
+  <title>Ali Fazeli | Data &amp; MLOps Engineer</title>
   <link rel="icon" type="image/png" href="src/png/main-favicon.png">
-
-  <script>
-    (function () {
-      var root = document.documentElement;
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      root.classList.add('motion-pending');
-      window.__motionFallback = setTimeout(function () { root.classList.remove('motion-pending'); }, 3500);
-    })();
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@100..900&display=swap">
-  <link rel="preload" as="image" href="src/webp/zhaav-bi.webp">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..700&display=swap">
 
   <style>
     :root {
-      color-scheme: dark;
-      font-family: "Reference Sans", "Geist", Arial, sans-serif;
-      --violet: #8000ff;
-      --violet-soft: #b07cff;
-      --orchid: #cf59e6;
-      --lilac-ink: rgba(214, 200, 240, .8);
+      --teal-950: #071f20;
+      --teal-900: #0c2c2d;
+      --teal-800: #143c3d;
+      --line-dark: rgba(232, 240, 236, .1);
+      --green: #4fdc86;
+      --green-soft: #8ef0aa;
+      --green-ink: #1f7a48;
+      --paper: #efefec;
+      --card: #ffffff;
+      --ink: #0d2322;
+      --ink-2: #3c4f4d;
+      --ink-3: #6d7c7a;
+      --line: #dcdfdc;
+      --on-dark: #f3f1ea;
+      --on-dark-2: rgba(236, 240, 236, .72);
+      --wrap: 1360px;
+      --gutter: clamp(20px, 3.4vw, 48px);
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      color-scheme: light;
     }
-
     *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
-    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; color: #fff; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; color: inherit; border: 0; background: none; padding: 0; cursor: pointer; }
-    img, svg, video { display: block; }
-    :focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif; font-size: 16px; line-height: 1.5;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+    h1, h2, h3, h4 { margin: 0; font-weight: 450; letter-spacing: -.035em; line-height: 1.02; }
+    p { margin: 0; }
+    .wrap { width: min(var(--wrap), 100%); margin: 0 auto; padding: 0 var(--gutter); }
+    .eyebrow { font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+    .dark .eyebrow { color: var(--on-dark-2); }
+    .h2 { font-size: clamp(38px, 4.6vw, 68px); }
+    .lede { font-size: 15.5px; line-height: 1.55; color: var(--ink-2); max-width: 420px; }
 
-    /* ---------- Frame ---------- */
-    .viewport { position: fixed; inset: 0; isolation: isolate; overflow: hidden; background: #000; }
-    .screen {
-      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-      width: 100%; height: 100%; overflow: hidden; isolation: isolate; background: #000;
+    /* buttons */
+    .btn {
+      display: inline-flex; align-items: stretch; height: 52px; text-decoration: none; font-size: 16px; font-weight: 450;
+      border: 2px solid #fff; background: #fff; color: var(--ink);
+    }
+    .btn .t { display: flex; align-items: center; padding: 0 22px 0 20px; white-space: nowrap; }
+    .btn .a { display: flex; align-items: center; justify-content: center; width: 48px; background: var(--ink); color: #fff; transition: background .2s; }
+    .btn .a svg { width: 15px; height: 15px; transition: transform .25s var(--ease); }
+    .btn:hover .a svg { transform: translateX(3px); }
+    .btn:hover .a { background: var(--green-ink); }
+    .btn.sm { height: 40px; font-size: 14.5px; }
+    .btn.sm .t { padding: 0 16px 0 14px; }
+    .btn.sm .a { width: 38px; }
+    .btn.ink { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .btn.ink .a { background: #fff; color: var(--ink); }
+    .btn.ink:hover .a { background: var(--green); }
+    .link-u { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; font-size: 16px; }
+    .link-arrow { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--green-ink); font-size: 14px; font-weight: 500; }
+    .link-arrow svg { width: 12px; height: 12px; transition: transform .25s var(--ease); }
+    .link-arrow:hover svg { transform: translateX(3px); }
 
-      --gutter-start: clamp(36px, 4.177vw, 96px);
-      --gutter-end: clamp(36px, 4.04vw, 96px);
-      --header-top: clamp(20px, 2.264vh, 30px);
-      --hero-bottom: clamp(34px, 5.19vh, 64px);
-      --display-size: clamp(58px, 7.64vh, 88px);
-      --display-leading: clamp(72px, 9.34vh, 106px);
-      --copy-size: clamp(14px, 1.70vh, 19px);
-      --copy-leading: clamp(19px, 2.17vh, 24px);
-      --title-copy-gap: clamp(15px, 2.08vh, 24px);
-      --copy-cta-gap: clamp(24px, 3.11vh, 36px);
-      --cta-width: clamp(142px, 15.09vh, 168px);
-      --cta-height: clamp(38px, 3.96vh, 44px);
-      --compact-control-font-size: clamp(17px, 1.75vh, 19px);
-      --action-control-font-size: clamp(17px, 1.78vh, 19.5px);
-      --primary-control-font-size: clamp(17px, 1.77vh, 19.25px);
-      --control-inline-nudge: -1px;
-      --control-baseline-shift: clamp(1px, .19vh, 2px);
-      --copy-optical-shift: clamp(0px, .1vh, 1px);
-      --watch-baseline-shift: clamp(2px, .38vh, 4px);
-      --card-width: clamp(150px, 18.96vh, 215px);
-    }
+    /* ---------------- Header ---------------- */
+    .site-header { position: sticky; top: 0; z-index: 50; color: var(--on-dark); transition: background .3s; }
+    .site-header.scrolled { background: rgba(18, 40, 40, .62); backdrop-filter: blur(16px) saturate(120%); -webkit-backdrop-filter: blur(16px) saturate(120%); }
+    .nav-bar { display: grid; grid-template-columns: auto 1fr auto; align-items: stretch; height: 76px; border-bottom: 1px solid var(--line-dark); }
+    .logo { display: flex; align-items: center; gap: 10px; padding-right: clamp(20px, 6vw, 96px); text-decoration: none; font-size: 27px; font-weight: 500; letter-spacing: -.045em; border-right: 1px solid var(--line-dark); white-space: nowrap; }
+    .logo svg { width: 30px; height: 24px; }
+    .nav-links { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 3vw, 46px); border-right: 1px solid var(--line-dark); }
+    .nav-links a { text-decoration: none; font-size: 15px; color: rgba(236,240,236,.78); transition: color .2s; white-space: nowrap; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta { display: flex; align-items: center; padding-left: clamp(20px, 6vw, 96px); }
+    .menu-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid var(--line-dark); margin-left: 12px; }
+    .menu-btn svg { width: 20px; height: 20px; }
+    .menu-btn line { stroke: currentColor; stroke-width: 1.6; transition: transform .25s var(--ease), opacity .2s; transform-box: fill-box; transform-origin: center; }
+    .site-header.open .menu-btn .l1 { transform: translateY(5px) rotate(45deg); }
+    .site-header.open .menu-btn .l2 { opacity: 0; }
+    .site-header.open .menu-btn .l3 { transform: translateY(-5px) rotate(-45deg); }
 
-    .background {
-      position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%;
-      object-fit: cover; object-position: center; pointer-events: none; user-select: none;
-    }
-    /* recolour the ember footage into the site's violet palette (works where video filters don't) */
-    .tint { position: absolute; inset: 0; z-index: -3; pointer-events: none; background: #8a3cff; mix-blend-mode: hue; }
-    .screen::before {
-      content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.03), transparent 24%, transparent 82%, rgba(0,0,0,.05)),
-        radial-gradient(ellipse at 44% 54%, transparent 30%, rgba(0,0,0,.055) 100%);
-    }
-    .screen::after {
-      content: ""; position: absolute; inset: 0; z-index: -2; pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(10,2,22,.55) 0%, rgba(10,2,22,.18) 38%, transparent 60%),
-        linear-gradient(0deg, rgba(8,2,18,.45) 0%, transparent 34%);
-    }
+    /* ---------------- Hero ---------------- */
+    .hero { position: relative; background: radial-gradient(120% 90% at 85% 70%, #12403f 0%, var(--teal-900) 55%, #0a2627 100%); color: var(--on-dark); overflow: hidden; margin-top: -77px; padding-top: 77px; }
+    .hero-inner { position: relative; min-height: min(860px, calc(100svh - 77px)); display: flex; flex-direction: column; }
+    .hero-copy { position: relative; z-index: 2; padding: clamp(56px, 9vh, 104px) 0 48px; flex: 1; }
+    .hero h1 { font-size: clamp(46px, 6.6vw, 100px); font-weight: 450; letter-spacing: -.045em; line-height: .98; color: var(--on-dark); }
+    .hero h1 .soft { color: var(--green-soft); }
+    .hero-sub { margin-top: clamp(28px, 4.5vh, 52px); max-width: 640px; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.45; color: rgba(243,241,234,.88); }
+    .hero-actions { margin-top: clamp(28px, 4vh, 44px); display: flex; align-items: center; gap: 44px; flex-wrap: wrap; }
+    .hero-art { position: absolute; z-index: 1; right: calc(-1 * var(--gutter) - 60px); bottom: 40px; width: min(62vw, 980px); pointer-events: none; }
+    .hero-art svg { width: 100%; height: auto; overflow: visible; }
+    .hero-strip { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 22px 0 26px; border-top: 1px solid var(--line-dark); }
+    .hero-strip::before { content: ""; position: absolute; inset: 0 -100vw; z-index: -1; background: linear-gradient(90deg, rgba(10,38,39,.92) 0%, rgba(10,38,39,.7) 50%, rgba(10,38,39,.25) 100%); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .hero-strip p { max-width: 640px; font-size: 14.5px; color: rgba(243,241,234,.8); }
+    .stack-logos { display: flex; align-items: center; gap: clamp(22px, 3.4vw, 54px); }
+    .stack-logos span { display: inline-flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 500; letter-spacing: -.02em; color: #fff; white-space: nowrap; }
+    .stack-logos img { width: 22px; height: 22px; object-fit: contain; filter: brightness(0) invert(1); }
 
-    /* ---------- Header ---------- */
-    .header {
-      position: absolute; inset: var(--header-top) var(--gutter-end) auto var(--gutter-start);
-      height: 48px; display: flex; align-items: flex-start; white-space: nowrap; z-index: 5;
-    }
-    .brand {
-      position: relative; top: 10px; flex: none; width: 25px; height: 25px; border-radius: 50%;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
-    }
-    .brand svg { width: 25px; height: 25px; }
-    .header-actions { display: flex; align-items: flex-start; flex: 1 1 auto; min-width: 0; }
-    .nav {
-      position: relative; top: 9px; display: flex; align-items: center;
-      margin-left: clamp(36px, 3.03vw, 48px); gap: clamp(32px, 2.9vw, 43px);
-    }
-    .nav a {
-      position: relative; font-size: 16px; font-weight: 430; letter-spacing: -.36px; line-height: 24px;
-      color: rgba(229,229,230,.77); text-shadow: 0 1px 3px rgba(0,0,0,.55);
-    }
-    .nav a:first-child { top: -3px; }
-    .nav a:nth-child(4) { margin-left: 1px; }
-    .nav a[aria-current="page"] { color: #fff; }
-    .nav a[aria-current="page"]::after {
-      content: ""; position: absolute; left: 0; top: calc(100% + 5px); width: 44px; height: 2px;
-      background: rgba(255,255,255,.82); border-radius: 1px;
-    }
-    .time-panel {
-      margin-left: auto; width: 211px; height: 48px; padding-left: 8px;
-      border-left: 2px solid rgba(230,230,230,.52);
-      display: flex; flex-direction: column; justify-content: center; gap: 1px;
-      text-shadow: 0 1px 3px rgba(0,0,0,.55);
-    }
-    .time-label { font-size: 15px; font-weight: 420; line-height: 20px; color: rgba(240,240,240,.77); }
-    .time-value { font-size: 15px; font-weight: 440; line-height: 20px; color: rgba(255,255,255,.93); font-variant-numeric: tabular-nums; }
-    .sign-up {
-      flex: none; width: 109px; height: 42px; margin-left: clamp(20px, 1.95vw, 29px); margin-top: 3px;
-      border-radius: 7px; background: #fff; color: #101010;
-      font-size: var(--compact-control-font-size); font-weight: 460; letter-spacing: -.34px;
-      display: inline-flex; align-items: center; justify-content: center;
-      padding-top: var(--control-baseline-shift);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.72), 0 1px 5px rgba(0,0,0,.34);
-    }
-    .sign-up span { transform: translateX(var(--control-inline-nudge)); }
+    /* ---------------- Sections ---------------- */
+    section.block { padding: clamp(72px, 10vw, 128px) 0; }
+    section.block.tight { padding-top: 0; }
+    .sec-head { display: grid; grid-template-columns: 1fr minmax(260px, 420px); align-items: end; gap: 32px; margin-bottom: clamp(36px, 5vw, 56px); }
+    .sec-head .eyebrow { margin-bottom: 22px; }
+    .sec-head.solo { grid-template-columns: 1fr; }
 
-    .menu-toggle {
-      display: none; position: relative; margin-left: auto; width: 46px; height: 46px; border-radius: 11px;
-      border: 1px solid rgba(255,255,255,.17);
-      background: linear-gradient(145deg, rgba(36,20,58,.72), rgba(12,6,24,.82));
-      box-shadow: 0 2px 10px rgba(0,0,0,.4), 0 0 0 2px rgba(255,255,255,.03) inset;
-      backdrop-filter: blur(14px) saturate(108%); -webkit-backdrop-filter: blur(14px) saturate(108%);
-      align-items: center; justify-content: center;
-    }
-    .menu-toggle svg { width: 20px; height: 20px; overflow: visible; }
-    .menu-toggle line { stroke: #fff; stroke-width: 1.8; stroke-linecap: round; transition: transform 220ms cubic-bezier(.16,1,.3,1); transform-box: fill-box; transform-origin: center; }
-    .header.menu-open .menu-toggle .bar-a { transform: translateY(3.5px) rotate(45deg); }
-    .header.menu-open .menu-toggle .bar-b { transform: translateY(-3.5px) rotate(-45deg); }
+    /* problems tabs */
+    .tabs { background: var(--card); border: 1px solid var(--line); }
+    .tablist { display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid var(--line); }
+    .tab { position: relative; text-align: left; padding: 16px 20px; font-size: 14.5px; color: var(--ink-3); border-right: 1px solid var(--line); transition: color .2s, background .2s; }
+    .tab:last-child { border-right: 0; }
+    .tab::after { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+    .tab[aria-selected="true"] { color: var(--ink); }
+    .tab[aria-selected="true"]::after { transform: scaleX(1); }
+    .tab:hover { color: var(--ink); background: #fafaf8; }
+    .panel { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: 430px; }
+    .panel[hidden] { display: none; }
+    .panel-text { display: flex; flex-direction: column; padding: 30px 32px; border-right: 1px solid var(--line); }
+    .panel-index { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--ink-3); margin-bottom: 30px; }
+    .panel-index i { width: 28px; height: 2px; background: var(--green); }
+    .panel-text h3 { font-size: clamp(24px, 2.2vw, 31px); line-height: 1.12; letter-spacing: -.03em; max-width: 380px; }
+    .panel-text p { margin-top: 18px; font-size: 15px; color: var(--ink-2); max-width: 400px; }
+    .panel-text .link-arrow { margin-top: auto; padding-top: 28px; }
+    .panel-visual { position: relative; overflow: hidden; background: radial-gradient(90% 90% at 70% 30%, #164443, var(--teal-900)); color: var(--on-dark); }
+    .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--line-dark) 1px, transparent 1px), linear-gradient(90deg, var(--line-dark) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(80% 80% at 60% 40%, #000, transparent); -webkit-mask-image: radial-gradient(80% 80% at 60% 40%, #000, transparent); }
+    .panel-visual svg.viz { position: absolute; left: 0; right: 0; top: 70px; bottom: 60px; width: 100%; height: calc(100% - 130px); }
+    .panel-visual .chips { position: absolute; left: 28px; bottom: 24px; right: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .panel-visual .chips span { font-size: 12.5px; padding: 6px 10px; border: 1px solid rgba(255,255,255,.16); background: rgba(7,31,32,.55); }
+    .panel-visual .metric { position: absolute; left: 28px; top: 24px; }
+    .panel-visual .metric b { display: block; font-size: clamp(34px, 3.4vw, 50px); font-weight: 450; letter-spacing: -.04em; line-height: 1; color: var(--green-soft); }
+    .panel-visual .metric small { display: block; margin-top: 6px; font-size: 13px; color: var(--on-dark-2); max-width: 240px; }
 
-    /* ---------- Hero ---------- */
-    .hero { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-    .hero > * { pointer-events: auto; }
-    .hero-content {
-      position: absolute; left: var(--gutter-start); bottom: var(--hero-bottom);
-      display: flex; flex-direction: column; align-items: flex-start;
-    }
-    .hero-title {
-      margin: 0; display: flex; flex-direction: column;
-      font-family: "Reference Display", "Bricolage Grotesque", "Reference Sans", Arial, sans-serif;
-      font-weight: 500; font-optical-sizing: auto;
-      font-size: var(--display-size); line-height: var(--display-leading);
-      letter-spacing: -2.1px; -webkit-text-stroke: .12px currentColor;
-      white-space: nowrap; text-shadow: 0 2px 2px rgba(0,0,0,.44);
-    }
-    .line { display: block; transform-origin: left center; }
-    .line-reveal { display: inline-block; }
-    .line-one { color: #fff; transform: scaleX(.775); }
-    .line-two { color: var(--lilac-ink); transform: scaleX(.793); margin-top: calc(var(--display-size) * -.08); }
-    .hero-copy {
-      position: relative; left: 1px; margin: var(--title-copy-gap) 0 0; width: clamp(390px, 31.67vw, 500px);
-      font-size: var(--copy-size); line-height: var(--copy-leading); font-weight: 350; letter-spacing: .13px;
-      color: rgba(226, 229, 228, .84); text-shadow: 0 1px 3px rgba(0,0,0,.7);
-      transform: translateY(var(--copy-optical-shift));
-    }
-    .hero-copy strong { font-weight: 480; color: #fff; }
-    .primary-cta {
-      position: relative; margin-top: var(--copy-cta-gap);
-      width: var(--cta-width); height: var(--cta-height); border-radius: 7px;
-      background: #fff; color: #111; box-shadow: 0 1px 5px rgba(0,0,0,.38);
-    }
-    .primary-cta .label {
-      position: absolute; left: 8.125%; top: 50%; transform: translateY(calc(-50% + var(--control-baseline-shift) / 2));
-      font-size: var(--primary-control-font-size); font-weight: 450; letter-spacing: -.3px; line-height: 1;
-    }
-    .primary-cta .arrow-box {
-      position: absolute; right: 3.125%; top: 14.286%; width: 20.625%; height: 71.429%;
-      border-radius: 7px; background: linear-gradient(145deg, #5a1bb8, #2a0866);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .primary-cta .arrow-box svg { width: 14px; height: 14px; }
+    /* approach */
+    .approach { display: grid; grid-template-columns: repeat(3, 1fr); background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 40px 40px; border: 1px solid var(--line); }
+    .approach > div { display: flex; flex-direction: column; border-right: 1px solid var(--line); }
+    .approach > div:last-child { border-right: 0; }
+    .approach .diag { height: 250px; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .approach .diag svg { width: 100%; max-width: 300px; height: 200px; }
+    .approach .body { background: var(--card); padding: 24px 22px 30px; flex: 1; border-top: 1px solid var(--line); }
+    .approach h3 { font-size: 22px; letter-spacing: -.025em; }
+    .approach p { margin-top: 10px; font-size: 14px; color: var(--ink-2); max-width: 340px; }
 
-    /* ---------- Demo card ---------- */
-    .demo-card {
-      position: absolute; right: var(--gutter-end); bottom: var(--hero-bottom);
-      width: var(--card-width); aspect-ratio: 201 / 265; container-type: inline-size;
-      border: 1px solid rgba(255,255,255,.13); border-radius: clamp(12px, 1.52vh, 18px);
-      background: linear-gradient(145deg, rgba(30,18,46,.80), rgba(10,5,22,.86));
-      box-shadow: 0 2px 10px rgba(0,0,0,.44), 0 0 0 3px rgba(255,255,255,.035) inset, 0 0 0 1px rgba(0,0,0,.9);
-      backdrop-filter: blur(14px) saturate(108%); -webkit-backdrop-filter: blur(14px) saturate(108%);
-      transform-origin: 82% 50%;
-    }
-    .demo-visual {
-      position: absolute; left: 3.5cqw; top: 4cqw; width: 92.5cqw; height: 92cqw;
-      border-radius: 4cqw; overflow: hidden; background: #140c22;
-    }
-    .demo-visual img {
-      width: 100%; height: 100%; object-fit: cover; object-position: 18% 50%;
-      filter: brightness(.89) saturate(.93) contrast(1.03);
-    }
-    .demo-visual::after {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(160deg, rgba(128,0,255,.10), rgba(8,2,18,.34));
-    }
-    .play {
-      position: absolute; left: 50%; top: 50%; z-index: 1; width: 29cqw; height: 29cqw; transform: translate(-50%, -50%);
-      border-radius: 50%; border: 1px solid rgba(255,255,255,.34); background: rgba(8,3,16,.47);
-      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .play svg { width: 34%; height: 34%; transform: translateX(6%); }
-    .watch-button {
-      position: absolute; left: 3.5cqw; right: 3.5cqw; bottom: 4cqw; height: 22cqw;
-      border-radius: 4cqw; border: 1px solid rgba(255,255,255,.21);
-      background: linear-gradient(145deg, rgba(44,26,70,.86), rgba(24,12,44,.9));
-      box-shadow: 0 0 0 1px rgba(255,255,255,.03) inset;
-      font-size: min(var(--action-control-font-size), 11cqw); font-weight: 430; letter-spacing: -.3px;
-      display: flex; align-items: center; justify-content: center; padding-top: var(--watch-baseline-shift);
-    }
+    /* dark offer band */
+    .dark { background: var(--teal-900); color: var(--on-dark); }
+    .offer-head h2 { max-width: 900px; font-size: clamp(34px, 4vw, 58px); }
+    .offer-head p { margin-top: 26px; color: var(--on-dark-2); font-size: 15.5px; }
+    .offers { margin-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line-dark); }
+    .offer { display: flex; flex-direction: column; min-height: 400px; padding: 30px clamp(22px, 2.6vw, 32px); border-right: 1px solid var(--line-dark); }
+    .offer:last-child { border-right: 0; background: linear-gradient(150deg, var(--teal-800) 0%, #2c514c 55%, #8a998d 130%); }
+    .offer .ico { width: 52px; height: 52px; }
+    .offer h3 { margin-top: auto; padding-top: 48px; font-size: clamp(26px, 2.4vw, 34px); letter-spacing: -.03em; }
+    .offer p { margin-top: 16px; font-size: 14.5px; color: var(--on-dark-2); max-width: 520px; }
+    .offer a { margin-top: 26px; align-self: flex-start; font-size: 14.5px; }
 
-    /* ---------- Info panels (About / Projects / Contact) ---------- */
-    .sheet-backdrop {
-      position: absolute; inset: 0; z-index: 8; background: rgba(4,1,10,.42);
-      opacity: 0; visibility: hidden; transition: opacity 260ms ease, visibility 0s linear 260ms;
-    }
-    .sheet {
-      position: absolute; z-index: 9; top: 50%; left: 50%;
-      width: min(560px, calc(100vw - 2 * var(--gutter-start))); max-height: min(78vh, 720px);
-      overflow: auto; overscroll-behavior: contain; scrollbar-width: thin;
-      padding: 28px 28px 26px; border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.15);
-      background: linear-gradient(145deg, rgba(34,20,54,.82), rgba(10,5,22,.9));
-      box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 0 3px rgba(255,255,255,.035) inset, 0 0 0 1px rgba(0,0,0,.9);
-      backdrop-filter: blur(18px) saturate(110%); -webkit-backdrop-filter: blur(18px) saturate(110%);
-      opacity: 0; visibility: hidden; transform: translate(-50%, calc(-50% + 10px)) scale(.985);
-      transition: opacity 260ms cubic-bezier(.16,1,.3,1), transform 320ms cubic-bezier(.16,1,.3,1), visibility 0s linear 320ms;
-    }
-    .viewport.sheet-open .sheet-backdrop { opacity: 1; visibility: visible; transition-delay: 0s; }
-    .sheet.is-open { opacity: 1; visibility: visible; transform: translate(-50%, -50%); transition-delay: 0s; }
-    .sheet h2 {
-      margin: 0 0 14px; font-family: "Reference Display", "Bricolage Grotesque", sans-serif;
-      font-weight: 500; font-size: 34px; letter-spacing: -1.1px; line-height: 1.05;
-    }
-    .sheet h2 span { color: var(--lilac-ink); }
-    .sheet p { margin: 0 0 12px; font-size: 15px; line-height: 1.55; font-weight: 350; color: rgba(226,229,228,.86); }
-    .sheet h3 { margin: 22px 0 10px; font-size: 12px; font-weight: 520; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(214,200,240,.66); }
-    .sheet-close {
-      position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border-radius: 9px;
-      border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.04);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .sheet-close svg { width: 14px; height: 14px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
-    .chips li {
-      display: inline-flex; align-items: center; gap: 8px; padding: 6px 11px 6px 7px; border-radius: 8px;
-      border: 1px solid rgba(255,255,255,.13); background: rgba(255,255,255,.04);
-      font-size: 13.5px; font-weight: 420; color: rgba(240,236,248,.9);
-    }
-    .chips img { width: 18px; height: 18px; object-fit: contain; }
-    .sheet-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-    .pill {
-      display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 7px;
-      font-size: 15px; font-weight: 450; letter-spacing: -.25px;
-    }
-    .pill-light { background: #fff; color: #111; box-shadow: 0 1px 5px rgba(0,0,0,.38); }
-    .pill-glass { border: 1px solid rgba(255,255,255,.21); background: linear-gradient(145deg, rgba(44,26,70,.86), rgba(24,12,44,.9)); }
-    .pill svg { width: 15px; height: 15px; }
-    .project {
-      display: grid; grid-template-columns: 132px 1fr; gap: 16px; align-items: center;
-      padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03);
-    }
-    .project + .project { margin-top: 12px; }
-    .project img.shot { width: 132px; height: 92px; object-fit: cover; object-position: left top; border-radius: 8px; filter: brightness(.92) saturate(.95); }
-    .project h4 { margin: 0 0 4px; font-size: 17px; font-weight: 520; letter-spacing: -.3px; }
-    .project p { margin: 0 0 8px; font-size: 13.5px; line-height: 1.45; }
-    .project .links { display: flex; gap: 14px; font-size: 13.5px; font-weight: 450; color: var(--violet-soft); }
-    .project .links a:hover { color: #fff; }
-    .contact-list { display: grid; gap: 10px; }
-    .contact-list a {
-      display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03); font-size: 15px; font-weight: 420;
-    }
-    .contact-list a span { margin-left: auto; color: rgba(214,200,240,.6); font-size: 13px; }
-    .contact-list svg { width: 18px; height: 18px; fill: #fff; flex: none; }
+    /* about */
+    .about { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); background: var(--card); border: 1px solid var(--line); }
+    .about-photo { position: relative; min-height: 460px; background: var(--teal-900); overflow: hidden; }
+    .about-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(.25) contrast(1.02); }
+    .about-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(12,44,45,.65)); }
+    .about-photo .tag { position: absolute; z-index: 1; left: 18px; bottom: 18px; font-size: 12px; padding: 6px 10px; background: rgba(255,255,255,.92); color: var(--ink); letter-spacing: .04em; text-transform: uppercase; }
+    .about-body { padding: clamp(28px, 3.4vw, 48px); display: flex; flex-direction: column; }
+    .about-body h3 { font-size: clamp(28px, 2.8vw, 40px); letter-spacing: -.035em; max-width: 560px; line-height: 1.08; }
+    .about-body p { margin-top: 18px; font-size: 15.5px; color: var(--ink-2); max-width: 600px; }
+    .facts { margin-top: 30px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .facts div { padding: 18px 16px 0 0; }
+    .facts b { display: block; font-size: 34px; font-weight: 450; letter-spacing: -.04em; }
+    .facts small { font-size: 13px; color: var(--ink-3); }
+    .stack { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .stack span { display: inline-flex; align-items: center; gap: 8px; padding: 7px 11px 7px 8px; border: 1px solid var(--line); background: #f7f7f5; font-size: 13.5px; }
+    .stack img { width: 18px; height: 18px; object-fit: contain; }
+    .about-body .actions { margin-top: auto; padding-top: 32px; display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
 
-    /* ---------- Entrance motion ---------- */
-    @keyframes entrance-brand { from { opacity: 0; transform: translate3d(0,7px,0) scale(.94); } to { opacity: 1; transform: none; } }
-    @keyframes entrance-nav { from { opacity: 0; transform: translate3d(0,6px,0); } to { opacity: 1; transform: none; } }
-    @keyframes entrance-action { from { opacity: 0; transform: translate3d(0,8px,0) scale(.985); } to { opacity: 1; transform: none; } }
-    @keyframes entrance-line { from { transform: translate3d(0,110%,0) skewY(2deg); } to { transform: translate3d(0,0,0) skewY(0); } }
-    @keyframes entrance-copy { from { opacity: 0; transform: translate3d(0,8px,0); } to { opacity: 1; transform: translateY(var(--copy-optical-shift)); } }
-    @keyframes entrance-card { from { opacity: 0; transform: translate3d(0,12px,0) scale(.968); } to { opacity: 1; transform: none; } }
+    /* projects carousel */
+    .carousel { display: grid; grid-auto-flow: column; grid-auto-columns: min(760px, 86%); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .carousel::-webkit-scrollbar { display: none; }
+    .case { scroll-snap-align: start; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--card); padding: 8px; border: 1px solid var(--line); text-decoration: none; }
+    .case-img { position: relative; aspect-ratio: 1 / .92; background: var(--teal-900); overflow: hidden; }
+    .case-img img { width: 100%; height: 100%; object-fit: cover; object-position: left top; transition: transform .8s var(--ease); }
+    .case:hover .case-img img { transform: scale(1.04); }
+    .case-img .tag { position: absolute; left: 8px; top: 8px; font-size: 10.5px; letter-spacing: .05em; text-transform: uppercase; padding: 4px 7px; background: #fff; color: var(--ink); }
+    .case-img.gh { display: flex; align-items: center; justify-content: center; background: radial-gradient(80% 80% at 60% 40%, #1a4a49, var(--teal-900)); }
+    .case-img.gh svg { width: 34%; fill: #efe9da; }
+    .case-text { display: flex; flex-direction: column; padding: 18px 12px 12px 22px; }
+    .case-text h3 { font-size: clamp(22px, 2vw, 28px); line-height: 1.1; letter-spacing: -.03em; }
+    .case-text p { margin-top: 10px; font-size: 14.5px; color: var(--ink-2); }
+    .case-text .num { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .case-text .num b { display: block; font-size: 28px; font-weight: 450; letter-spacing: -.04em; color: var(--green-ink); }
+    .case-text .num small { font-size: 12.5px; color: var(--ink-3); }
+    .case-text .more { margin-top: auto; padding-top: 18px; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+    .carousel-nav { margin-top: 22px; display: flex; align-items: center; gap: 8px; }
+    .carousel-nav button { width: 38px; height: 38px; border: 1px solid var(--line); background: var(--card); display: flex; align-items: center; justify-content: center; }
+    .carousel-nav button:hover { border-color: var(--ink-3); }
+    .carousel-nav button svg { width: 13px; height: 13px; }
+    .carousel-nav .link-arrow { margin-left: auto; }
 
-    .motion-pending .brand,
-    .motion-pending .nav a,
-    .motion-pending .time-panel,
-    .motion-pending .sign-up,
-    .motion-pending .menu-toggle,
-    .motion-pending .hero-copy,
-    .motion-pending .primary-cta,
-    .motion-pending .demo-card { opacity: 0; animation-fill-mode: both; }
-    .motion-pending .line { overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; }
-    .motion-pending .line-reveal { transform: translate3d(0,110%,0) skewY(2deg); animation-fill-mode: both; }
+    /* how I work */
+    .how { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); border: 1px solid var(--line); background: var(--card); }
+    .steps { display: flex; flex-direction: column; }
+    .step { flex: 1; display: grid; grid-template-columns: 26px 1fr; gap: 12px; padding: 28px; border-bottom: 1px solid var(--line); border-left: 2px solid transparent; transition: border-color .3s, background .3s; }
+    .step:last-child { border-bottom: 0; }
+    .step.on { border-left-color: var(--ink); background: #fbfbfa; }
+    .step svg { width: 18px; height: 18px; margin-top: 4px; color: var(--ink-2); }
+    .step h3 { font-size: 21px; letter-spacing: -.025em; }
+    .step p { margin-top: 8px; font-size: 14px; color: var(--ink-2); max-width: 440px; }
+    .funnel { position: relative; background: var(--teal-900); min-height: 380px; overflow: hidden; }
+    .funnel svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-    .motion-pending .brand { animation: entrance-brand 580ms cubic-bezier(.16,1,.3,1) 60ms both; }
-    .motion-pending .nav a { animation: entrance-nav 480ms cubic-bezier(.16,1,.3,1) both; }
-    .motion-pending .nav a:nth-child(1) { animation-delay: 130ms; }
-    .motion-pending .nav a:nth-child(2) { animation-delay: 175ms; }
-    .motion-pending .nav a:nth-child(3) { animation-delay: 220ms; }
-    .motion-pending .nav a:nth-child(4) { animation-delay: 265ms; }
-    .motion-pending .time-panel { animation: entrance-nav 520ms cubic-bezier(.16,1,.3,1) 180ms both; }
-    .motion-pending .sign-up { animation: entrance-action 520ms cubic-bezier(.16,1,.3,1) 220ms both; }
-    .motion-pending .menu-toggle { animation: entrance-action 520ms cubic-bezier(.16,1,.3,1) 140ms both; }
-    .motion-pending .line-one .line-reveal { animation: entrance-line 800ms cubic-bezier(.22,1,.36,1) 300ms both; }
-    .motion-pending .line-two .line-reveal { animation: entrance-line 850ms cubic-bezier(.22,1,.36,1) 440ms both; }
-    .motion-pending .hero-copy { animation: entrance-copy 620ms cubic-bezier(.16,1,.3,1) 740ms both; }
-    .motion-pending .primary-cta { animation: entrance-action 560ms cubic-bezier(.16,1,.3,1) 960ms both; }
-    .motion-pending .demo-card { animation: entrance-card 920ms cubic-bezier(.22,1,.36,1) 1040ms both; }
+    /* cost section */
+    .cost-title { font-size: clamp(32px, 3.6vw, 52px); }
+    .cost-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .cost-card { background: #e4e6e2; padding: 22px 20px 24px; min-height: 230px; display: flex; flex-direction: column; }
+    .cost-card .ico { width: 34px; height: 34px; background: #fff; display: flex; align-items: center; justify-content: center; }
+    .cost-card .ico svg { width: 16px; height: 16px; }
+    .cost-card h3 { margin-top: auto; padding-top: 40px; font-size: 20px; letter-spacing: -.02em; }
+    .cost-card p { margin-top: 8px; font-size: 14px; color: var(--ink-2); }
+    .why { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: center; gap: 32px; }
+    .why h3 { font-size: clamp(22px, 2vw, 28px); line-height: 1.2; letter-spacing: -.025em; max-width: 640px; }
+    .why p { margin-top: 18px; font-size: 14.5px; color: var(--ink-2); }
+    .why .btn { margin-top: 30px; }
+    .cube-wrap { position: relative; display: flex; justify-content: center; }
+    .cube-wrap::before { content: ""; position: absolute; inset: -40px -20px; background-image: linear-gradient(30deg, transparent 49.6%, var(--line) 49.6%, var(--line) 50.4%, transparent 50.4%), linear-gradient(150deg, transparent 49.6%, var(--line) 49.6%, var(--line) 50.4%, transparent 50.4%); background-size: 70px 40px; mask-image: radial-gradient(closest-side, #000, transparent); -webkit-mask-image: radial-gradient(closest-side, #000, transparent); }
+    .cube-wrap svg { position: relative; width: min(300px, 70%); height: auto; }
 
-    @media (prefers-reduced-motion: no-preference) {
-      button, a { transition: filter 140ms ease, opacity 140ms ease; }
-      button:hover, a:hover { filter: brightness(1.08); }
+    /* footer */
+    .site-footer { background: var(--teal-950); color: var(--on-dark); padding: clamp(56px, 7vw, 96px) 0 28px; }
+    .foot-top { display: grid; grid-template-columns: minmax(0, 6fr) repeat(2, minmax(0, 2fr)); gap: 40px; padding-bottom: 48px; border-bottom: 1px solid var(--line-dark); }
+    .foot-top h2 { font-size: clamp(32px, 3.6vw, 52px); max-width: 620px; }
+    .foot-top h2 span { color: var(--green-soft); }
+    .foot-top .btn { margin-top: 32px; }
+    .foot-col h4 { font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--on-dark-2); margin-bottom: 16px; }
+    .foot-col a { display: block; text-decoration: none; padding: 5px 0; color: rgba(243,241,234,.88); font-size: 15px; }
+    .foot-col a:hover { color: var(--green-soft); }
+    .foot-bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-top: 24px; font-size: 13px; color: var(--on-dark-2); }
+    .foot-bottom a { text-decoration: none; }
+
+    /* motion */
+    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s var(--ease), transform .9s var(--ease); }
+    .js .reveal.in { opacity: 1; transform: none; }
+    @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    .js .hero h1, .js .hero-sub, .js .hero-actions, .js .hero-strip { animation: rise .9s var(--ease) both; }
+    .js .hero-sub { animation-delay: .15s; }
+    .js .hero-actions { animation-delay: .28s; }
+    .js .hero-strip { animation-delay: .45s; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .js .hero h1, .js .hero-sub, .js .hero-actions, .js .hero-strip { animation: none; }
     }
 
-    /* ---------- Tablet ---------- */
-    @media (min-width: 620px) and (max-width: 790px), (min-width: 620px) and (max-width: 1100px) and (orientation: portrait) {
-      .menu-toggle { display: inline-flex; }
-      .header { align-items: center; }
-      .brand { top: 0; }
-      .header-actions {
-        position: absolute; top: calc(100% + 10px); right: 0; width: min(324px, calc(100vw - 2 * var(--gutter-end)));
-        flex-direction: column; align-items: stretch; padding: 10px; border-radius: 16px;
-        border: 1px solid rgba(255,255,255,.15);
-        background: linear-gradient(145deg, rgba(34,20,54,.84), rgba(10,5,22,.9));
-        box-shadow: 0 14px 40px rgba(0,0,0,.5), 0 0 0 3px rgba(255,255,255,.03) inset;
-        backdrop-filter: blur(18px) saturate(110%); -webkit-backdrop-filter: blur(18px) saturate(110%);
-        opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.985); transform-origin: top right;
-        transition: opacity 220ms cubic-bezier(.16,1,.3,1), transform 260ms cubic-bezier(.16,1,.3,1), visibility 0s linear 260ms;
+    /* ---------------- Responsive ---------------- */
+    @media (max-width: 1180px) {
+      .nav-links { gap: 20px; }
+      .nav-links a { font-size: 14px; }
+      .logo, .nav-cta { padding-left: 0; }
+      .logo { padding-right: 28px; }
+      .nav-cta { padding-left: 28px; }
+    }
+    @media (max-width: 1080px) {
+      .hero-art { width: 74vw; right: -16vw; }
+      .tablist { grid-template-columns: repeat(5, minmax(170px, 1fr)); overflow-x: auto; scrollbar-width: none; }
+      .tablist::-webkit-scrollbar { display: none; }
+      .stack-logos span:nth-child(3) { display: none; }
+    }
+    @media (max-width: 920px) {
+      .nav-bar { grid-template-columns: 1fr auto; }
+      .logo { border-right: 0; }
+      .nav-links {
+        position: absolute; left: 0; right: 0; top: 76px; flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--teal-900);
+        border: 0; border-bottom: 1px solid var(--line-dark); padding: 6px var(--gutter) 16px;
+        opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity .25s var(--ease), transform .3s var(--ease), visibility 0s linear .3s;
       }
-      .header.menu-open .header-actions { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
-      .nav { top: 0; margin: 0; flex-direction: column; align-items: stretch; gap: 2px; }
-      .nav a, .nav a:first-child, .nav a:nth-child(4) { top: 0; margin: 0; padding: 10px 12px; border-radius: 9px; font-size: 17px; }
-      .nav a[aria-current="page"] { background: rgba(255,255,255,.07); }
-      .nav a[aria-current="page"]::after { display: none; }
-      .time-panel { margin: 8px 12px 10px; width: auto; height: 44px; }
-      .sign-up { width: 100%; margin: 0; }
-      .menu-toggle, .nav a, .time-panel, .sign-up { animation: none; }
-      .hero-copy { width: min(440px, 56vw); }
-      .hero-copy br { display: none; }
+      .site-header.open .nav-links { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+      .site-header.open { background: var(--teal-900); backdrop-filter: none; -webkit-backdrop-filter: none; }
+      .nav-links a { padding: 14px 0; font-size: 18px; border-bottom: 1px solid var(--line-dark); }
+      .menu-btn { display: inline-flex; }
+      .hero-inner { min-height: auto; }
+      .hero-copy { padding-bottom: 0; }
+      .hero-art { position: relative; right: auto; bottom: auto; width: 120%; margin: -6% -24% -2% auto; }
+      .hero-strip { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .sec-head { grid-template-columns: 1fr; align-items: start; }
+      .panel { grid-template-columns: 1fr; }
+      .panel-text { border-right: 0; border-bottom: 1px solid var(--line); }
+      .panel-visual { min-height: 340px; }
+      .approach { grid-template-columns: 1fr; }
+      .approach > div { border-right: 0; border-bottom: 1px solid var(--line); }
+      .approach > div:last-child { border-bottom: 0; }
+      .offers { grid-template-columns: 1fr; }
+      .offer { border-right: 0; border-bottom: 1px solid var(--line-dark); min-height: 320px; }
+      .about { grid-template-columns: 1fr; }
+      .about-photo { min-height: 380px; }
+      .how { grid-template-columns: 1fr; }
+      .funnel { min-height: 300px; }
+      .cost-cards { grid-template-columns: 1fr; }
+      .cost-card { min-height: 0; }
+      .why { grid-template-columns: 1fr; }
+      .foot-top { grid-template-columns: 1fr 1fr; }
+      .foot-top > div:first-child { grid-column: 1 / -1; }
     }
-
-    /* ---------- Mobile ---------- */
-    @media (max-width: 619px) {
-      .screen {
-        --mobile-gutter: 20px;
-        --gutter-start: calc(var(--mobile-gutter) + env(safe-area-inset-left));
-        --gutter-end: calc(var(--mobile-gutter) + env(safe-area-inset-right));
-        --header-top: calc(16px + env(safe-area-inset-top));
-        --hero-bottom: calc(28px + env(safe-area-inset-bottom));
-        --display-size: clamp(40px, 12.6vw, 60px);
-        --display-leading: clamp(46px, 14.4vw, 70px);
-        --copy-size: 15px;
-        --copy-leading: 21px;
-        --title-copy-gap: 14px;
-        --copy-cta-gap: 22px;
-        --cta-width: 156px;
-        --cta-height: 44px;
-        --card-width: clamp(118px, 33vw, 150px);
-      }
-      .menu-toggle { display: inline-flex; }
-      .header { align-items: center; }
-      .brand { top: 0; }
-      .header-actions {
-        position: absolute; top: calc(100% + 10px); right: 0; width: min(340px, calc(100vw - 2 * var(--gutter-end)));
-        flex-direction: column; align-items: stretch; padding: 10px; border-radius: 16px;
-        border: 1px solid rgba(255,255,255,.15);
-        background: linear-gradient(145deg, rgba(34,20,54,.86), rgba(10,5,22,.92));
-        box-shadow: 0 14px 40px rgba(0,0,0,.5), 0 0 0 3px rgba(255,255,255,.03) inset;
-        backdrop-filter: blur(18px) saturate(110%); -webkit-backdrop-filter: blur(18px) saturate(110%);
-        opacity: 0; visibility: hidden; transform: translateY(-8px) scale(.985); transform-origin: top right;
-        transition: opacity 220ms cubic-bezier(.16,1,.3,1), transform 260ms cubic-bezier(.16,1,.3,1), visibility 0s linear 260ms;
-      }
-      .header.menu-open .header-actions { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
-      .nav { top: 0; margin: 0; flex-direction: column; align-items: stretch; gap: 2px; }
-      .nav a, .nav a:first-child, .nav a:nth-child(4) { top: 0; margin: 0; padding: 11px 12px; border-radius: 9px; font-size: 17px; }
-      .nav a[aria-current="page"] { background: rgba(255,255,255,.07); }
-      .nav a[aria-current="page"]::after { display: none; }
-      .time-panel { margin: 8px 12px 10px; width: auto; height: 44px; }
-      .sign-up { width: 100%; margin: 0; }
-      .menu-toggle, .nav a, .time-panel, .sign-up { animation: none; }
-
-      .hero-content { right: var(--gutter-end); }
-      .line-one { transform: scaleX(.78); }
-      .line-two { transform: scaleX(.78); }
-      .hero-copy { width: 100%; max-width: 400px; }
-      .hero-copy br { display: none; }
-      .demo-card { top: clamp(176px, 32svh, 300px); bottom: auto; }
-      .sheet { padding: 24px 18px 20px; max-height: calc(100svh - 120px); }
-      .sheet h2 { font-size: 30px; }
-      .project { grid-template-columns: 1fr; }
-      .project img.shot { width: 100%; height: 120px; }
-    }
-    @media (max-width: 619px) and (max-height: 640px) {
-      .screen { --display-size: clamp(36px, 10.6vw, 48px); --display-leading: clamp(40px, 12vw, 54px); --copy-size: 14px; --copy-leading: 19px; }
-      .demo-card { top: calc(var(--header-top) + 64px); --card-width: 104px; }
-    }
-    @media (max-height: 480px) and (orientation: landscape) {
-      .screen { --display-size: 40px; --display-leading: 46px; --title-copy-gap: 10px; --copy-cta-gap: 14px; --hero-bottom: 18px; --card-width: 120px; --header-top: 12px; }
-      .hero-copy { width: min(440px, 55vw); }
-      .hero-copy br { display: none; }
-      .demo-card { top: auto; bottom: var(--hero-bottom); }
+    @media (max-width: 560px) {
+      .logo { font-size: 23px; }
+      .nav-cta .btn .t { display: none; }
+      .hero h1 { font-size: clamp(38px, 11.4vw, 54px); }
+      .hero-actions { gap: 24px; }
+      .stack-logos { gap: 18px; flex-wrap: wrap; }
+      .stack-logos span { font-size: 15px; }
+      .case { grid-template-columns: 1fr; }
+      .case-img { aspect-ratio: 16 / 10; }
+      .case-text { padding: 18px 10px 10px; }
+      .carousel { grid-auto-columns: 88%; }
+      .facts b { font-size: 28px; }
+      .step { padding: 22px 18px; }
+      .panel-text { padding: 24px 20px; }
+      .why .btn .t { padding: 0 14px; }
     }
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVV45676" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <script>document.documentElement.classList.add('js');</script>
 
-  <main class="viewport" id="viewport">
-    <section class="screen" id="screen">
-      <video class="background" autoplay muted loop playsinline disablepictureinpicture aria-hidden="true">
-        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260808_064556_051587f1-74a1-4336-8c05-4dde3594ed05.mp4" type="video/mp4">
-      </video>
-      <div class="tint" aria-hidden="true"></div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></symbol>
+    <symbol id="i-mark" viewBox="0 0 30 24"><g fill="currentColor"><rect x="0" y="0" width="30" height="3.2"/><rect x="0" y="5.2" width="22" height="3.2"/><rect x="5" y="10.4" width="25" height="3.2"/><rect x="0" y="15.6" width="26" height="3.2"/><rect x="8" y="20.8" width="22" height="3.2"/></g></symbol>
+  </svg>
 
-      <header class="header" id="header">
-        <a class="brand" href="#home" aria-label="Ali Fazeli home">
-          <svg viewBox="0 0 25 25" aria-hidden="true">
-            <defs><clipPath id="disc"><circle cx="12.5" cy="12.5" r="12.5"/></clipPath></defs>
-            <g clip-path="url(#disc)">
-              <rect width="25" height="25" fill="#ece6f7"/>
-              <path d="M12.5 1.8 21.6 12.5 12.5 23.2 3.4 12.5Z" fill="#12061f"/>
-              <path d="M12.5 1.8 16.4 12.5 12.5 23.2 8.6 12.5Z" fill="#6a22d6"/>
-              <path d="M12.5 5.6 14.6 12.5 12.5 19.4 10.4 12.5Z" fill="#faf7ff"/>
-              <path d="M3.4 12.5 8.6 12.5 12.5 23.2Z" fill="#2a0c4a"/>
-              <path d="M21.6 12.5 16.4 12.5 12.5 1.8Z" fill="#a874ff"/>
-            </g>
-          </svg>
-        </a>
+  <header class="site-header" id="top">
+    <div class="wrap">
+      <div class="nav-bar">
+        <a class="logo" href="#top" aria-label="Ali Fazeli — home"><svg aria-hidden="true"><use href="#i-mark"/></svg>Ali Fazeli</a>
+        <nav class="nav-links" id="nav-links" aria-label="Primary">
+          <a href="#problems">What I fix</a>
+          <a href="#approach">Approach</a>
+          <a href="#about">About</a>
+          <a href="#work">Selected work</a>
+          <a href="#how">How I work</a>
+          <a href="src/pdf/Ali_Fazeli_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="btn sm" href="mailto:a.fazeli95@gmail.com?subject=Let%27s%20talk%20about%20our%20data" aria-label="Book a call"><span class="t">Book a call</span><span class="a"><svg><use href="#i-arrow"/></svg></span></a>
+          <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><line class="l1" x1="2" y1="5" x2="18" y2="5"/><line class="l2" x1="2" y1="10" x2="18" y2="10"/><line class="l3" x1="2" y1="15" x2="18" y2="15"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-        <div class="header-actions" id="tablet-navigation">
-          <nav class="nav" aria-label="Primary">
-            <a href="#home" aria-current="page">Home</a>
-            <a href="#about" data-sheet="about">About</a>
-            <a href="#projects" data-sheet="projects">Projects</a>
-            <a href="#contact" data-sheet="contact">Contact</a>
-          </nav>
-          <div class="time-panel" aria-live="off">
-            <span class="time-label">Tehran, Iran</span>
-            <span class="time-value" id="local-time">9:47 PM&nbsp; • &nbsp;14 July 2026</span>
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title">Your data platform<br>has a cost.<br><span class="soft">I make it pay off.</span></h1>
+          <p class="hero-sub">I'm an MLOps &amp; Data Engineer with 7+ years designing big-data pipelines and AI infrastructure — so the systems your teams depend on run once, run right, and scale without rework.</p>
+          <div class="hero-actions">
+            <a class="btn" href="mailto:a.fazeli95@gmail.com?subject=Let%27s%20talk%20about%20our%20data"><span class="t">Book a call</span><span class="a"><svg><use href="#i-arrow"/></svg></span></a>
+            <a class="link-u" href="#work">Selected work</a>
           </div>
-          <a class="sign-up" href="src/pdf/Ali_Fazeli_Resume.pdf" target="_blank" rel="noopener"><span>Resume</span></a>
+        </div>
+        <div class="hero-art" aria-hidden="true"><svg id="hero-iso" viewBox="0 0 1000 720"></svg></div>
+        <div class="hero-strip">
+          <p>Recent work: founded a big-data visualization platform for the Iranian market, and shipped an LLM assistant running RAG&nbsp;+&nbsp;MCP in production.</p>
+          <div class="stack-logos" aria-label="Core stack">
+            <span><img src="src/png/airflow.png" alt="">Airflow</span>
+            <span><img src="src/png/Kubernetes.png" alt="">Kubernetes</span>
+            <span><img src="src/png/doris.png" alt="">Apache Doris</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEMS ============ -->
+    <section class="block" id="problems">
+      <div class="wrap">
+        <div class="sec-head solo reveal">
+          <div>
+            <p class="eyebrow">What I fix</p>
+            <h2 class="h2">Five data problems<br>I get hired to fix</h2>
+          </div>
         </div>
 
-        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="tablet-navigation">
-          <svg viewBox="0 0 20 20" aria-hidden="true">
-            <line class="bar-a" x1="3" y1="6.5" x2="17" y2="6.5"/>
-            <line class="bar-b" x1="3" y1="13.5" x2="17" y2="13.5"/>
-          </svg>
-        </button>
-      </header>
+        <div class="tabs reveal">
+          <div class="tablist" role="tablist" aria-label="Data problems">
+            <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Late detection</button>
+            <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Fragmented data</button>
+            <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Stale pipelines</button>
+            <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="false" tabindex="-1">Models stuck in notebooks</button>
+            <button class="tab" role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1">Data not ready for AI</button>
+          </div>
 
-      <section class="hero" id="home">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            <span class="line line-one"><span class="line-reveal">Engineering Data</span></span>
-            <span class="line line-two"><span class="line-reveal">Into Intelligence.</span></span>
-          </h1>
-          <p class="hero-copy">
-            I'm <strong>Ali Fazeli</strong>, an MLOps &amp; Data Engineer with 7+ years<br>
-            building big-data pipelines and AI infrastructure that turn<br>
-            raw data into decisions teams can actually trust.
-          </p>
-          <a class="primary-cta" href="mailto:a.fazeli95@gmail.com">
-            <span class="label">Let's Talk</span>
-            <span class="arrow-box" aria-hidden="true">
-              <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7h9M7.8 3.2 11.6 7l-3.8 3.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
+          <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+            <div class="panel-text">
+              <div class="panel-index">01 <i></i></div>
+              <h3>Data failures get more expensive the later they're discovered.</h3>
+              <p>I add monitoring, data-quality checks and anomaly detection to your pipelines, so failures surface in minutes — not in Monday's executive report.</p>
+              <a class="link-arrow" href="mailto:a.fazeli95@gmail.com?subject=Data%20observability">Observability &amp; anomaly detection <svg><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="panel-visual"><div class="grid-bg"></div><svg class="viz" data-viz="spike" viewBox="0 0 600 300"></svg>
+              <div class="metric"><b>Minutes</b><small>from a broken pipeline to an alert, not days</small></div>
+              <div class="chips"><span>Data-quality checks</span><span>Airflow SLAs</span><span>Alerting</span><span>Lineage</span></div>
+            </div>
+          </div>
+
+          <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+            <div class="panel-text">
+              <div class="panel-index">02 <i></i></div>
+              <h3>Your numbers live in ten systems and agree in none.</h3>
+              <p>I consolidate sources into one governed analytical store with clear models and ownership, so every team reports from the same definitions.</p>
+              <a class="link-arrow" href="mailto:a.fazeli95@gmail.com?subject=Data%20platform%20architecture">Data platform architecture <svg><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="panel-visual"><div class="grid-bg"></div><svg class="viz" data-viz="merge" viewBox="0 0 600 300"></svg>
+              <div class="metric"><b>One</b><small>source of truth, modeled and documented</small></div>
+              <div class="chips"><span>ETL / ELT</span><span>Apache Doris</span><span>Data modeling</span><span>Governance</span></div>
+            </div>
+          </div>
+
+          <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+            <div class="panel-text">
+              <div class="panel-index">03 <i></i></div>
+              <h3>Yesterday's batch can't drive today's decisions.</h3>
+              <p>Where freshness matters, I move workloads to streaming — event pipelines and incremental views that keep dashboards and features seconds behind reality.</p>
+              <a class="link-arrow" href="mailto:a.fazeli95@gmail.com?subject=Real-time%20streaming">Real-time streaming <svg><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="panel-visual"><div class="grid-bg"></div><svg class="viz" data-viz="stream" viewBox="0 0 600 300"></svg>
+              <div class="metric"><b>Seconds</b><small>not hours, from event to dashboard</small></div>
+              <div class="chips"><span>Redpanda</span><span>RisingWave</span><span>CDC</span><span>Materialized views</span></div>
+            </div>
+          </div>
+
+          <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+            <div class="panel-text">
+              <div class="panel-index">04 <i></i></div>
+              <h3>A model that never ships has all of the cost and none of the return.</h3>
+              <p>I build the MLOps path from notebook to production: reproducible training, containerized serving on Kubernetes, CI/CD and drift monitoring.</p>
+              <a class="link-arrow" href="mailto:a.fazeli95@gmail.com?subject=MLOps">MLOps &amp; model serving <svg><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="panel-visual"><div class="grid-bg"></div><svg class="viz" data-viz="ship" viewBox="0 0 600 300"></svg>
+              <div class="metric"><b>Repeatable</b><small>a path to production, not a one-off heroic effort</small></div>
+              <div class="chips"><span>Kubernetes</span><span>Docker</span><span>CI/CD</span><span>Model monitoring</span></div>
+            </div>
+          </div>
+
+          <div class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+            <div class="panel-text">
+              <div class="panel-index">05 <i></i></div>
+              <h3>LLMs are only as good as the data they can retrieve.</h3>
+              <p>I prepare your knowledge for AI — clean ingestion, retrieval pipelines (RAG) and MCP tool access — so assistants answer from your data, with guardrails.</p>
+              <a class="link-arrow" href="mailto:a.fazeli95@gmail.com?subject=LLM%20%26%20RAG%20systems">LLM &amp; RAG systems <svg><use href="#i-arrow"/></svg></a>
+            </div>
+            <div class="panel-visual"><div class="grid-bg"></div><svg class="viz" data-viz="rag" viewBox="0 0 600 300"></svg>
+              <div class="metric"><b>Grounded</b><small>answers traced back to your own sources</small></div>
+              <div class="chips"><span>RAG</span><span>MCP</span><span>Vector search</span><span>Python</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ APPROACH ============ -->
+    <section class="block tight" id="approach">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <p class="eyebrow">My approach</p>
+            <h2 class="h2">I only fix what<br>I can measure</h2>
+          </div>
+          <p class="lede">I measure what a problem costs before proposing anything. If the savings won't cover the cost of fixing it, I say so and stop there.</p>
+        </div>
+
+        <div class="approach reveal">
+          <div>
+            <div class="diag">
+              <svg viewBox="0 0 300 200" fill="none" aria-hidden="true">
+                <circle cx="150" cy="100" r="72" stroke="#cdd2cf"/>
+                <path d="M150 100 L150 28 A72 72 0 0 1 212 136 Z" fill="#e3e6e2"/>
+                <rect x="132" y="82" width="36" height="36" fill="#9aa39f"/><g stroke="#fff" stroke-width="2.4"><path d="M139 92h22M139 100h16M143 108h18"/></g>
+                <g fill="#fff" stroke="#cdd2cf"><rect x="138" y="16" width="24" height="24"/><rect x="66" y="88" width="24" height="24"/><rect x="210" y="88" width="24" height="24"/><rect x="138" y="160" width="24" height="24"/></g>
+                <g stroke="#3c4f4d" stroke-width="1.3"><path d="M146 24h8v8h-8z"/><path d="M73 95l10 5-10 5z"/><path d="M216 94h12M216 100h12M216 106h12"/><path d="M144 166l12 12M156 166l-12 12"/></g>
+              </svg>
+            </div>
+            <div class="body"><h3>Baseline</h3><p>I establish where the problem starts, what it affects and what it costs. You get the number and the method behind it.</p></div>
+          </div>
+          <div>
+            <div class="diag">
+              <svg viewBox="0 0 300 200" fill="none" aria-hidden="true">
+                <rect x="22" y="82" width="36" height="36" fill="#9aa39f"/><g stroke="#fff" stroke-width="2.4"><path d="M29 92h22M29 100h16M33 108h18"/></g>
+                <path d="M58 100h46" stroke="#cdd2cf"/>
+                <rect x="104" y="88" width="24" height="24" fill="#fff" stroke="#cdd2cf"/><circle cx="116" cy="100" r="5" stroke="#3c4f4d" stroke-width="1.3"/>
+                <g stroke="#cdd2cf"><path d="M128 100 C190 100 200 26 252 26"/><path d="M128 100 C190 100 200 63 252 63"/><path d="M128 100h124"/><path d="M128 100 C190 100 200 137 252 137"/><path d="M128 100 C190 100 200 174 252 174"/></g>
+                <g fill="#fff" stroke="#cdd2cf"><rect x="252" y="14" width="24" height="24"/><rect x="252" y="51" width="24" height="24"/><rect x="252" y="88" width="24" height="24"/><rect x="252" y="125" width="24" height="24"/><rect x="252" y="162" width="24" height="24"/></g>
+                <g fill="#3c4f4d"><circle cx="264" cy="26" r="3"/><rect x="259" y="59" width="10" height="8"/><circle cx="264" cy="100" r="4" fill="none" stroke="#3c4f4d" stroke-width="1.3"/><rect x="259" y="132" width="10" height="10" fill="none" stroke="#3c4f4d" stroke-width="1.3"/><path d="M258 180l6-10 6 10z"/></g>
+              </svg>
+            </div>
+            <div class="body"><h3>Root cause</h3><p>I identify what actually drives the problem — architecture, workload, cost, data quality or process. Until the cause is clear, implementation is guesswork.</p></div>
+          </div>
+          <div>
+            <div class="diag">
+              <svg viewBox="0 0 300 200" fill="none" aria-hidden="true">
+                <rect x="10" y="44" width="96" height="112" fill="#fff" stroke="#e1e4e1"/>
+                <path d="M18 120 L28 92 L36 128 L44 70 L52 118 L60 86 L68 132 L76 96 L84 112 L98 104" stroke="#9aa39f" stroke-width="1.4"/>
+                <path d="M106 100h30" stroke="#cdd2cf"/>
+                <rect x="136" y="82" width="36" height="36" fill="#9aa39f"/><g stroke="#fff" stroke-width="2.4"><path d="M143 92h22M143 100h16M147 108h18"/></g>
+                <path d="M172 100h18" stroke="#cdd2cf"/>
+                <rect x="190" y="36" width="100" height="128" fill="#fff" stroke="#cdd2cf"/>
+                <path d="M198 150 C230 146 250 120 282 48" stroke="#1f7a48" stroke-width="1.6"/>
+                <g fill="#fff" stroke="#1f7a48" stroke-width="1.4"><circle cx="214" cy="146" r="3"/><circle cx="240" cy="132" r="3"/><circle cx="262" cy="100" r="3"/><circle cx="280" cy="54" r="3"/></g>
+              </svg>
+            </div>
+            <div class="body"><h3>Proof</h3><p>I measure the change on your data, in your environment. The result, the method and the code stay with you.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OFFER (dark) ============ -->
+    <section class="block dark" id="engage">
+      <div class="wrap">
+        <div class="offer-head reveal">
+          <p class="eyebrow" style="margin-bottom:22px">The entry point</p>
+          <h2>Start with one defined problem<br>and a measurable baseline</h2>
+          <p>Begin with a focused assessment of one costly problem. Expand only if the findings justify it.</p>
+        </div>
+        <div class="offers reveal">
+          <article class="offer">
+            <svg class="ico" viewBox="0 0 52 52" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="#5d7570"/><circle cx="37" cy="13" r="11" fill="#5d7570"/><circle cx="13" cy="37" r="11" fill="#4fdc86"/><circle cx="37" cy="37" r="11" fill="#5d7570"/></svg>
+            <h3>Platform diagnosis</h3>
+            <p>Interviews and an architecture review, using production data only where the agreed scope requires it. You leave with a calculated cost, a ranked list of fixes and clear priorities.</p>
+            <a class="link-u" href="mailto:a.fazeli95@gmail.com?subject=Platform%20diagnosis">Ask about a diagnosis</a>
+          </article>
+          <article class="offer">
+            <svg class="ico" viewBox="0 0 52 52" aria-hidden="true"><g fill="#4fdc86"><rect x="2" y="4" width="4" height="44"/><rect x="10" y="4" width="4" height="44"/><rect x="18" y="4" width="4" height="44"/></g><g fill="#a9b8b0"><rect x="26" y="4" width="4" height="44"/><rect x="34" y="4" width="4" height="44" opacity=".8"/><rect x="42" y="4" width="4" height="44" opacity=".6"/></g></svg>
+            <h3>Measured pilot</h3>
+            <p>One process or one source, with a working proof built in your own cloud or cluster. You keep the result, the method and reusable code — with implementation included when the scope calls for it.</p>
+            <a class="link-u" href="mailto:a.fazeli95@gmail.com?subject=Measured%20pilot">Ask about a pilot</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="block" id="about">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <p class="eyebrow">About</p>
+            <h2 class="h2">Seven years of making<br>data boringly reliable</h2>
+          </div>
+          <p class="lede">Data engineering and MLOps across a range of industries — from the first pipeline to AI in production.</p>
+        </div>
+        <div class="about reveal">
+          <div class="about-photo"><img src="src/webp/ali.webp" alt="Portrait of Ali Fazeli" loading="lazy"><span class="tag">Ali Fazeli · Tehran</span></div>
+          <div class="about-body">
+            <h3>I design and run the systems that move, model and serve data.</h3>
+            <p>I'm skilled in data architecture, data modeling and ETL/ELT design, with deep Python and SQL expertise. I care about data quality and governance — making sure data stays reliable, consistent and secure long after the project is handed over.</p>
+            <div class="facts">
+              <div><b>7+</b><small>years in data &amp; AI infrastructure</small></div>
+              <div><b>2</b><small>products founded and shipped</small></div>
+              <div><b>10+</b><small>core platform technologies</small></div>
+            </div>
+            <div class="stack" aria-label="Tech stack">
+              <span><img src="src/png/python.png" alt="">Python</span>
+              <span><img src="src/png/bash.png" alt="">Bash</span>
+              <span><img src="src/png/airflow.png" alt="">Apache Airflow</span>
+              <span><img src="src/png/Kubernetes.png" alt="">Kubernetes</span>
+              <span><img src="src/png/docker.png" alt="">Docker</span>
+              <span><img src="src/png/risingwave.png" alt="">RisingWave</span>
+              <span><img src="src/png/redpanda.png" alt="">Redpanda</span>
+              <span><img src="src/png/hadoop.png" alt="">Apache Hadoop</span>
+              <span><img src="src/png/doris.png" alt="">Apache Doris</span>
+            </div>
+            <div class="actions">
+              <a class="btn ink" href="src/pdf/Ali_Fazeli_Resume.pdf" target="_blank" rel="noopener"><span class="t">Download resume</span><span class="a"><svg><use href="#i-arrow"/></svg></span></a>
+              <a class="link-u" href="https://github.com/alifzl" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="block tight" id="work">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2 class="h2">Every project leaves<br>a number behind</h2>
+          </div>
+          <p class="lede">Products I founded and built end to end — from ingestion and modeling to the interface people actually use.</p>
+        </div>
+        <div class="carousel reveal" id="carousel">
+          <a class="case" href="https://zhaav.net/" target="_blank" rel="noopener">
+            <div class="case-img"><img src="src/webp/zhaav-bi.webp" alt="Zhaav BI dashboard" loading="lazy"><span class="tag">Big data · BI</span></div>
+            <div class="case-text">
+              <h3>Zhaav — a big-data visualization platform</h3>
+              <p>Founded and built a BI platform tailored to the Iranian market: ingestion, an analytical warehouse and interactive dashboards on top.</p>
+              <div class="num"><b>Founder</b><small>architecture, data platform &amp; product</small></div>
+              <span class="more">Visit zhaav.net ↗</span>
+            </div>
+          </a>
+          <a class="case" href="https://sas.zhaav.org" target="_blank" rel="noopener">
+            <div class="case-img"><img src="src/webp/zhaav-sas.webp" alt="Zhaav SAS assistant interface" loading="lazy"><span class="tag">LLM · RAG · MCP</span></div>
+            <div class="case-text">
+              <h3>Zhaav SAS — a smart assistant system</h3>
+              <p>An assistant that combines LLMs with retrieval (RAG) and MCP tool access to deliver seamless, context-aware help grounded in real data.</p>
+              <div class="num"><b>In production</b><small>retrieval, tools &amp; serving</small></div>
+              <span class="more">Visit sas.zhaav.org ↗</span>
+            </div>
+          </a>
+          <a class="case" href="https://github.com/zhaav-bi" target="_blank" rel="noopener">
+            <div class="case-img gh">
+              <svg viewBox="0 0 496 512" aria-hidden="true"><path d="M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.200-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.900 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.200 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.900 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8z"/></svg>
+              <span class="tag">Open source</span>
+            </div>
+            <div class="case-text">
+              <h3>Open-source work on GitHub</h3>
+              <p>Pipelines, tooling and experiments across data engineering, MLOps and LLM systems.</p>
+              <div class="num"><b>@alifzl</b><small>and the zhaav-bi organization</small></div>
+              <span class="more">Browse repositories ↗</span>
+            </div>
           </a>
         </div>
-
-        <article class="demo-card" aria-label="Featured work">
-          <div class="demo-visual">
-            <img src="src/webp/zhaav-bi.webp" alt="Zhaav big-data visualization platform" width="600" height="600">
-            <button class="play" type="button" aria-label="Open selected work" data-sheet="projects">
-              <svg viewBox="0 0 12 14" aria-hidden="true"><path d="M1 1.2v11.6c0 .6.6.9 1.1.6l9.2-5.8c.5-.3.5-.9 0-1.2L2.1.6C1.6.3 1 .6 1 1.2Z" fill="#fff"/></svg>
-            </button>
-          </div>
-          <button class="watch-button" type="button" data-sheet="projects">Selected Work</button>
-        </article>
-      </section>
-
-      <div class="sheet-backdrop" id="sheet-backdrop"></div>
-
-      <section class="sheet" id="sheet-about" role="dialog" aria-modal="true" aria-labelledby="about-title" inert>
-        <button class="sheet-close" type="button" aria-label="Close"><svg viewBox="0 0 14 14" fill="none"><path d="m2 2 10 10M12 2 2 12" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-        <h2 id="about-title">About <span>Me.</span></h2>
-        <p>Data Engineer and MLOps specialist with 7+ years designing and delivering scalable data solutions across a range of industries.</p>
-        <p>Experienced in data architecture, data modeling and ETL/ELT design, with deep Python and SQL expertise and a strong focus on data quality and governance — so the data stays reliable, consistent and secure.</p>
-        <h3>Tech Stack</h3>
-        <ul class="chips">
-          <li><img src="src/png/python.png" alt="">Python</li>
-          <li><img src="src/png/bash.png" alt="">Bash</li>
-          <li><img src="src/png/airflow.png" alt="">Apache Airflow</li>
-          <li><img src="src/png/Kubernetes.png" alt="">Kubernetes</li>
-          <li><img src="src/png/docker.png" alt="">Docker</li>
-          <li><img src="src/png/risingwave.png" alt="">RisingWave</li>
-          <li><img src="src/png/redpanda.png" alt="">Redpanda</li>
-          <li><img src="src/png/hadoop.png" alt="">Apache Hadoop</li>
-          <li><img src="src/png/doris.png" alt="">Apache Doris</li>
-        </ul>
-        <div class="sheet-actions">
-          <a class="pill pill-light" href="src/pdf/Ali_Fazeli_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-          <a class="pill pill-glass" href="https://github.com/alifzl" target="_blank" rel="noopener">GitHub</a>
+        <div class="carousel-nav">
+          <button type="button" data-dir="-1" aria-label="Previous project"><svg style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+          <button type="button" data-dir="1" aria-label="Next project"><svg><use href="#i-arrow"/></svg></button>
+          <a class="link-arrow" href="https://github.com/alifzl" target="_blank" rel="noopener">See more on GitHub <svg><use href="#i-arrow"/></svg></a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="sheet" id="sheet-projects" role="dialog" aria-modal="true" aria-labelledby="projects-title" inert>
-        <button class="sheet-close" type="button" aria-label="Close"><svg viewBox="0 0 14 14" fill="none"><path d="m2 2 10 10M12 2 2 12" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-        <h2 id="projects-title">Selected <span>Work.</span></h2>
-        <div class="project">
-          <img class="shot" src="src/webp/zhaav-bi.webp" alt="Zhaav BI preview">
+    <!-- ============ HOW I WORK ============ -->
+    <section class="block tight" id="how">
+      <div class="wrap">
+        <div class="sec-head solo reveal">
           <div>
-            <h4>Zhaav</h4>
-            <p>Founder of a big-data visualization platform built for the Iranian market.</p>
-            <div class="links"><a href="https://zhaav.net/" target="_blank" rel="noopener">zhaav.net ↗</a><a href="https://github.com/zhaav-bi" target="_blank" rel="noopener">GitHub ↗</a></div>
+            <p class="eyebrow">How I work</p>
+            <h2 class="h2">You can stop after the first stage.<br>I designed it that way.</h2>
           </div>
         </div>
-        <div class="project">
-          <img class="shot" src="src/webp/zhaav-sas.webp" alt="Zhaav SAS preview">
-          <div>
-            <h4>Zhaav SAS</h4>
-            <p>A smart assistant system combining LLMs with RAG and MCP techniques to deliver seamless, context-aware assistance.</p>
-            <div class="links"><a href="https://sas.zhaav.org" target="_blank" rel="noopener">sas.zhaav.org ↗</a></div>
+        <div class="how reveal">
+          <div class="steps">
+            <div class="step on">
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="1.5" y="4" width="15" height="10"/><circle cx="9" cy="9" r="2.2"/></svg>
+              <div><h3>Fixed-scope assessment</h3><p>We start with a fixed-price assessment focused on one costly problem. After that, you decide whether the findings justify further work.</p></div>
+            </div>
+            <div class="step">
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1.5 9.5l3.5 3.5 6-8M8 13l6-8"/></svg>
+              <div><h3>Decision based on evidence</h3><p>If the findings don't justify more work, I stop — rather than recommend work the evidence does not support.</p></div>
+            </div>
+            <div class="step">
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1.5 15.5h15M3 12l4-4 3 3 5-6"/></svg>
+              <div><h3>The knowledge stays with you</h3><p>Code, documentation and know-how stay with your team. When the scope includes implementation, the code lives in your repository.</p></div>
+            </div>
+          </div>
+          <div class="funnel" aria-hidden="true">
+            <div class="grid-bg" style="mask-image:none;-webkit-mask-image:none;opacity:.6"></div>
+            <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="fun" x1="0" x2="1" y1="0" y2="0"><stop offset=".35" stop-color="#4fdc86" stop-opacity="0"/><stop offset=".75" stop-color="#4fdc86" stop-opacity=".45"/><stop offset="1" stop-color="#8ef0aa" stop-opacity=".85"/></linearGradient>
+                <linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#4fdc86" stop-opacity=".1"/><stop offset="1" stop-color="#4fdc86"/></linearGradient>
+              </defs>
+              <path d="M260 198 C380 196 470 120 640 -10 L640 410 C470 280 380 204 260 202 Z" fill="url(#fun)"/>
+              <path d="M0 200 H300" stroke="url(#beam)" stroke-width="3"/>
+              <path d="M300 200 C330 200 330 120 360 120 H540" stroke="rgba(239,233,218,.45)" stroke-dasharray="4 5" fill="none"/>
+              <path d="M300 200 C330 200 330 270 360 270 H540" stroke="#4fdc86" stroke-width="1.5" fill="none"/>
+              <circle r="4" fill="#8ef0aa"><animateMotion dur="3.2s" repeatCount="indefinite" path="M0 200 H300 C330 200 330 270 360 270 H540"/></circle>
+              <g fill="none" stroke="rgba(239,233,218,.3)"><circle cx="120" cy="200" r="22"/><circle cx="300" cy="200" r="34"/><circle cx="300" cy="200" r="22"/></g>
+              <circle cx="120" cy="200" r="17" fill="#163f3f"/><rect x="111" y="194" width="18" height="12" fill="none" stroke="#efe9da" stroke-width="1.4"/><circle cx="120" cy="200" r="2.5" fill="#efe9da"/>
+              <circle cx="300" cy="200" r="17" fill="#163f3f"/><path d="M291 201l4 4 7-9M298 205l7-9" stroke="#efe9da" stroke-width="1.4" fill="none"/>
+              <circle cx="540" cy="120" r="17" fill="#2a4f4d" stroke="rgba(239,233,218,.3)"/><path d="M536 114v12M544 114v12" stroke="#efe9da" stroke-width="2"/>
+              <circle cx="540" cy="270" r="20" fill="#4fdc86"/><path d="M535 261l14 9-14 9z" fill="#0c2c2d"/>
+              <g fill="#f3f1ea" font-family="Inter Tight, Arial, sans-serif" font-size="17">
+                <text x="120" y="330" text-anchor="middle">Paid step</text>
+                <text x="300" y="330" text-anchor="middle">Decision</text>
+                <text x="540" y="80" text-anchor="middle">Stop</text>
+                <text x="540" y="330" text-anchor="middle">Go further</text>
+              </g>
+            </svg>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="sheet" id="sheet-contact" role="dialog" aria-modal="true" aria-labelledby="contact-title" inert>
-        <button class="sheet-close" type="button" aria-label="Close"><svg viewBox="0 0 14 14" fill="none"><path d="m2 2 10 10M12 2 2 12" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-        <h2 id="contact-title">Get in <span>Touch.</span></h2>
-        <p>Open to data platform, MLOps and AI infrastructure work. The fastest way to reach me is email.</p>
-        <div class="contact-list">
-          <a href="mailto:a.fazeli95@gmail.com"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>a.fazeli95@gmail.com<span>Email</span></a>
-          <a href="https://github.com/alifzl" target="_blank" rel="noopener"><svg viewBox="0 0 496 512" aria-hidden="true"><path d="M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8z"/></svg>github.com/alifzl<span>Code</span></a>
-          <a href="https://ko-fi.com/I3I5DASJ6" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h13v6a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6V7Zm13 1h1.5a3 3 0 0 1 0 6H17v-2h1.5a1 1 0 0 0 0-2H17V8Z"/></svg>Buy me some caffeine<span>Ko-fi</span></a>
+    <!-- ============ COST ============ -->
+    <section class="block tight" id="cost">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <h2 class="cost-title">The cost of bad data rarely<br>appears on the balance sheet</h2>
+          <p class="lede">It appears everywhere else in the business:</p>
         </div>
-      </section>
+        <div class="cost-cards reveal">
+          <div class="cost-card">
+            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="#0d2322" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13"/><path d="M8 4v4.5l3 1.5"/></svg></span>
+            <h3>Wasted hours.</h3>
+            <p>Engineering time spent babysitting pipelines, reconciling reports and fixing the same failures again.</p>
+          </div>
+          <div class="cost-card">
+            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="#0d2322" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><path d="M8 1.8V8l4.4 4.4M8 8H1.8"/></svg></span>
+            <h3>Unexplained infrastructure costs.</h3>
+            <p>Cloud and cluster spend that can't be clearly tied to workloads, owners or outcomes.</p>
+          </div>
+          <div class="cost-card">
+            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="#0d2322" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="5.5" r="3"/><path d="M2.5 14.5c.8-3 3-4.4 5.5-4.4s4.7 1.4 5.5 4.4"/></svg></span>
+            <h3>Customer impact.</h3>
+            <p>Late or wrong information that slows decisions, frustrates customers and erodes trust in every dashboard.</p>
+          </div>
+        </div>
+        <div class="why reveal">
+          <div>
+            <h3>Why does it matter? If your net margin is 3%, operational waste equal to 1 percentage point of revenue cuts your annual profit by a third.</h3>
+            <p>My work starts by exposing that hidden invoice.<br>Because the most expensive decision is the one nobody made.</p>
+            <a class="btn ink" href="mailto:a.fazeli95@gmail.com?subject=30-minute%20call"><span class="t">Book a 30-minute call</span><span class="a"><svg><use href="#i-arrow"/></svg></span></a>
+          </div>
+          <div class="cube-wrap" aria-hidden="true"><svg id="cube-iso" viewBox="0 0 300 300"></svg></div>
+        </div>
+      </div>
     </section>
   </main>
 
+  <footer class="site-footer" id="contact">
+    <div class="wrap">
+      <div class="foot-top">
+        <div>
+          <h2>Have a data problem with a cost?<br><span>Let's measure it first.</span></h2>
+          <a class="btn" href="mailto:a.fazeli95@gmail.com?subject=Let%27s%20talk%20about%20our%20data"><span class="t">a.fazeli95@gmail.com</span><span class="a"><svg><use href="#i-arrow"/></svg></span></a>
+        </div>
+        <div class="foot-col">
+          <h4>Navigate</h4>
+          <a href="#problems">What I fix</a>
+          <a href="#approach">Approach</a>
+          <a href="#about">About</a>
+          <a href="#work">Selected work</a>
+          <a href="#how">How I work</a>
+        </div>
+        <div class="foot-col">
+          <h4>Elsewhere</h4>
+          <a href="https://github.com/alifzl" target="_blank" rel="noopener">GitHub</a>
+          <a href="src/pdf/Ali_Fazeli_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          <a href="https://ko-fi.com/I3I5DASJ6" target="_blank" rel="noopener">Buy me a coffee</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span id="year">2026</span> Ali Fazeli. Working with attention is all we need.</span>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
   <script>
+  (function () {
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---------- header ---------- */
+    var header = document.querySelector('.site-header');
+    var menuBtn = header.querySelector('.menu-btn');
+    function onScroll() { header.classList.toggle('scrolled', window.scrollY > 24); }
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    function setMenu(open) {
+      header.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    menuBtn.addEventListener('click', function () { setMenu(!header.classList.contains('open')); });
+    header.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && header.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+    document.addEventListener('pointerdown', function (e) { if (header.classList.contains('open') && !header.contains(e.target)) setMenu(false); });
+
+    /* ---------- isometric renderer ---------- */
+    var C30 = Math.cos(Math.PI / 6);
+    var PAL = {
+      cream: ['#f2ecdc', '#d9d2bd', '#b6b29c', '#4f5a4f'],
+      sage:  ['#7e8e81', '#5c6c62', '#43534b', '#1d302c'],
+      green: ['#9af5b1', '#55d983', '#2fae5f', '#145a3a'],
+      deep:  ['#2a5552', '#1b4240', '#133332', '#0b2223']
+    };
+    function defs(id) {
+      var d = '<defs>';
+      Object.keys(PAL).forEach(function (k) {
+        var p = PAL[k];
+        d += '<linearGradient id="' + id + k + 't" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + p[0] + '"/><stop offset="1" stop-color="' + p[1] + '"/></linearGradient>';
+        d += '<linearGradient id="' + id + k + 'l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + p[1] + '"/><stop offset="1" stop-color="' + p[2] + '"/></linearGradient>';
+        d += '<linearGradient id="' + id + k + 'r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + p[2] + '"/><stop offset="1" stop-color="' + p[3] + '"/></linearGradient>';
+      });
+      return d + '<filter id="' + id + 'soft" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="14"/></filter></defs>';
+    }
+    function proj(o, s, x, y, z) { return [o[0] + (x - y) * C30 * s, o[1] + (x + y) * 0.5 * s - z * s]; }
+    function poly(pts) { return pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' '); }
+    function boxSVG(id, o, s, b, h) {
+      var x = b.x, y = b.y, w = b.w, d = b.d, P = function (a, c, z) { return proj(o, s, a, c, z); };
+      var top = [P(x, y, h), P(x + w, y, h), P(x + w, y + d, h), P(x, y + d, h)];
+      var left = [P(x, y + d, 0), P(x + w, y + d, 0), P(x + w, y + d, h), P(x, y + d, h)];
+      var right = [P(x + w, y, 0), P(x + w, y + d, 0), P(x + w, y + d, h), P(x + w, y, h)];
+      return '<polygon points="' + poly(left) + '" fill="url(#' + id + b.c + 'l)"/>' +
+             '<polygon points="' + poly(right) + '" fill="url(#' + id + b.c + 'r)"/>' +
+             '<polygon points="' + poly(top) + '" fill="url(#' + id + b.c + 't)" stroke="rgba(255,255,255,.18)" stroke-width=".8"/>';
+    }
+
+    /* hero: a data "skyline" of bars that grow in */
+    var heroSvg = document.getElementById('hero-iso');
+    var bars = [
+      { x: 0,   y: 0,   w: 5.2, d: 1.5, h: 2.6, c: 'sage' },
+      { x: 6,   y: 0,   w: 3,   d: 1.5, h: 1.6, c: 'deep' },
+      { x: 0,   y: 2.2, w: 3.4, d: 1.5, h: 3.4, c: 'green' },
+      { x: 4.2, y: 2.2, w: 4.6, d: 1.5, h: 2.0, c: 'sage' },
+      { x: 0,   y: 4.4, w: 6.4, d: 1.5, h: 1.8, c: 'cream' },
+      { x: 7.2, y: 4.4, w: 2.6, d: 1.5, h: 2.6, c: 'cream' },
+      { x: 0,   y: 6.6, w: 3.8, d: 1.5, h: 1.1, c: 'deep' },
+      { x: 4.6, y: 6.6, w: 5,   d: 1.5, h: 1.5, c: 'green' },
+      { x: 0,   y: 8.8, w: 8,   d: 1.5, h: 2.2, c: 'sage' }
+    ];
+    bars.sort(function (a, b) { return (a.y - b.y) || (a.x - b.x); }); // rows never overlap in y, so back-to-front is row then x
+    var heroDefs = defs('h');
+    function drawHero(t) {
+      var html = heroDefs + '<ellipse cx="560" cy="600" rx="420" ry="110" fill="#020f10" opacity=".55" filter="url(#hsoft)"/>';
+      bars.forEach(function (b, i) {
+        var local = Math.min(1, Math.max(0, (t - i * 0.07) / 0.7));
+        var e = 1 - Math.pow(1 - local, 4);
+        html += boxSVG('h', [640, 190], 52, b, 0.12 + (b.h - 0.12) * e);
+      });
+      heroSvg.innerHTML = html;
+    }
+    if (reduce) drawHero(2);
+    else {
+      var t0 = null;
+      requestAnimationFrame(function frame(ts) {
+        if (t0 === null) t0 = ts + 250;
+        var t = Math.max(0, ts - t0) / 1400;
+        drawHero(t);
+        if (t < 1.4) requestAnimationFrame(frame);
+      });
+    }
+
+    /* cube with the logo mark on top */
     (function () {
-      var root = document.documentElement;
-      var viewport = document.getElementById('viewport');
-      var header = document.getElementById('header');
-      var panel = document.getElementById('tablet-navigation');
-      var toggle = header.querySelector('.menu-toggle');
-      var card = document.querySelector('.demo-card');
-      var backdrop = document.getElementById('sheet-backdrop');
-
-      /* entrance: finish when the last element lands */
-      card.addEventListener('animationend', function (e) {
-        if (e.target !== card) return;
-        root.classList.remove('motion-pending');
-        clearTimeout(window.__motionFallback);
+      var o = [150, 66], s = 72, h = 1.9, b = { x: 0, y: 0, w: 1.9, d: 1.9, c: 'cream' };
+      var html = defs('c') + '<ellipse cx="150" cy="268" rx="110" ry="22" fill="#0c2c2d" opacity=".2" filter="url(#csoft)"/>' + boxSVG('c', o, s, b, h);
+      [[0.25, 1.65], [0.25, 1.3], [0.5, 1.65], [0.25, 1.45], [0.6, 1.65]].forEach(function (r, i) {
+        var y0 = 0.28 + i * 0.29, y1 = y0 + 0.16;
+        html += '<polygon points="' + poly([proj(o, s, r[0], y0, h), proj(o, s, r[1], y0, h), proj(o, s, r[1], y1, h), proj(o, s, r[0], y1, h)]) + '" fill="#0d2322"/>';
       });
-
-      /* live Tehran clock in the time panel */
-      var timeEl = document.getElementById('local-time');
-      function tick() {
-        try {
-          var now = new Date();
-          var t = now.toLocaleTimeString('en-US', { timeZone: 'Asia/Tehran', hour: 'numeric', minute: '2-digit' });
-          var d = now.toLocaleDateString('en-GB', { timeZone: 'Asia/Tehran', day: 'numeric', month: 'long', year: 'numeric' });
-          timeEl.innerHTML = t + '&nbsp; • &nbsp;' + d;
-        } catch (err) { /* keep static fallback */ }
-      }
-      tick();
-      setInterval(tick, 15000);
-
-      /* tablet / mobile menu */
-      function toggleVisible() { return getComputedStyle(toggle).display !== 'none'; }
-      function syncInert() {
-        var open = header.classList.contains('menu-open');
-        if (toggleVisible() && !open) panel.setAttribute('inert', ''); else panel.removeAttribute('inert');
-      }
-      function setMenu(open, focus) {
-        header.classList.toggle('menu-open', open);
-        toggle.setAttribute('aria-expanded', String(open));
-        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-        syncInert();
-        if (open && focus) { var first = panel.querySelector('a'); if (first) first.focus(); }
-      }
-      toggle.addEventListener('click', function () { setMenu(!header.classList.contains('menu-open'), true); });
-      document.addEventListener('pointerdown', function (e) {
-        if (header.classList.contains('menu-open') && !header.contains(e.target)) setMenu(false);
-      });
-      panel.addEventListener('click', function (e) { if (e.target.closest('a') && toggleVisible()) setMenu(false); });
-      window.addEventListener('resize', syncInert);
-      syncInert();
-
-      /* info sheets */
-      var openSheet = null, lastFocus = null;
-      function showSheet(name) {
-        var sheet = document.getElementById('sheet-' + name);
-        if (!sheet) return;
-        if (openSheet && openSheet !== sheet) hideSheet(true);
-        lastFocus = document.activeElement;
-        sheet.removeAttribute('inert');
-        sheet.classList.add('is-open');
-        viewport.classList.add('sheet-open');
-        openSheet = sheet;
-        sheet.querySelector('.sheet-close').focus({ preventScroll: true });
-        if (location.hash !== '#' + name) history.replaceState(null, '', '#' + name);
-      }
-      function hideSheet(silent) {
-        if (!openSheet) return;
-        openSheet.classList.remove('is-open');
-        openSheet.setAttribute('inert', '');
-        viewport.classList.remove('sheet-open');
-        openSheet = null;
-        history.replaceState(null, '', location.pathname + location.search);
-        if (!silent && lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
-      }
-      document.querySelectorAll('[data-sheet]').forEach(function (el) {
-        el.addEventListener('click', function (e) { e.preventDefault(); showSheet(el.getAttribute('data-sheet')); });
-      });
-      document.querySelectorAll('.sheet-close').forEach(function (b) { b.addEventListener('click', function () { hideSheet(); }); });
-      backdrop.addEventListener('click', function () { hideSheet(); });
-      document.querySelector('.brand').addEventListener('click', function (e) { e.preventDefault(); hideSheet(); setMenu(false); });
-      document.querySelector('.nav a[href="#home"]').addEventListener('click', function (e) { e.preventDefault(); hideSheet(); });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key !== 'Escape') return;
-        if (openSheet) { hideSheet(); return; }
-        if (header.classList.contains('menu-open')) { setMenu(false); toggle.focus(); }
-      });
-
-      var initial = location.hash.replace('#', '');
-      if (initial && document.getElementById('sheet-' + initial)) showSheet(initial);
+      document.getElementById('cube-iso').innerHTML = html;
     })();
+
+    /* ---------- problem visuals ---------- */
+    var G = '#4fdc86', CR = 'rgba(239,233,218,.55)', FONT = 'font-family="Inter Tight, Arial, sans-serif"';
+    function vizMarkup(kind) {
+      var out = '', i;
+      if (kind === 'spike') {
+        var pts = [];
+        for (i = 0; i <= 38; i++) {
+          var y = 170 + Math.sin(i * 0.9) * 10 + Math.cos(i * 2.1) * 6;
+          if (i === 26) y = 60; if (i === 27) y = 230;
+          pts.push((40 + i * 14) + ',' + y.toFixed(1));
+        }
+        out += '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + CR + '" stroke-width="2"/>';
+        out += '<circle cx="404" cy="60" r="8" fill="none" stroke="' + G + '" stroke-width="2"/><circle cx="404" cy="60" r="20" fill="none" stroke="' + G + '" stroke-opacity=".35"><animate attributeName="r" values="12;26;12" dur="2.4s" repeatCount="indefinite"/></circle>';
+        out += '<path d="M404 80V270" stroke="' + G + '" stroke-dasharray="4 5"/><rect x="420" y="44" width="130" height="30" fill="#0c2c2d" stroke="' + G + '"/><text x="485" y="64" fill="#8ef0aa" font-size="13" text-anchor="middle" ' + FONT + '>anomaly · 14:02</text>';
+      } else if (kind === 'merge') {
+        [30, 78, 126, 174, 222, 270].forEach(function (y) {
+          out += '<rect x="60" y="' + (y - 12) + '" width="24" height="24" fill="none" stroke="' + CR + '"/><path d="M84 ' + y + ' C260 ' + y + ' 280 150 420 150" fill="none" stroke="' + CR + '" stroke-opacity=".6"/>';
+        });
+        out += '<rect x="420" y="115" width="70" height="70" fill="' + G + '"/><g stroke="#0c2c2d" stroke-width="5"><path d="M432 133h46M432 145h34M440 157h38M432 169h40"/></g>';
+      } else if (kind === 'stream') {
+        for (var r = 0; r < 4; r++) {
+          var yy = 60 + r * 60;
+          out += '<path d="M30 ' + yy + ' H570" stroke="' + CR + '" stroke-opacity=".35"/>';
+          for (var k = 0; k < 7; k++) {
+            var x0 = 10 + k * 80 + r * 20;
+            out += '<rect x="' + x0 + '" y="' + (yy - 7) + '" width="36" height="14" fill="' + (k === 5 - r ? G : 'rgba(239,233,218,.35)') + '">' +
+              (reduce ? '' : '<animate attributeName="x" from="' + x0 + '" to="' + (x0 + 80) + '" dur="' + (2 + r * 0.4) + 's" repeatCount="indefinite"/>') + '</rect>';
+          }
+        }
+      } else if (kind === 'ship') {
+        var st = [['notebook', 70], ['train', 185], ['package', 300], ['serve', 415], ['monitor', 530]];
+        out += '<path d="M70 140 H530" stroke="' + CR + '" stroke-opacity=".5"/><path d="M70 140 H415" stroke="' + G + '" stroke-width="2"/>';
+        st.forEach(function (s2, j) {
+          var on = j === 3;
+          out += '<circle cx="' + s2[1] + '" cy="140" r="' + (on ? 18 : 12) + '" fill="' + (j <= 3 ? (on ? G : '#1d4c4c') : '#0c2c2d') + '" stroke="' + (j <= 3 ? G : CR) + '"/>' +
+            '<text x="' + s2[1] + '" y="190" fill="#efe9da" font-size="14" text-anchor="middle" ' + FONT + '>' + s2[0] + '</text>';
+        });
+      } else if (kind === 'rag') {
+        out += '<g fill="none" stroke="' + CR + '"><rect x="50" y="90" width="90" height="120"/><path d="M68 115h54M68 135h54M68 155h40M68 175h50"/></g>';
+        out += '<path d="M140 150 H245" stroke="' + CR + '" stroke-dasharray="4 5"/>';
+        for (i = 0; i < 18; i++) {
+          var ang = i / 18 * Math.PI * 2, rr = 40 + (i % 3) * 12;
+          out += '<circle cx="' + (300 + Math.cos(ang) * rr).toFixed(1) + '" cy="' + (150 + Math.sin(ang) * rr).toFixed(1) + '" r="' + (i % 4 === 0 ? 6 : 4) + '" fill="' + (i % 4 === 0 ? G : 'rgba(239,233,218,.45)') + '"/>';
+        }
+        out += '<path d="M360 150 H440" stroke="' + G + '" stroke-width="2"/><rect x="440" y="120" width="110" height="60" fill="none" stroke="' + G + '"/><text x="495" y="156" fill="#8ef0aa" font-size="14" text-anchor="middle" ' + FONT + '>answer</text>';
+      }
+      return out;
+    }
+    document.querySelectorAll('svg.viz').forEach(function (s) { s.innerHTML = vizMarkup(s.getAttribute('data-viz')); });
+
+    /* ---------- tabs ---------- */
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (focus) tab.focus();
+      tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (n) { e.preventDefault(); select(tabs[(i + n + tabs.length) % tabs.length], true); }
+      });
+    });
+
+    /* ---------- carousel ---------- */
+    var car = document.getElementById('carousel');
+    document.querySelectorAll('.carousel-nav button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var card = car.querySelector('.case');
+        car.scrollBy({ left: (card.offsetWidth + 16) * +b.getAttribute('data-dir'), behavior: reduce ? 'auto' : 'smooth' });
+      });
+    });
+
+    /* ---------- how-I-work step highlight ---------- */
+    var steps = document.querySelectorAll('.step');
+    steps.forEach(function (s) {
+      s.addEventListener('mouseenter', function () { steps.forEach(function (x) { x.classList.toggle('on', x === s); }); });
+    });
+
+    /* ---------- reveal on scroll ---------- */
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || reduce) els.forEach(function (e) { e.classList.add('in'); });
+    else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      els.forEach(function (e) { io.observe(e); });
+    }
+  })();
   </script>
 </body>
 </html>
