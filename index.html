@@ -14,7 +14,7 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0c2c2d">
   <meta name="author" content="Ali Fazeli">
-  <meta name="description" content="Ali Fazeli — MLOps &amp; Data Engineer with 9+ years building big-data platforms, streaming pipelines and AI infrastructure that pay for themselves.">
+  <meta name="description" content="Ali Fazeli, MLOps &amp; Data Engineer with 9+ years building big-data platforms, streaming pipelines and AI infrastructure that pay for themselves.">
   <meta name="keywords" content="Ali Fazeli, alifzl, علی فاضلی, MLOps, Data Engineering, Big Data, AI Infrastructure, Data Platform, RAG, Streaming">
   <meta property="og:image" content="https://www.alifzl.com/src/png/Preview-card-min.png">
   <meta property="og:title" content="Ali Fazeli | Data &amp; MLOps Engineer">
@@ -92,7 +92,7 @@
 
     /* ---------------- Header ---------------- */
     .site-header { position: sticky; top: 0; z-index: 50; color: var(--on-dark); transition: background .3s; }
-    .site-header.scrolled { background: rgba(18, 40, 40, .62); backdrop-filter: blur(16px) saturate(120%); -webkit-backdrop-filter: blur(16px) saturate(120%); }
+    .site-header.scrolled { background: rgba(12, 44, 45, .94); backdrop-filter: blur(16px) saturate(120%); -webkit-backdrop-filter: blur(16px) saturate(120%); }
     .nav-bar { display: grid; grid-template-columns: auto 1fr auto; align-items: stretch; height: 76px; border-bottom: 1px solid var(--line-dark); }
     .logo { display: flex; align-items: center; gap: 10px; padding-right: clamp(20px, 6vw, 96px); text-decoration: none; font-size: 27px; font-weight: 500; letter-spacing: -.045em; border-right: 1px solid var(--line-dark); white-space: nowrap; }
     .logo svg { width: 30px; height: 24px; }
@@ -115,7 +115,7 @@
     .hero h1 .soft { color: var(--green-soft); }
     .hero-sub { margin-top: clamp(28px, 4.5vh, 52px); max-width: 640px; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.45; color: rgba(243,241,234,.88); }
     .hero-actions { margin-top: clamp(28px, 4vh, 44px); display: flex; align-items: center; gap: 44px; flex-wrap: wrap; }
-    .hero-art { position: absolute; z-index: 1; right: calc(-1 * var(--gutter) - 60px); bottom: 40px; width: min(62vw, 980px); pointer-events: none; }
+    .hero-art { position: absolute; z-index: 1; right: calc(-1 * var(--gutter)); bottom: 40px; width: min(54vw, 900px); pointer-events: none; }
     .hero-art svg { width: 100%; height: auto; overflow: visible; }
     .hero-strip { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 22px 0 26px; border-top: 1px solid var(--line-dark); }
     .hero-strip::before { content: ""; position: absolute; inset: 0 -100vw; z-index: -1; background: linear-gradient(90deg, rgba(10,38,39,.92) 0%, rgba(10,38,39,.7) 50%, rgba(10,38,39,.25) 100%); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
@@ -138,24 +138,54 @@
     .tab:last-child { border-right: 0; }
     .tab::after { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
     .tab[aria-selected="true"] { color: var(--ink); }
-    .tab[aria-selected="true"]::after { transform: scaleX(1); }
+    .tab[aria-selected="true"]::after { transform: scaleX(var(--p, 1)); transition: none; }
     .tab:hover { color: var(--ink); background: #fafaf8; }
-    .panel { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: 430px; }
-    .panel[hidden] { display: none; }
+    .slides { overflow: hidden; touch-action: pan-y; }
+    .track { display: flex; transition: transform .85s var(--ease); }
+    .panel { flex: 0 0 100%; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: 430px; }
+    .panel-text > * { transition: opacity .6s var(--ease), transform .7s var(--ease); }
+    .js .panel:not(.active) .panel-text > * { opacity: 0; transform: translateX(24px); }
+    .panel.active .panel-text > :nth-child(2) { transition-delay: .08s; }
+    .panel.active .panel-text > :nth-child(3) { transition-delay: .16s; }
+    .panel.active .panel-text > :nth-child(4) { transition-delay: .24s; }
+    .slide-ctrl { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 12px 10px 24px; border-top: 1px solid var(--line); }
+    .slide-ctrl .count { font-size: 13px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+    .slide-ctrl .count b { font-weight: 500; color: var(--ink); }
+    .slide-btns { display: flex; gap: 8px; }
+    .slide-btns button { width: 38px; height: 38px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; transition: border-color .2s, background .2s; }
+    .slide-btns button:hover { border-color: var(--ink-3); background: #fafaf8; }
+    .slide-btns svg { width: 13px; height: 13px; }
+    #slide-pause .ic-play, #slide-pause.paused .ic-pause { display: none; }
+    #slide-pause.paused .ic-play { display: inline; }
     .panel-text { display: flex; flex-direction: column; padding: 30px 32px; border-right: 1px solid var(--line); }
     .panel-index { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--ink-3); margin-bottom: 30px; }
     .panel-index i { width: 28px; height: 2px; background: var(--green); }
     .panel-text h3 { font-size: clamp(24px, 2.2vw, 31px); line-height: 1.12; letter-spacing: -.03em; max-width: 380px; }
     .panel-text p { margin-top: 18px; font-size: 15px; color: var(--ink-2); max-width: 400px; }
     .panel-text .link-arrow { margin-top: auto; padding-top: 28px; }
-    .panel-visual { position: relative; overflow: hidden; background: radial-gradient(90% 90% at 70% 30%, #164443, var(--teal-900)); color: var(--on-dark); }
+    .panel-visual { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 14px; padding: 24px 28px; background: radial-gradient(90% 90% at 70% 30%, #164443, var(--teal-900)); color: var(--on-dark); }
     .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--line-dark) 1px, transparent 1px), linear-gradient(90deg, var(--line-dark) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(80% 80% at 60% 40%, #000, transparent); -webkit-mask-image: radial-gradient(80% 80% at 60% 40%, #000, transparent); }
-    .panel-visual svg.viz { position: absolute; left: 0; right: 0; top: 70px; bottom: 60px; width: 100%; height: calc(100% - 130px); }
-    .panel-visual .chips { position: absolute; left: 28px; bottom: 24px; right: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .panel-visual svg.viz { position: relative; flex: 1; width: 100%; min-height: 170px; overflow: visible; }
+    .panel-visual .chips { position: relative; display: flex; flex-wrap: wrap; gap: 8px; }
     .panel-visual .chips span { font-size: 12.5px; padding: 6px 10px; border: 1px solid rgba(255,255,255,.16); background: rgba(7,31,32,.55); }
-    .panel-visual .metric { position: absolute; left: 28px; top: 24px; }
+    .panel-visual .metric { position: relative; order: -1; }
     .panel-visual .metric b { display: block; font-size: clamp(34px, 3.4vw, 50px); font-weight: 450; letter-spacing: -.04em; line-height: 1; color: var(--green-soft); }
     .panel-visual .metric small { display: block; margin-top: 6px; font-size: 13px; color: var(--on-dark-2); max-width: 240px; }
+
+    /* shared figure motion */
+    @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+    @keyframes flow { to { stroke-dashoffset: -28; } }
+    @keyframes pop { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: none; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+    @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+    .draw { stroke-dasharray: 1; }
+    .panel.active .draw { animation: draw 1.8s var(--ease) both; animation-delay: var(--d, 0s); }
+    .flow { stroke-dasharray: 6 8; animation: flow 1.1s linear infinite; }
+    .pop, .pulse, .bob { transform-box: fill-box; transform-origin: center; }
+    .panel.active .pop { animation: pop .7s var(--ease) both; animation-delay: var(--d, .9s); }
+    .pulse { animation: pulse 2.4s ease-in-out infinite; animation-delay: var(--d, 0s); }
+    .orbit { transform-box: view-box; transform-origin: 300px 150px; animation: spin 28s linear infinite; }
 
     /* approach */
     .approach { display: grid; grid-template-columns: repeat(3, 1fr); background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 40px 40px; border: 1px solid var(--line); }
@@ -165,7 +195,30 @@
     .approach .diag svg { width: 100%; max-width: 300px; height: 200px; }
     .approach .body { background: var(--card); padding: 24px 22px 30px; flex: 1; border-top: 1px solid var(--line); }
     .approach h3 { font-size: 22px; letter-spacing: -.025em; }
+    :where(.approach .diag svg *) { transform-box: fill-box; transform-origin: center; }
+    .approach .sweep { transform-box: view-box; transform-origin: 150px 100px; animation: spin 4s linear infinite; }
+    @keyframes ping { 0%, 4% { transform: none; } 10% { transform: scale(1.18); } 22%, 100% { transform: none; } }
+    @keyframes ping-c { 0%, 4% { stroke: #cdd2cf; } 10% { stroke: #1f7a48; } 30%, 100% { stroke: #cdd2cf; } }
+    .approach .ping { animation: ping 4s ease-out infinite; animation-delay: var(--d); }
+    .approach .ping rect { animation: ping-c 4s ease-out infinite; animation-delay: var(--d); }
+    @keyframes ln { 0%, 15% { transform: scaleX(.3); } 45%, 100% { transform: none; } }
+    .approach .ln { transform-origin: left center; animation: ln 2.4s var(--ease) infinite alternate; animation-delay: var(--d, 0s); }
+    @keyframes hit { 0%, 100% { fill: #fff; } 50% { fill: #e2f6e9; } }
+    .approach .hit { animation: hit 2.2s ease-in-out infinite; }
+    @keyframes grow { 0% { stroke-dashoffset: 1; } 55%, 85% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+    @keyframes dot { 0% { opacity: 0; transform: scale(.3); } 8% { opacity: 1; transform: scale(1.3); } 14%, 70% { opacity: 1; transform: none; } 85%, 100% { opacity: 0; } }
+    .approach .grow { stroke-dasharray: 1; animation: grow 4s var(--ease) infinite; }
+    .approach .dot { opacity: 0; animation: dot 4s ease-out infinite; animation-delay: var(--d); }
+    .js .approach:not(.in) * { animation-play-state: paused; }
     .approach p { margin-top: 10px; font-size: 14px; color: var(--ink-2); max-width: 340px; }
+
+    /* soft dark/light hand-offs instead of hard edges */
+    .blend { height: clamp(120px, 15vw, 220px); background: linear-gradient(180deg, var(--f), var(--t)); }
+    @supports (color: color-mix(in oklab, red, blue)) {
+      .blend { background: linear-gradient(180deg, var(--f) 0%, color-mix(in oklab, var(--f) 90%, var(--t)) 16%, color-mix(in oklab, var(--f) 68%, var(--t)) 36%, color-mix(in oklab, var(--f) 40%, var(--t)) 58%, color-mix(in oklab, var(--f) 16%, var(--t)) 80%, var(--t) 100%); }
+    }
+    .blend + section.block, .blend + footer { padding-top: clamp(24px, 3vw, 48px); }
+    section.block.pre-blend { padding-bottom: clamp(24px, 3vw, 48px); }
 
     /* dark offer band */
     .dark { background: var(--teal-900); color: var(--on-dark); }
@@ -175,6 +228,10 @@
     .offer { display: flex; flex-direction: column; min-height: 400px; padding: 30px clamp(22px, 2.6vw, 32px); border-right: 1px solid var(--line-dark); }
     .offer:last-child { border-right: 0; background: linear-gradient(150deg, var(--teal-800) 0%, #2c514c 55%, #8a998d 130%); }
     .offer .ico { width: 52px; height: 52px; }
+    @keyframes hop { 0%, 22% { fill: #4fdc86; transform: scale(1.06); } 28%, 100% { fill: #5d7570; transform: none; } }
+    .hop circle { fill: #5d7570; transform-box: fill-box; transform-origin: center; animation: hop 4s ease-in-out infinite; animation-delay: var(--d); }
+    @keyframes eq { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.45); } }
+    .eq rect { transform-box: fill-box; transform-origin: center bottom; animation: eq 1.6s ease-in-out infinite; animation-delay: var(--d); }
     .offer h3 { margin-top: auto; padding-top: 48px; font-size: clamp(26px, 2.4vw, 34px); letter-spacing: -.03em; }
     .offer p { margin-top: 16px; font-size: 14.5px; color: var(--on-dark-2); max-width: 520px; }
     .offer a { margin-top: 26px; align-self: flex-start; font-size: 14.5px; }
@@ -226,7 +283,9 @@
     .step { flex: 1; display: grid; grid-template-columns: 26px 1fr; gap: 12px; padding: 28px; border-bottom: 1px solid var(--line); border-left: 2px solid transparent; transition: border-color .3s, background .3s; }
     .step:last-child { border-bottom: 0; }
     .step.on { border-left-color: var(--ink); background: #fbfbfa; }
-    .step svg { width: 18px; height: 18px; margin-top: 4px; color: var(--ink-2); }
+    .step svg { width: 18px; height: 18px; margin-top: 4px; color: var(--ink-2); transition: color .3s; }
+    @keyframes nudge { 0%, 100% { transform: none; } 50% { transform: translateY(-3px); } }
+    .step.on svg { color: var(--green-ink); animation: nudge 1.8s ease-in-out infinite; }
     .step h3 { font-size: 21px; letter-spacing: -.025em; }
     .step p { margin-top: 8px; font-size: 14px; color: var(--ink-2); max-width: 440px; }
     .funnel { position: relative; background: var(--teal-900); min-height: 380px; overflow: hidden; }
@@ -237,16 +296,26 @@
     .cost-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .cost-card { background: #e4e6e2; padding: 22px 20px 24px; min-height: 230px; display: flex; flex-direction: column; }
     .cost-card .ico { width: 34px; height: 34px; background: #fff; display: flex; align-items: center; justify-content: center; }
-    .cost-card .ico svg { width: 16px; height: 16px; }
+    .cost-card .ico svg { width: 16px; height: 16px; overflow: visible; }
+    .cost-card .hand, .cost-card .slice { transform-box: view-box; transform-origin: 8px 8px; }
+    .cost-card .hand { animation: spin 6s linear infinite; }
+    .cost-card .slice { animation: spin 10s linear infinite; }
+    .cost-card .head { transform-box: fill-box; transform-origin: center; animation: bob 2.4s ease-in-out infinite; }
+    .cost-card { transition: transform .4s var(--ease), background .3s; }
+    .cost-card:hover { transform: translateY(-4px); background: #dfe2dd; }
     .cost-card h3 { margin-top: auto; padding-top: 40px; font-size: 20px; letter-spacing: -.02em; }
     .cost-card p { margin-top: 8px; font-size: 14px; color: var(--ink-2); }
-    .why { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: center; gap: 32px; }
-    .why h3 { font-size: clamp(22px, 2vw, 28px); line-height: 1.2; letter-spacing: -.025em; max-width: 640px; }
-    .why p { margin-top: 18px; font-size: 14.5px; color: var(--ink-2); }
-    .why .btn { margin-top: 30px; }
+    .cube-stage { margin-top: clamp(48px, 6vw, 80px); display: flex; justify-content: center; }
     .cube-wrap { position: relative; display: flex; justify-content: center; }
     .cube-wrap::before { content: ""; position: absolute; inset: -40px -20px; background-image: linear-gradient(30deg, transparent 49.6%, var(--line) 49.6%, var(--line) 50.4%, transparent 50.4%), linear-gradient(150deg, transparent 49.6%, var(--line) 49.6%, var(--line) 50.4%, transparent 50.4%); background-size: 70px 40px; mask-image: radial-gradient(closest-side, #000, transparent); -webkit-mask-image: radial-gradient(closest-side, #000, transparent); }
-    .cube-wrap svg { position: relative; width: min(300px, 70%); height: auto; }
+    .cube-wrap { width: min(300px, 70vw); }
+    .cube-wrap svg { position: relative; width: 100%; height: auto; overflow: visible; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+    @keyframes shadow { 0%, 100% { transform: scale(1); opacity: .2; } 50% { transform: scale(.82); opacity: .12; } }
+    #cube-iso .body { animation: float 5s ease-in-out infinite; }
+    #cube-iso .shade { transform-box: fill-box; transform-origin: center; animation: shadow 5s ease-in-out infinite; }
+    @keyframes mark { 0%, 70%, 100% { fill: #0d2322; } 80% { fill: #1f7a48; } }
+    #cube-iso .mark polygon { fill: #0d2322; animation: mark 5s ease-in-out infinite; animation-delay: var(--d); }
 
     /* footer */
     .site-footer { background: var(--teal-950); color: var(--on-dark); padding: clamp(56px, 7vw, 96px) 0 28px; }
@@ -270,6 +339,7 @@
     .js .hero-strip { animation-delay: .45s; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
       .js .hero h1, .js .hero-sub, .js .hero-actions, .js .hero-strip { animation: none; }
     }
@@ -283,7 +353,7 @@
       .nav-cta { padding-left: 28px; }
     }
     @media (max-width: 1080px) {
-      .hero-art { width: 74vw; right: -16vw; }
+      .hero-art { width: 52vw; right: -2vw; bottom: 90px; }
       .tablist { grid-template-columns: repeat(5, minmax(170px, 1fr)); overflow-x: auto; scrollbar-width: none; }
       .tablist::-webkit-scrollbar { display: none; }
       .stack-logos span:nth-child(3) { display: none; }
@@ -303,7 +373,7 @@
       .menu-btn { display: inline-flex; }
       .hero-inner { min-height: auto; }
       .hero-copy { padding-bottom: 0; }
-      .hero-art { position: relative; right: auto; bottom: auto; width: 120%; margin: -6% -24% -2% auto; }
+      .hero-art { position: relative; right: auto; bottom: auto; width: 100%; max-width: 620px; margin: 8px auto 0; }
       .hero-strip { flex-direction: column; align-items: flex-start; gap: 18px; }
       .sec-head { grid-template-columns: 1fr; align-items: start; }
       .panel { grid-template-columns: 1fr; }
@@ -317,10 +387,10 @@
       .about { grid-template-columns: 1fr; }
       .about-photo { min-height: 380px; }
       .how { grid-template-columns: 1fr; }
-      .funnel { min-height: 300px; }
+      .funnel { min-height: 0; aspect-ratio: 640 / 400; }
+      .funnel svg { overflow: visible; }
       .cost-cards { grid-template-columns: 1fr; }
       .cost-card { min-height: 0; }
-      .why { grid-template-columns: 1fr; }
       .foot-top { grid-template-columns: 1fr 1fr; }
       .foot-top > div:first-child { grid-column: 1 / -1; }
     }
@@ -338,7 +408,8 @@
       .facts b { font-size: 28px; }
       .step { padding: 22px 18px; }
       .panel-text { padding: 24px 20px; }
-      .why .btn .t { padding: 0 14px; }
+      .panel-visual { padding: 22px 20px; }
+      .funnel text { font-size: 28px; }
     }
   </style>
 </head>
@@ -354,7 +425,7 @@
   <header class="site-header" id="top">
     <div class="wrap">
       <div class="nav-bar">
-        <a class="logo" href="#top" aria-label="Ali Fazeli — home"><svg aria-hidden="true"><use href="#i-mark"/></svg>Ali Fazeli</a>
+        <a class="logo" href="#top" aria-label="Ali Fazeli home page"><svg aria-hidden="true"><use href="#i-mark"/></svg>Ali Fazeli</a>
         <nav class="nav-links" id="nav-links" aria-label="Primary">
           <a href="#problems">What I fix</a>
           <a href="#approach">Approach</a>
@@ -379,7 +450,7 @@
       <div class="wrap hero-inner">
         <div class="hero-copy">
           <h1 id="hero-title">Your data platform<br>has a cost.<br><span class="soft">I make it pay off.</span></h1>
-          <p class="hero-sub">I'm an MLOps &amp; Data Engineer with 9+ years designing big-data pipelines and AI infrastructure — so the systems your teams depend on run once, run right, and scale without rework.</p>
+          <p class="hero-sub">I'm an MLOps &amp; Data Engineer with 9+ years designing big-data pipelines and AI infrastructure, so the systems your teams depend on run once, run right, and scale without rework.</p>
           <div class="hero-actions">
             <a class="btn" href="mailto:a.fazeli95@gmail.com?subject=Let%27s%20talk%20about%20our%20data"><span class="t">Book a call</span><span class="a"><svg><use href="#i-arrow"/></svg></span></a>
             <a class="link-u" href="#work">Selected work</a>
@@ -396,6 +467,7 @@
         </div>
       </div>
     </section>
+    <div class="blend" style="--f:#0b2829;--t:var(--paper)" aria-hidden="true"></div>
 
     <!-- ============ PROBLEMS ============ -->
     <section class="block" id="problems">
@@ -416,11 +488,13 @@
             <button class="tab" role="tab" id="t5" aria-controls="p5" aria-selected="false" tabindex="-1">Data not ready for AI</button>
           </div>
 
-          <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+          <div class="slides" id="slides" aria-live="off">
+          <div class="track" id="track">
+          <div class="panel active" role="tabpanel" id="p1" aria-labelledby="t1">
             <div class="panel-text">
               <div class="panel-index">01 <i></i></div>
               <h3>Data failures get more expensive the later they're discovered.</h3>
-              <p>I add monitoring, data-quality checks and anomaly detection to your pipelines, so failures surface in minutes — not in Monday's executive report.</p>
+              <p>I add monitoring, data-quality checks and anomaly detection to your pipelines, so failures surface in minutes, not in Monday's executive report.</p>
               <a class="link-arrow" href="mailto:a.fazeli95@gmail.com?subject=Data%20observability">Observability &amp; anomaly detection <svg><use href="#i-arrow"/></svg></a>
             </div>
             <div class="panel-visual"><div class="grid-bg"></div><svg class="viz" data-viz="spike" viewBox="0 0 600 300"></svg>
@@ -429,7 +503,7 @@
             </div>
           </div>
 
-          <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+          <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" aria-hidden="true">
             <div class="panel-text">
               <div class="panel-index">02 <i></i></div>
               <h3>Your numbers live in ten systems and agree in none.</h3>
@@ -442,11 +516,11 @@
             </div>
           </div>
 
-          <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+          <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" aria-hidden="true">
             <div class="panel-text">
               <div class="panel-index">03 <i></i></div>
               <h3>Yesterday's batch can't drive today's decisions.</h3>
-              <p>Where freshness matters, I move workloads to streaming — event pipelines and incremental views that keep dashboards and features seconds behind reality.</p>
+              <p>Where freshness matters, I move workloads to streaming: event pipelines and incremental views that keep dashboards and features seconds behind reality.</p>
               <a class="link-arrow" href="mailto:a.fazeli95@gmail.com?subject=Real-time%20streaming">Real-time streaming <svg><use href="#i-arrow"/></svg></a>
             </div>
             <div class="panel-visual"><div class="grid-bg"></div><svg class="viz" data-viz="stream" viewBox="0 0 600 300"></svg>
@@ -455,7 +529,7 @@
             </div>
           </div>
 
-          <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" hidden>
+          <div class="panel" role="tabpanel" id="p4" aria-labelledby="t4" aria-hidden="true">
             <div class="panel-text">
               <div class="panel-index">04 <i></i></div>
               <h3>A model that never ships has all of the cost and none of the return.</h3>
@@ -468,11 +542,11 @@
             </div>
           </div>
 
-          <div class="panel" role="tabpanel" id="p5" aria-labelledby="t5" hidden>
+          <div class="panel" role="tabpanel" id="p5" aria-labelledby="t5" aria-hidden="true">
             <div class="panel-text">
               <div class="panel-index">05 <i></i></div>
               <h3>LLMs are only as good as the data they can retrieve.</h3>
-              <p>I prepare your knowledge for AI — clean ingestion, retrieval pipelines (RAG) and MCP tool access — so assistants answer from your data, with guardrails.</p>
+              <p>I prepare your knowledge for AI with clean ingestion, retrieval pipelines (RAG) and MCP tool access, so assistants answer from your data, with guardrails.</p>
               <a class="link-arrow" href="mailto:a.fazeli95@gmail.com?subject=LLM%20%26%20RAG%20systems">LLM &amp; RAG systems <svg><use href="#i-arrow"/></svg></a>
             </div>
             <div class="panel-visual"><div class="grid-bg"></div><svg class="viz" data-viz="rag" viewBox="0 0 600 300"></svg>
@@ -480,12 +554,22 @@
               <div class="chips"><span>RAG</span><span>MCP</span><span>Vector search</span><span>Python</span></div>
             </div>
           </div>
+          </div>
+          </div>
+          <div class="slide-ctrl">
+            <span class="count"><b id="slide-now">01</b> / 05</span>
+            <div class="slide-btns">
+              <button type="button" id="slide-pause" aria-label="Pause slideshow"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="ic-pause" d="M5 3.5v9M11 3.5v9" stroke="currentColor" stroke-width="1.8" fill="none"/><path class="ic-play" d="M5 3l8 5-8 5z" fill="currentColor"/></svg></button>
+              <button type="button" id="slide-prev" aria-label="Previous problem"><svg style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+              <button type="button" id="slide-next" aria-label="Next problem"><svg><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ============ APPROACH ============ -->
-    <section class="block tight" id="approach">
+    <section class="block tight pre-blend" id="approach">
       <div class="wrap">
         <div class="sec-head reveal">
           <div>
@@ -499,11 +583,15 @@
           <div>
             <div class="diag">
               <svg viewBox="0 0 300 200" fill="none" aria-hidden="true">
+                <defs><linearGradient id="sweep-g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#4fdc86" stop-opacity="0"/><stop offset="1" stop-color="#4fdc86" stop-opacity=".45"/></linearGradient></defs>
                 <circle cx="150" cy="100" r="72" stroke="#cdd2cf"/>
-                <path d="M150 100 L150 28 A72 72 0 0 1 212 136 Z" fill="#e3e6e2"/>
-                <rect x="132" y="82" width="36" height="36" fill="#9aa39f"/><g stroke="#fff" stroke-width="2.4"><path d="M139 92h22M139 100h16M143 108h18"/></g>
-                <g fill="#fff" stroke="#cdd2cf"><rect x="138" y="16" width="24" height="24"/><rect x="66" y="88" width="24" height="24"/><rect x="210" y="88" width="24" height="24"/><rect x="138" y="160" width="24" height="24"/></g>
-                <g stroke="#3c4f4d" stroke-width="1.3"><path d="M146 24h8v8h-8z"/><path d="M73 95l10 5-10 5z"/><path d="M216 94h12M216 100h12M216 106h12"/><path d="M144 166l12 12M156 166l-12 12"/></g>
+                <circle cx="150" cy="100" r="46" stroke="#dfe3e0" stroke-dasharray="3 4"/>
+                <g class="sweep"><path d="M150 100 L111.9 58.9 A56 56 0 0 1 150 44 Z" fill="url(#sweep-g)"/><path d="M150 100 V44" stroke="#1f7a48" stroke-width="1.4"/></g>
+                <g class="doc"><rect x="132" y="82" width="36" height="36" fill="#9aa39f"/><g stroke="#fff" stroke-width="2.4"><path class="ln" d="M139 92h22"/><path class="ln" d="M139 100h16" style="--d:.2s"/><path class="ln" d="M143 108h18" style="--d:.4s"/></g></g>
+                <g class="ping" style="--d:0s"><rect x="138" y="16" width="24" height="24" fill="#fff" stroke="#cdd2cf"/><path d="M146 24h8v8h-8z" stroke="#3c4f4d" stroke-width="1.3"/></g>
+                <g class="ping" style="--d:1s"><rect x="210" y="88" width="24" height="24" fill="#fff" stroke="#cdd2cf"/><path d="M216 94h12M216 100h12M216 106h12" stroke="#3c4f4d" stroke-width="1.3"/></g>
+                <g class="ping" style="--d:2s"><rect x="138" y="160" width="24" height="24" fill="#fff" stroke="#cdd2cf"/><path d="M144 166l12 12M156 166l-12 12" stroke="#3c4f4d" stroke-width="1.3"/></g>
+                <g class="ping" style="--d:3s"><rect x="66" y="88" width="24" height="24" fill="#fff" stroke="#cdd2cf"/><path d="M73 95l10 5-10 5z" stroke="#3c4f4d" stroke-width="1.3"/></g>
               </svg>
             </div>
             <div class="body"><h3>Baseline</h3><p>I establish where the problem starts, what it affects and what it costs. You get the number and the method behind it.</p></div>
@@ -511,27 +599,32 @@
           <div>
             <div class="diag">
               <svg viewBox="0 0 300 200" fill="none" aria-hidden="true">
-                <rect x="22" y="82" width="36" height="36" fill="#9aa39f"/><g stroke="#fff" stroke-width="2.4"><path d="M29 92h22M29 100h16M33 108h18"/></g>
-                <path d="M58 100h46" stroke="#cdd2cf"/>
-                <rect x="104" y="88" width="24" height="24" fill="#fff" stroke="#cdd2cf"/><circle cx="116" cy="100" r="5" stroke="#3c4f4d" stroke-width="1.3"/>
-                <g stroke="#cdd2cf"><path d="M128 100 C190 100 200 26 252 26"/><path d="M128 100 C190 100 200 63 252 63"/><path d="M128 100h124"/><path d="M128 100 C190 100 200 137 252 137"/><path d="M128 100 C190 100 200 174 252 174"/></g>
-                <g fill="#fff" stroke="#cdd2cf"><rect x="252" y="14" width="24" height="24"/><rect x="252" y="51" width="24" height="24"/><rect x="252" y="88" width="24" height="24"/><rect x="252" y="125" width="24" height="24"/><rect x="252" y="162" width="24" height="24"/></g>
-                <g fill="#3c4f4d"><circle cx="264" cy="26" r="3"/><rect x="259" y="59" width="10" height="8"/><circle cx="264" cy="100" r="4" fill="none" stroke="#3c4f4d" stroke-width="1.3"/><rect x="259" y="132" width="10" height="10" fill="none" stroke="#3c4f4d" stroke-width="1.3"/><path d="M258 180l6-10 6 10z"/></g>
+                <g class="doc"><rect x="22" y="82" width="36" height="36" fill="#9aa39f"/><g stroke="#fff" stroke-width="2.4"><path class="ln" d="M29 92h22"/><path class="ln" d="M29 100h16" style="--d:.2s"/><path class="ln" d="M33 108h18" style="--d:.4s"/></g></g>
+                <path class="flow" d="M58 100h46" stroke="#b9c0bc"/>
+                <circle cx="116" cy="100" r="12" stroke="#1f7a48" stroke-opacity=".4"><animate attributeName="r" values="12;24;12" dur="2.6s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".45;0;.45" dur="2.6s" repeatCount="indefinite"/></circle>
+                <rect x="104" y="88" width="24" height="24" fill="#fff" stroke="#cdd2cf"/><circle class="pulse" cx="116" cy="100" r="5" stroke="#3c4f4d" stroke-width="1.3"/>
+                <g stroke="#cdd2cf"><path id="rc1" d="M128 100 C190 100 200 26 252 26"/><path id="rc2" d="M128 100 C190 100 200 63 252 63"/><path id="rc3" d="M128 100h124"/><path id="rc5" d="M128 100 C190 100 200 174 252 174"/></g>
+                <path class="flow" d="M128 100 C190 100 200 137 252 137" stroke="#1f7a48" stroke-width="1.6"/>
+                <g fill="#9aa39f"><circle r="2.6"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#rc1"/></animateMotion></circle><circle r="2.6"><animateMotion dur="2.8s" begin=".6s" repeatCount="indefinite"><mpath href="#rc2"/></animateMotion></circle><circle r="2.6"><animateMotion dur="2.8s" begin="1.2s" repeatCount="indefinite"><mpath href="#rc3"/></animateMotion></circle><circle r="2.6"><animateMotion dur="2.8s" begin="1.8s" repeatCount="indefinite"><mpath href="#rc5"/></animateMotion></circle></g>
+                <g fill="#fff" stroke="#cdd2cf"><rect x="252" y="14" width="24" height="24"/><rect x="252" y="51" width="24" height="24"/><rect x="252" y="88" width="24" height="24"/><rect x="252" y="162" width="24" height="24"/></g>
+                <rect class="hit" x="252" y="125" width="24" height="24" fill="#fff" stroke="#1f7a48" stroke-width="1.4"/>
+                <g fill="#3c4f4d"><circle cx="264" cy="26" r="3"/><rect x="259" y="59" width="10" height="8"/><circle cx="264" cy="100" r="4" fill="none" stroke="#3c4f4d" stroke-width="1.3"/><rect class="pulse" x="259" y="132" width="10" height="10" fill="none" stroke="#1f7a48" stroke-width="1.4"/><path d="M258 180l6-10 6 10z"/></g>
               </svg>
             </div>
-            <div class="body"><h3>Root cause</h3><p>I identify what actually drives the problem — architecture, workload, cost, data quality or process. Until the cause is clear, implementation is guesswork.</p></div>
+            <div class="body"><h3>Root cause</h3><p>I identify what actually drives the problem: architecture, workload, cost, data quality or process. Until the cause is clear, implementation is guesswork.</p></div>
           </div>
           <div>
             <div class="diag">
               <svg viewBox="0 0 300 200" fill="none" aria-hidden="true">
                 <rect x="10" y="44" width="96" height="112" fill="#fff" stroke="#e1e4e1"/>
-                <path d="M18 120 L28 92 L36 128 L44 70 L52 118 L60 86 L68 132 L76 96 L84 112 L98 104" stroke="#9aa39f" stroke-width="1.4"/>
-                <path d="M106 100h30" stroke="#cdd2cf"/>
-                <rect x="136" y="82" width="36" height="36" fill="#9aa39f"/><g stroke="#fff" stroke-width="2.4"><path d="M143 92h22M143 100h16M147 108h18"/></g>
-                <path d="M172 100h18" stroke="#cdd2cf"/>
+                <polyline points="18,120 28,92 36,128 44,70 52,118 60,86 68,132 76,96 84,112 98,104" stroke="#9aa39f" stroke-width="1.4"><animate attributeName="points" dur="1.6s" repeatCount="indefinite" values="18,120 28,92 36,128 44,70 52,118 60,86 68,132 76,96 84,112 98,104;18,104 28,126 36,84 44,118 52,74 60,124 68,90 76,128 84,88 98,116;18,120 28,92 36,128 44,70 52,118 60,86 68,132 76,96 84,112 98,104"/></polyline>
+                <path class="flow" d="M106 100h30" stroke="#b9c0bc"/>
+                <circle r="2.6" fill="#1f7a48"><animateMotion dur="1.6s" repeatCount="indefinite" path="M106 100h30"/></circle>
+                <g class="doc"><rect x="136" y="82" width="36" height="36" fill="#9aa39f"/><g stroke="#fff" stroke-width="2.4"><path class="ln" d="M143 92h22"/><path class="ln" d="M143 100h16" style="--d:.2s"/><path class="ln" d="M147 108h18" style="--d:.4s"/></g></g>
+                <path class="flow" d="M172 100h18" stroke="#b9c0bc"/>
                 <rect x="190" y="36" width="100" height="128" fill="#fff" stroke="#cdd2cf"/>
-                <path d="M198 150 C230 146 250 120 282 48" stroke="#1f7a48" stroke-width="1.6"/>
-                <g fill="#fff" stroke="#1f7a48" stroke-width="1.4"><circle cx="214" cy="146" r="3"/><circle cx="240" cy="132" r="3"/><circle cx="262" cy="100" r="3"/><circle cx="280" cy="54" r="3"/></g>
+                <path class="grow" pathLength="1" d="M198 150 C230 146 250 120 282 48" stroke="#1f7a48" stroke-width="1.6"/>
+                <g fill="#fff" stroke="#1f7a48" stroke-width="1.4"><circle class="dot" style="--d:.5s" cx="214" cy="146" r="3"/><circle class="dot" style="--d:1s" cx="240" cy="132" r="3"/><circle class="dot" style="--d:1.5s" cx="262" cy="100" r="3"/><circle class="dot" style="--d:2s" cx="280" cy="54" r="3"/></g>
               </svg>
             </div>
             <div class="body"><h3>Proof</h3><p>I measure the change on your data, in your environment. The result, the method and the code stay with you.</p></div>
@@ -539,9 +632,10 @@
         </div>
       </div>
     </section>
+    <div class="blend" style="--f:var(--paper);--t:var(--teal-900)" aria-hidden="true"></div>
 
     <!-- ============ OFFER (dark) ============ -->
-    <section class="block dark" id="engage">
+    <section class="block dark pre-blend" id="engage">
       <div class="wrap">
         <div class="offer-head reveal">
           <p class="eyebrow" style="margin-bottom:22px">The entry point</p>
@@ -550,20 +644,22 @@
         </div>
         <div class="offers reveal">
           <article class="offer">
-            <svg class="ico" viewBox="0 0 52 52" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="#5d7570"/><circle cx="37" cy="13" r="11" fill="#5d7570"/><circle cx="13" cy="37" r="11" fill="#4fdc86"/><circle cx="37" cy="37" r="11" fill="#5d7570"/></svg>
+            <svg class="ico hop" viewBox="0 0 52 52" aria-hidden="true"><circle style="--d:0s" cx="13" cy="13" r="11"/><circle style="--d:1s" cx="37" cy="13" r="11"/><circle style="--d:2s" cx="37" cy="37" r="11"/><circle style="--d:3s" cx="13" cy="37" r="11"/></svg>
             <h3>Platform diagnosis</h3>
             <p>Interviews and an architecture review, using production data only where the agreed scope requires it. You leave with a calculated cost, a ranked list of fixes and clear priorities.</p>
             <a class="link-u" href="mailto:a.fazeli95@gmail.com?subject=Platform%20diagnosis">Ask about a diagnosis</a>
           </article>
           <article class="offer">
-            <svg class="ico" viewBox="0 0 52 52" aria-hidden="true"><g fill="#4fdc86"><rect x="2" y="4" width="4" height="44"/><rect x="10" y="4" width="4" height="44"/><rect x="18" y="4" width="4" height="44"/></g><g fill="#a9b8b0"><rect x="26" y="4" width="4" height="44"/><rect x="34" y="4" width="4" height="44" opacity=".8"/><rect x="42" y="4" width="4" height="44" opacity=".6"/></g></svg>
+            <svg class="ico eq" viewBox="0 0 52 52" aria-hidden="true"><g fill="#4fdc86"><rect style="--d:0s" x="2" y="4" width="4" height="44"/><rect style="--d:.2s" x="10" y="4" width="4" height="44"/><rect style="--d:.4s" x="18" y="4" width="4" height="44"/></g><g fill="#a9b8b0"><rect style="--d:.6s" x="26" y="4" width="4" height="44"/><rect style="--d:.8s" x="34" y="4" width="4" height="44" opacity=".8"/><rect style="--d:1s" x="42" y="4" width="4" height="44" opacity=".6"/></g></svg>
             <h3>Measured pilot</h3>
-            <p>One process or one source, with a working proof built in your own cloud or cluster. You keep the result, the method and reusable code — with implementation included when the scope calls for it.</p>
+            <p>One process or one source, with a working proof built in your own cloud or cluster. You keep the result, the method and reusable code. Implementation is included when the scope calls for it.</p>
             <a class="link-u" href="mailto:a.fazeli95@gmail.com?subject=Measured%20pilot">Ask about a pilot</a>
           </article>
         </div>
       </div>
     </section>
+
+    <div class="blend" style="--f:var(--teal-900);--t:var(--paper)" aria-hidden="true"></div>
 
     <!-- ============ ABOUT ============ -->
     <section class="block" id="about">
@@ -573,13 +669,13 @@
             <p class="eyebrow">About</p>
             <h2 class="h2">Nine years of making<br>data boringly reliable</h2>
           </div>
-          <p class="lede">Data engineering and MLOps across a range of industries — from the first pipeline to AI in production.</p>
+          <p class="lede">Data engineering and MLOps across a range of industries, from the first pipeline to AI in production.</p>
         </div>
         <div class="about reveal">
           <div class="about-photo"><img src="src/webp/ali.webp" alt="Portrait of Ali Fazeli" loading="lazy"><span class="tag">Ali Fazeli · Tehran</span></div>
           <div class="about-body">
             <h3>I design and run the systems that move, model and serve data.</h3>
-            <p>I'm skilled in data architecture, data modeling and ETL/ELT design, with deep Python and SQL expertise. I care about data quality and governance — making sure data stays reliable, consistent and secure long after the project is handed over.</p>
+            <p>I'm skilled in data architecture, data modeling and ETL/ELT design, with deep Python and SQL expertise. I care about data quality and governance, so data stays reliable, consistent and secure long after the project is handed over.</p>
             <div class="facts">
               <div><b>9+</b><small>years in data &amp; AI infrastructure</small></div>
               <div><b>2</b><small>products founded and shipped</small></div>
@@ -613,13 +709,13 @@
             <p class="eyebrow">Selected work</p>
             <h2 class="h2">Every project leaves<br>a number behind</h2>
           </div>
-          <p class="lede">Products I founded and built end to end — from ingestion and modeling to the interface people actually use.</p>
+          <p class="lede">Products I founded and built end to end, from ingestion and modeling to the interface people actually use.</p>
         </div>
         <div class="carousel reveal" id="carousel">
           <a class="case" href="https://zhaav.net/" target="_blank" rel="noopener">
             <div class="case-img"><img src="src/webp/zhaav-bi.webp" alt="Zhaav BI dashboard" loading="lazy"><span class="tag">Big data · BI</span></div>
             <div class="case-text">
-              <h3>Zhaav — a big-data visualization platform</h3>
+              <h3>Zhaav: a big-data visualization platform</h3>
               <p>Founded and built a BI platform tailored to the Iranian market: ingestion, an analytical warehouse and interactive dashboards on top.</p>
               <div class="num"><b>Founder</b><small>architecture, data platform &amp; product</small></div>
               <span class="more">Visit zhaav.net ↗</span>
@@ -628,7 +724,7 @@
           <a class="case" href="https://sas.zhaav.org" target="_blank" rel="noopener">
             <div class="case-img"><img src="src/webp/zhaav-sas.webp" alt="Zhaav SAS assistant interface" loading="lazy"><span class="tag">LLM · RAG · MCP</span></div>
             <div class="case-text">
-              <h3>Zhaav SAS — a smart assistant system</h3>
+              <h3>Zhaav SAS: a smart assistant system</h3>
               <p>An assistant that combines LLMs with retrieval (RAG) and MCP tool access to deliver seamless, context-aware help grounded in real data.</p>
               <div class="num"><b>In production</b><small>retrieval, tools &amp; serving</small></div>
               <span class="more">Visit sas.zhaav.org ↗</span>
@@ -672,7 +768,7 @@
             </div>
             <div class="step">
               <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1.5 9.5l3.5 3.5 6-8M8 13l6-8"/></svg>
-              <div><h3>Decision based on evidence</h3><p>If the findings don't justify more work, I stop — rather than recommend work the evidence does not support.</p></div>
+              <div><h3>Decision based on evidence</h3><p>If the findings don't justify more work, I stop. I won't recommend work the evidence does not support.</p></div>
             </div>
             <div class="step">
               <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1.5 15.5h15M3 12l4-4 3 3 5-6"/></svg>
@@ -686,16 +782,16 @@
                 <linearGradient id="fun" x1="0" x2="1" y1="0" y2="0"><stop offset=".35" stop-color="#4fdc86" stop-opacity="0"/><stop offset=".75" stop-color="#4fdc86" stop-opacity=".45"/><stop offset="1" stop-color="#8ef0aa" stop-opacity=".85"/></linearGradient>
                 <linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="#4fdc86" stop-opacity=".1"/><stop offset="1" stop-color="#4fdc86"/></linearGradient>
               </defs>
-              <path d="M260 198 C380 196 470 120 640 -10 L640 410 C470 280 380 204 260 202 Z" fill="url(#fun)"/>
-              <path d="M0 200 H300" stroke="url(#beam)" stroke-width="3"/>
-              <path d="M300 200 C330 200 330 120 360 120 H540" stroke="rgba(239,233,218,.45)" stroke-dasharray="4 5" fill="none"/>
-              <path d="M300 200 C330 200 330 270 360 270 H540" stroke="#4fdc86" stroke-width="1.5" fill="none"/>
-              <circle r="4" fill="#8ef0aa"><animateMotion dur="3.2s" repeatCount="indefinite" path="M0 200 H300 C330 200 330 270 360 270 H540"/></circle>
-              <g fill="none" stroke="rgba(239,233,218,.3)"><circle cx="120" cy="200" r="22"/><circle cx="300" cy="200" r="34"/><circle cx="300" cy="200" r="22"/></g>
+              <path d="M360 266 C450 262 520 236 640 190 L640 350 C520 304 450 278 360 274 Z" fill="url(#fun)"/>
+              <path d="M0 200 H266" stroke="url(#beam)" stroke-width="3"/>
+              <path class="flow" d="M334 200 C356 200 352 120 380 120 H523" stroke="rgba(239,233,218,.45)" fill="none"/>
+              <path d="M334 200 C356 200 352 270 380 270 H520" stroke="#4fdc86" stroke-width="1.5" fill="none"/>
+              <circle r="4" fill="#8ef0aa"><animateMotion dur="3.2s" repeatCount="indefinite" path="M0 200 H334 C356 200 352 270 380 270 H520"/></circle>
+              <g fill="none" stroke="rgba(239,233,218,.3)"><circle cx="120" cy="200" r="22"/><circle cx="300" cy="200" r="34"><animate attributeName="r" values="30;40;30" dur="3.2s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="1;.2;1" dur="3.2s" repeatCount="indefinite"/></circle><circle cx="300" cy="200" r="22"/></g>
               <circle cx="120" cy="200" r="17" fill="#163f3f"/><rect x="111" y="194" width="18" height="12" fill="none" stroke="#efe9da" stroke-width="1.4"/><circle cx="120" cy="200" r="2.5" fill="#efe9da"/>
               <circle cx="300" cy="200" r="17" fill="#163f3f"/><path d="M291 201l4 4 7-9M298 205l7-9" stroke="#efe9da" stroke-width="1.4" fill="none"/>
               <circle cx="540" cy="120" r="17" fill="#2a4f4d" stroke="rgba(239,233,218,.3)"/><path d="M536 114v12M544 114v12" stroke="#efe9da" stroke-width="2"/>
-              <circle cx="540" cy="270" r="20" fill="#4fdc86"/><path d="M535 261l14 9-14 9z" fill="#0c2c2d"/>
+              <circle cx="540" cy="270" r="20" fill="none" stroke="#4fdc86"><animate attributeName="r" values="20;34" dur="1.6s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".8;0" dur="1.6s" repeatCount="indefinite"/></circle><circle cx="540" cy="270" r="20" fill="#4fdc86"/><path d="M535 261l14 9-14 9z" fill="#0c2c2d"/>
               <g fill="#f3f1ea" font-family="Inter Tight, Arial, sans-serif" font-size="17">
                 <text x="120" y="330" text-anchor="middle">Paid step</text>
                 <text x="300" y="330" text-anchor="middle">Decision</text>
@@ -709,7 +805,7 @@
     </section>
 
     <!-- ============ COST ============ -->
-    <section class="block tight" id="cost">
+    <section class="block tight pre-blend" id="cost">
       <div class="wrap">
         <div class="sec-head reveal">
           <h2 class="cost-title">The cost of bad data rarely<br>appears on the balance sheet</h2>
@@ -717,32 +813,28 @@
         </div>
         <div class="cost-cards reveal">
           <div class="cost-card">
-            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="#0d2322" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13"/><path d="M8 4v4.5l3 1.5"/></svg></span>
+            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="#0d2322" stroke-width="1.3" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13"/><path class="hand" d="M8 4v4.5l3 1.5"/></svg></span>
             <h3>Wasted hours.</h3>
             <p>Engineering time spent babysitting pipelines, reconciling reports and fixing the same failures again.</p>
           </div>
           <div class="cost-card">
-            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="#0d2322" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><path d="M8 1.8V8l4.4 4.4M8 8H1.8"/></svg></span>
+            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="#0d2322" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.2"/><path class="slice" d="M8 1.8V8l4.4 4.4M8 8H1.8"/></svg></span>
             <h3>Unexplained infrastructure costs.</h3>
             <p>Cloud and cluster spend that can't be clearly tied to workloads, owners or outcomes.</p>
           </div>
           <div class="cost-card">
-            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="#0d2322" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="5.5" r="3"/><path d="M2.5 14.5c.8-3 3-4.4 5.5-4.4s4.7 1.4 5.5 4.4"/></svg></span>
+            <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="#0d2322" stroke-width="1.3" aria-hidden="true"><circle class="head" cx="8" cy="5.5" r="3"/><path d="M2.5 14.5c.8-3 3-4.4 5.5-4.4s4.7 1.4 5.5 4.4"/></svg></span>
             <h3>Customer impact.</h3>
             <p>Late or wrong information that slows decisions, frustrates customers and erodes trust in every dashboard.</p>
           </div>
         </div>
-        <div class="why reveal">
-          <div>
-            <h3>Why does it matter? If your net margin is 3%, operational waste equal to 1 percentage point of revenue cuts your annual profit by a third.</h3>
-            <p>My work starts by exposing that hidden invoice.<br>Because the most expensive decision is the one nobody made.</p>
-            <a class="btn ink" href="mailto:a.fazeli95@gmail.com?subject=30-minute%20call"><span class="t">Book a 30-minute call</span><span class="a"><svg><use href="#i-arrow"/></svg></span></a>
-          </div>
-          <div class="cube-wrap" aria-hidden="true"><svg id="cube-iso" viewBox="0 0 300 300"></svg></div>
+        <div class="cube-stage reveal" aria-hidden="true">
+          <div class="cube-wrap"><svg id="cube-iso" viewBox="0 0 300 320"></svg></div>
         </div>
       </div>
     </section>
   </main>
+  <div class="blend" style="--f:var(--paper);--t:var(--teal-950)" aria-hidden="true"></div>
 
   <footer class="site-footer" id="contact">
     <div class="wrap">
@@ -777,6 +869,7 @@
   (function () {
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.getElementById('year').textContent = new Date().getFullYear();
+    if (reduce) window.addEventListener('load', function () { document.querySelectorAll('svg').forEach(function (v) { if (v.pauseAnimations) v.pauseAnimations(); }); });
 
     /* ---------- header ---------- */
     var header = document.querySelector('.site-header');
@@ -839,55 +932,62 @@
     bars.sort(function (a, b) { return (a.y - b.y) || (a.x - b.x); }); // rows never overlap in y, so back-to-front is row then x
     var heroDefs = defs('h');
     function drawHero(t) {
-      var html = heroDefs + '<ellipse cx="560" cy="600" rx="420" ry="110" fill="#020f10" opacity=".55" filter="url(#hsoft)"/>';
+      var html = heroDefs + '<ellipse cx="480" cy="600" rx="420" ry="110" fill="#020f10" opacity=".55" filter="url(#hsoft)"/>';
       bars.forEach(function (b, i) {
         var local = Math.min(1, Math.max(0, (t - i * 0.07) / 0.7));
         var e = 1 - Math.pow(1 - local, 4);
-        html += boxSVG('h', [640, 190], 52, b, 0.12 + (b.h - 0.12) * e);
+        var live = t > 1 ? 1 + 0.07 * Math.sin((t - 1) * 1.6 + i * 1.3) * Math.min(1, (t - 1) * 2) : 1; // slow "breathing" once grown
+        html += boxSVG('h', [550, 190], 52, b, 0.12 + (b.h * live - 0.12) * e);
       });
       heroSvg.innerHTML = html;
     }
-    if (reduce) drawHero(2);
+    if (reduce) drawHero(1.4);
     else {
-      var t0 = null;
+      var t0 = null, heroOn = true;
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { heroOn = en[0].isIntersecting; }, {}).observe(heroSvg);
       requestAnimationFrame(function frame(ts) {
         if (t0 === null) t0 = ts + 250;
-        var t = Math.max(0, ts - t0) / 1400;
-        drawHero(t);
-        if (t < 1.4) requestAnimationFrame(frame);
+        if (heroOn && !document.hidden) drawHero(Math.max(0, ts - t0) / 1400);
+        requestAnimationFrame(frame);
       });
     }
 
     /* cube with the logo mark on top */
     (function () {
-      var o = [150, 66], s = 72, h = 1.9, b = { x: 0, y: 0, w: 1.9, d: 1.9, c: 'cream' };
-      var html = defs('c') + '<ellipse cx="150" cy="268" rx="110" ry="22" fill="#0c2c2d" opacity=".2" filter="url(#csoft)"/>' + boxSVG('c', o, s, b, h);
+      var o = [150, 146], s = 66, h = 1.9, b = { x: 0, y: 0, w: 1.9, d: 1.9, c: 'cream' };
+      var html = defs('c') + '<ellipse class="shade" cx="150" cy="300" rx="100" ry="18" fill="#0c2c2d" filter="url(#csoft)"/><g class="body">' + boxSVG('c', o, s, b, h) + '<g class="mark">';
       [[0.25, 1.65], [0.25, 1.3], [0.5, 1.65], [0.25, 1.45], [0.6, 1.65]].forEach(function (r, i) {
         var y0 = 0.28 + i * 0.29, y1 = y0 + 0.16;
-        html += '<polygon points="' + poly([proj(o, s, r[0], y0, h), proj(o, s, r[1], y0, h), proj(o, s, r[1], y1, h), proj(o, s, r[0], y1, h)]) + '" fill="#0d2322"/>';
+        html += '<polygon style="--d:' + (i * 0.12) + 's" points="' + poly([proj(o, s, r[0], y0, h), proj(o, s, r[1], y0, h), proj(o, s, r[1], y1, h), proj(o, s, r[0], y1, h)]) + '"/>';
       });
-      document.getElementById('cube-iso').innerHTML = html;
+      document.getElementById('cube-iso').innerHTML = html + '</g></g>';
     })();
 
     /* ---------- problem visuals ---------- */
     var G = '#4fdc86', CR = 'rgba(239,233,218,.55)', FONT = 'font-family="Inter Tight, Arial, sans-serif"';
+    function motion(path, dur, begin, r, fill) {
+      return '<circle r="' + r + '" fill="' + fill + '" opacity="0"><set attributeName="opacity" to="1" begin="' + begin + 's"/><animateMotion dur="' + dur + 's" begin="' + begin + 's" repeatCount="indefinite" path="' + path + '"/></circle>';
+    }
     function vizMarkup(kind) {
       var out = '', i;
       if (kind === 'spike') {
-        var pts = [];
+        var d = '';
         for (i = 0; i <= 38; i++) {
           var y = 170 + Math.sin(i * 0.9) * 10 + Math.cos(i * 2.1) * 6;
           if (i === 26) y = 60; if (i === 27) y = 230;
-          pts.push((40 + i * 14) + ',' + y.toFixed(1));
+          d += (i ? 'L' : 'M') + (40 + i * 14) + ' ' + y.toFixed(1);
         }
-        out += '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + CR + '" stroke-width="2"/>';
-        out += '<circle cx="404" cy="60" r="8" fill="none" stroke="' + G + '" stroke-width="2"/><circle cx="404" cy="60" r="20" fill="none" stroke="' + G + '" stroke-opacity=".35"><animate attributeName="r" values="12;26;12" dur="2.4s" repeatCount="indefinite"/></circle>';
-        out += '<path d="M404 80V270" stroke="' + G + '" stroke-dasharray="4 5"/><rect x="420" y="44" width="130" height="30" fill="#0c2c2d" stroke="' + G + '"/><text x="485" y="64" fill="#8ef0aa" font-size="13" text-anchor="middle" ' + FONT + '>anomaly · 14:02</text>';
+        out += '<path class="draw" pathLength="1" d="' + d + '" fill="none" stroke="' + CR + '" stroke-width="2"/>';
+        out += motion(d, 6, 0, 3.5, '#efe9da');
+        out += '<g class="pop" style="--d:1.2s"><circle cx="404" cy="60" r="8" fill="none" stroke="' + G + '" stroke-width="2"/><circle cx="404" cy="60" r="20" fill="none" stroke="' + G + '" stroke-opacity=".35"><animate attributeName="r" values="12;26;12" dur="2.4s" repeatCount="indefinite"/></circle></g>';
+        out += '<path class="flow" d="M404 80V270" stroke="' + G + '"/><g class="pop" style="--d:1.5s"><rect x="420" y="44" width="130" height="30" fill="#0c2c2d" stroke="' + G + '"/><text x="485" y="64" fill="#8ef0aa" font-size="13" text-anchor="middle" ' + FONT + '>anomaly · 14:02</text></g>';
       } else if (kind === 'merge') {
-        [30, 78, 126, 174, 222, 270].forEach(function (y) {
-          out += '<rect x="60" y="' + (y - 12) + '" width="24" height="24" fill="none" stroke="' + CR + '"/><path d="M84 ' + y + ' C260 ' + y + ' 280 150 420 150" fill="none" stroke="' + CR + '" stroke-opacity=".6"/>';
+        [30, 78, 126, 174, 222, 270].forEach(function (y, j) {
+          var c = 'M84 ' + y + ' C260 ' + y + ' 280 150 420 150';
+          out += '<rect class="pop" style="--d:' + (0.1 + j * 0.08) + 's" x="60" y="' + (y - 12) + '" width="24" height="24" fill="none" stroke="' + CR + '"/><path class="draw" style="--d:' + (0.3 + j * 0.08) + 's" pathLength="1" d="' + c + '" fill="none" stroke="' + CR + '" stroke-opacity=".6"/>';
+          out += motion(c, 2.6, j * 0.43, 3, j % 2 ? '#efe9da' : G);
         });
-        out += '<rect x="420" y="115" width="70" height="70" fill="' + G + '"/><g stroke="#0c2c2d" stroke-width="5"><path d="M432 133h46M432 145h34M440 157h38M432 169h40"/></g>';
+        out += '<g class="pulse"><rect x="420" y="115" width="70" height="70" fill="' + G + '"/><g stroke="#0c2c2d" stroke-width="5"><path d="M432 133h46M432 145h34M440 157h38M432 169h40"/></g></g>';
       } else if (kind === 'stream') {
         for (var r = 0; r < 4; r++) {
           var yy = 60 + r * 60;
@@ -895,49 +995,90 @@
           for (var k = 0; k < 7; k++) {
             var x0 = 10 + k * 80 + r * 20;
             out += '<rect x="' + x0 + '" y="' + (yy - 7) + '" width="36" height="14" fill="' + (k === 5 - r ? G : 'rgba(239,233,218,.35)') + '">' +
-              (reduce ? '' : '<animate attributeName="x" from="' + x0 + '" to="' + (x0 + 80) + '" dur="' + (2 + r * 0.4) + 's" repeatCount="indefinite"/>') + '</rect>';
+              '<animate attributeName="x" from="' + x0 + '" to="' + (x0 + 80) + '" dur="' + (2 + r * 0.4) + 's" repeatCount="indefinite"/></rect>';
           }
         }
       } else if (kind === 'ship') {
         var st = [['notebook', 70], ['train', 185], ['package', 300], ['serve', 415], ['monitor', 530]];
-        out += '<path d="M70 140 H530" stroke="' + CR + '" stroke-opacity=".5"/><path d="M70 140 H415" stroke="' + G + '" stroke-width="2"/>';
+        out += '<path d="M70 140 H530" stroke="' + CR + '" stroke-opacity=".5"/><path class="draw" pathLength="1" d="M70 140 H415" stroke="' + G + '" stroke-width="2"/>';
+        out += motion('M70 140 H415', 2.4, 0, 4, '#efe9da');
         st.forEach(function (s2, j) {
           var on = j === 3;
-          out += '<circle cx="' + s2[1] + '" cy="140" r="' + (on ? 18 : 12) + '" fill="' + (j <= 3 ? (on ? G : '#1d4c4c') : '#0c2c2d') + '" stroke="' + (j <= 3 ? G : CR) + '"/>' +
-            '<text x="' + s2[1] + '" y="190" fill="#efe9da" font-size="14" text-anchor="middle" ' + FONT + '>' + s2[0] + '</text>';
+          if (on) out += '<circle cx="415" cy="140" r="18" fill="none" stroke="' + G + '" stroke-opacity=".4"><animate attributeName="r" values="18;32;18" dur="2.4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values=".5;0;.5" dur="2.4s" repeatCount="indefinite"/></circle>';
+          out += '<g class="pop" style="--d:' + (0.2 + j * 0.25) + 's"><circle cx="' + s2[1] + '" cy="140" r="' + (on ? 18 : 12) + '" fill="' + (j <= 3 ? (on ? G : '#1d4c4c') : '#0c2c2d') + '" stroke="' + (j <= 3 ? G : CR) + '"/>' +
+            '<text x="' + s2[1] + '" y="190" fill="#efe9da" font-size="14" text-anchor="middle" ' + FONT + '>' + s2[0] + '</text></g>';
         });
       } else if (kind === 'rag') {
-        out += '<g fill="none" stroke="' + CR + '"><rect x="50" y="90" width="90" height="120"/><path d="M68 115h54M68 135h54M68 155h40M68 175h50"/></g>';
-        out += '<path d="M140 150 H245" stroke="' + CR + '" stroke-dasharray="4 5"/>';
+        out += '<g fill="none" stroke="' + CR + '"><rect x="50" y="90" width="90" height="120"/><path class="draw" pathLength="1" style="--d:.2s" d="M68 115h54"/><path class="draw" pathLength="1" style="--d:.35s" d="M68 135h54"/><path class="draw" pathLength="1" style="--d:.5s" d="M68 155h40"/><path class="draw" pathLength="1" style="--d:.65s" d="M68 175h50"/></g>';
+        out += '<path class="flow" d="M140 150 H245" stroke="' + CR + '"/><g class="orbit">';
         for (i = 0; i < 18; i++) {
           var ang = i / 18 * Math.PI * 2, rr = 40 + (i % 3) * 12;
-          out += '<circle cx="' + (300 + Math.cos(ang) * rr).toFixed(1) + '" cy="' + (150 + Math.sin(ang) * rr).toFixed(1) + '" r="' + (i % 4 === 0 ? 6 : 4) + '" fill="' + (i % 4 === 0 ? G : 'rgba(239,233,218,.45)') + '"/>';
+          out += '<circle cx="' + (300 + Math.cos(ang) * rr).toFixed(1) + '" cy="' + (150 + Math.sin(ang) * rr).toFixed(1) + '" r="' + (i % 4 === 0 ? 6 : 4) + '" fill="' + (i % 4 === 0 ? G : 'rgba(239,233,218,.45)') + '"' + (i % 4 === 0 ? ' class="pulse" style="--d:' + (i * 0.15) + 's"' : '') + '/>';
         }
-        out += '<path d="M360 150 H440" stroke="' + G + '" stroke-width="2"/><rect x="440" y="120" width="110" height="60" fill="none" stroke="' + G + '"/><text x="495" y="156" fill="#8ef0aa" font-size="14" text-anchor="middle" ' + FONT + '>answer</text>';
+        out += '</g><path class="flow" d="M360 150 H440" stroke="' + G + '" stroke-width="2"/><g class="pop" style="--d:1.1s"><rect x="440" y="120" width="110" height="60" fill="none" stroke="' + G + '"/><text x="495" y="156" fill="#8ef0aa" font-size="14" text-anchor="middle" ' + FONT + '>answer</text></g>';
       }
       return out;
     }
     document.querySelectorAll('svg.viz').forEach(function (s) { s.innerHTML = vizMarkup(s.getAttribute('data-viz')); });
 
-    /* ---------- tabs ---------- */
-    var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
-    function select(tab, focus) {
-      tabs.forEach(function (t) {
-        var on = t === tab;
-        t.setAttribute('aria-selected', String(on));
-        t.tabIndex = on ? 0 : -1;
-        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    /* ---------- problems slideshow ---------- */
+    (function () {
+      var box = document.querySelector('.tabs'), track = document.getElementById('track'), list = box.querySelector('.tablist');
+      var tabs = Array.prototype.slice.call(box.querySelectorAll('[role="tab"]'));
+      var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+      var now = document.getElementById('slide-now'), pauseBtn = document.getElementById('slide-pause');
+      var DUR = 7000, idx = 0, elapsed = 0, last = null, hold = false, stopped = reduce, seen = false;
+      function go(i, focus) {
+        idx = (i + tabs.length) % tabs.length; elapsed = 0;
+        track.style.transform = 'translateX(' + (-100 * idx) + '%)';
+        tabs.forEach(function (t, j) {
+          var on = j === idx;
+          t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; t.style.setProperty('--p', on ? (stopped ? 1 : 0) : 0);
+          panels[j].classList.toggle('active', on); panels[j].setAttribute('aria-hidden', String(!on));
+          if ('inert' in panels[j]) panels[j].inert = !on;
+        });
+        now.textContent = '0' + (idx + 1);
+        var t = tabs[idx];
+        if (list.scrollWidth > list.clientWidth) list.scrollTo({ left: t.offsetLeft - (list.clientWidth - t.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+        if (focus) t.focus({ preventScroll: true });
+      }
+      function setStopped(v) {
+        stopped = v; pauseBtn.classList.toggle('paused', v);
+        pauseBtn.setAttribute('aria-label', v ? 'Play slideshow' : 'Pause slideshow');
+        tabs[idx].style.setProperty('--p', v ? 1 : elapsed / DUR);
+      }
+      function tick(ts) {
+        if (last !== null && seen && !hold && !stopped && !document.hidden) {
+          elapsed += ts - last;
+          if (elapsed >= DUR) go(idx + 1);
+          else tabs[idx].style.setProperty('--p', (elapsed / DUR).toFixed(4));
+        }
+        last = ts; requestAnimationFrame(tick);
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () { go(i); });
+        t.addEventListener('keydown', function (e) {
+          var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+          if (n) { e.preventDefault(); go(idx + n, true); }
+        });
       });
-      if (focus) tab.focus();
-      tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-    }
-    tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { select(t); });
-      t.addEventListener('keydown', function (e) {
-        var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-        if (n) { e.preventDefault(); select(tabs[(i + n + tabs.length) % tabs.length], true); }
+      document.getElementById('slide-prev').addEventListener('click', function () { go(idx - 1); });
+      document.getElementById('slide-next').addEventListener('click', function () { go(idx + 1); });
+      pauseBtn.addEventListener('click', function () { setStopped(!stopped); });
+      box.addEventListener('mouseenter', function () { hold = true; });
+      box.addEventListener('mouseleave', function () { hold = false; });
+      box.addEventListener('focusin', function () { hold = true; });
+      box.addEventListener('focusout', function (e) { if (!box.contains(e.relatedTarget)) hold = false; });
+      var x0 = null, slides = document.getElementById('slides');
+      slides.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+      slides.addEventListener('pointerup', function (e) {
+        if (x0 === null) return; var dx = e.clientX - x0; x0 = null;
+        if (Math.abs(dx) > 50) go(idx + (dx < 0 ? 1 : -1));
       });
-    });
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { seen = en[0].isIntersecting; }, { threshold: 0.35 }).observe(box);
+      else seen = true;
+      setStopped(stopped); go(0); requestAnimationFrame(tick);
+    })();
 
     /* ---------- carousel ---------- */
     var car = document.getElementById('carousel');
