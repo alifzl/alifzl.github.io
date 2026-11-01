@@ -57,7 +57,7 @@
     body {
       margin: 0; background: var(--paper); color: var(--ink);
       font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif; font-size: 16px; line-height: 1.5;
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; overflow-x: hidden; overflow-x: clip;
     }
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; }
@@ -94,7 +94,7 @@
 
     /* ---------------- Header ---------------- */
     .site-header { position: sticky; top: 0; z-index: 50; margin: 0 var(--inset); border-radius: 0 0 16px 16px; color: var(--on-dark); transition: background .3s; }
-    .site-header.scrolled { background: rgba(12, 44, 45, .94); backdrop-filter: blur(16px) saturate(120%); -webkit-backdrop-filter: blur(16px) saturate(120%); }
+    .site-header.scrolled { background: rgba(12, 44, 45, .97); }
     .nav-bar { display: grid; grid-template-columns: auto 1fr auto; align-items: stretch; height: 76px; border-bottom: 1px solid var(--line-dark); }
     .logo { display: flex; align-items: center; gap: 10px; padding-right: clamp(20px, 6vw, 96px); text-decoration: none; font-size: 27px; font-weight: 500; letter-spacing: -.045em; border-right: 1px solid var(--line-dark); white-space: nowrap; }
     .logo svg { width: 30px; height: 24px; }
@@ -120,7 +120,7 @@
     .hero-art { position: absolute; z-index: 1; right: calc(-1 * var(--gutter)); bottom: 40px; width: min(54vw, 900px); pointer-events: none; }
     .hero-art svg { width: 100%; height: auto; overflow: visible; }
     .hero-strip { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 22px 0 26px; border-top: 1px solid var(--line-dark); }
-    .hero-strip::before { content: ""; position: absolute; inset: 0 -100vw; z-index: -1; background: linear-gradient(90deg, rgba(10,38,39,.92) 0%, rgba(10,38,39,.7) 50%, rgba(10,38,39,.25) 100%); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+    .hero-strip::before { content: ""; position: absolute; inset: 0 -100vw; z-index: -1; background: linear-gradient(90deg, rgba(10,38,39,.92) 0%, rgba(10,38,39,.7) 50%, rgba(10,38,39,.25) 100%); }
     .hero-strip p { max-width: 640px; font-size: 14.5px; color: rgba(243,241,234,.8); }
     .stack-logos { display: flex; align-items: center; gap: clamp(22px, 3.4vw, 54px); }
     .stack-logos span { display: inline-flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 500; letter-spacing: -.02em; color: #fff; white-space: nowrap; }
@@ -140,7 +140,10 @@
     .tab:last-child { border-right: 0; }
     .tab::after { content: ""; position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
     .tab[aria-selected="true"] { color: var(--ink); }
-    .tab[aria-selected="true"]::after { transform: scaleX(var(--p, 1)); transition: none; }
+    .tab[aria-selected="true"]::after { transform: scaleX(1); transition: none; }
+    @keyframes prog { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    .tabs.auto .tab[aria-selected="true"]::after { animation: prog 7s linear both; }
+    .tabs.auto.hold .tab::after, .tabs.auto.unseen .tab::after { animation-play-state: paused; }
     .tab:hover { color: var(--ink); background: #fafaf8; }
     .slides { overflow: hidden; touch-action: pan-y; }
     .track { display: flex; transition: transform .85s var(--ease); }
@@ -212,10 +215,11 @@
     .approach .grow { stroke-dasharray: 1; animation: grow 4s var(--ease) infinite; }
     .approach .dot { opacity: 0; animation: dot 4s ease-out infinite; animation-delay: var(--d); }
     .js .approach:not(.in) * { animation-play-state: paused; }
+    .offscreen *, .offscreen *::before, .offscreen *::after { animation-play-state: paused !important; }
     .approach p { margin-top: 10px; font-size: 14px; color: var(--ink-2); max-width: 340px; }
 
     /* dark offer band */
-    .dark { background: var(--teal-900); color: var(--on-dark); margin: 0 var(--inset); border-radius: var(--radius); overflow: hidden; }
+    .dark { background: var(--teal-900); color: var(--on-dark); margin: 0 var(--inset); border-radius: var(--radius); }
     .offer-head h2 { max-width: 900px; font-size: clamp(34px, 4vw, 58px); }
     .offer-head p { margin-top: 26px; color: var(--on-dark-2); font-size: 15.5px; }
     .offers { margin-top: clamp(40px, 5vw, 64px); display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line-dark); }
@@ -363,7 +367,7 @@
       }
       .nav-links { border-radius: 0 0 16px 16px; }
       .site-header.open .nav-links { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
-      .site-header.open { background: var(--teal-900); backdrop-filter: none; -webkit-backdrop-filter: none; }
+      .site-header.open { background: var(--teal-900); }
       .nav-links a { padding: 14px 0; font-size: 18px; border-bottom: 1px solid var(--line-dark); }
       .menu-btn { display: inline-flex; }
       .hero-inner { min-height: auto; }
@@ -927,19 +931,18 @@
       bars.forEach(function (b, i) {
         var local = Math.min(1, Math.max(0, (t - i * 0.07) / 0.7));
         var e = 1 - Math.pow(1 - local, 4);
-        var live = t > 1 ? 1 + 0.07 * Math.sin((t - 1) * 1.6 + i * 1.3) * Math.min(1, (t - 1) * 2) : 1; // slow "breathing" once grown
-        html += boxSVG('h', [550, 190], 52, b, 0.12 + (b.h * live - 0.12) * e);
+        html += boxSVG('h', [550, 190], 52, b, 0.12 + (b.h - 0.12) * e);
       });
       heroSvg.innerHTML = html;
     }
     if (reduce) drawHero(1.4);
     else {
-      var t0 = null, heroOn = true;
-      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { heroOn = en[0].isIntersecting; }, {}).observe(heroSvg);
-      requestAnimationFrame(function frame(ts) {
+      var t0 = null;
+      requestAnimationFrame(function frame(ts) { // grow in once, then stay static so scrolling stays cheap
         if (t0 === null) t0 = ts + 250;
-        if (heroOn && !document.hidden) drawHero(Math.max(0, ts - t0) / 1400);
-        requestAnimationFrame(frame);
+        var t = Math.max(0, ts - t0) / 1400;
+        drawHero(Math.min(t, 1.4));
+        if (t < 1.4) requestAnimationFrame(frame);
       });
     }
 
@@ -1018,13 +1021,13 @@
       var tabs = Array.prototype.slice.call(box.querySelectorAll('[role="tab"]'));
       var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
       var now = document.getElementById('slide-now'), pauseBtn = document.getElementById('slide-pause');
-      var DUR = 7000, idx = 0, elapsed = 0, last = null, hold = false, stopped = reduce, seen = false;
+      var idx = 0, stopped = reduce;
       function go(i, focus) {
-        idx = (i + tabs.length) % tabs.length; elapsed = 0;
+        idx = (i + tabs.length) % tabs.length;
         track.style.transform = 'translateX(' + (-100 * idx) + '%)';
         tabs.forEach(function (t, j) {
           var on = j === idx;
-          t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1; t.style.setProperty('--p', on ? (stopped ? 1 : 0) : 0);
+          t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
           panels[j].classList.toggle('active', on); panels[j].setAttribute('aria-hidden', String(!on));
           if ('inert' in panels[j]) panels[j].inert = !on;
         });
@@ -1034,19 +1037,12 @@
         if (focus) t.focus({ preventScroll: true });
       }
       function setStopped(v) {
-        stopped = v; pauseBtn.classList.toggle('paused', v);
+        stopped = v; box.classList.toggle('auto', !v); pauseBtn.classList.toggle('paused', v);
         pauseBtn.setAttribute('aria-label', v ? 'Play slideshow' : 'Pause slideshow');
-        tabs[idx].style.setProperty('--p', v ? 1 : elapsed / DUR);
       }
-      function tick(ts) {
-        if (last !== null && seen && !hold && !stopped && !document.hidden) {
-          elapsed += ts - last;
-          if (elapsed >= DUR) go(idx + 1);
-          else tabs[idx].style.setProperty('--p', (elapsed / DUR).toFixed(4));
-        }
-        last = ts; requestAnimationFrame(tick);
-      }
+      // the progress bar is a CSS animation on the active tab; when it ends, advance
       tabs.forEach(function (t, i) {
+        t.addEventListener('animationend', function (e) { if (e.animationName === 'prog' && !stopped) go(idx + 1); });
         t.addEventListener('click', function () { go(i); });
         t.addEventListener('keydown', function (e) {
           var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
@@ -1056,19 +1052,20 @@
       document.getElementById('slide-prev').addEventListener('click', function () { go(idx - 1); });
       document.getElementById('slide-next').addEventListener('click', function () { go(idx + 1); });
       pauseBtn.addEventListener('click', function () { setStopped(!stopped); });
-      box.addEventListener('mouseenter', function () { hold = true; });
-      box.addEventListener('mouseleave', function () { hold = false; });
-      box.addEventListener('focusin', function () { hold = true; });
-      box.addEventListener('focusout', function (e) { if (!box.contains(e.relatedTarget)) hold = false; });
+      box.addEventListener('mouseenter', function () { box.classList.add('hold'); });
+      box.addEventListener('mouseleave', function () { box.classList.remove('hold'); });
+      box.addEventListener('focusin', function () { box.classList.add('hold'); });
+      box.addEventListener('focusout', function (e) { if (!box.contains(e.relatedTarget)) box.classList.remove('hold'); });
       var x0 = null, slides = document.getElementById('slides');
       slides.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
       slides.addEventListener('pointerup', function (e) {
         if (x0 === null) return; var dx = e.clientX - x0; x0 = null;
         if (Math.abs(dx) > 50) go(idx + (dx < 0 ? 1 : -1));
       });
-      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { seen = en[0].isIntersecting; }, { threshold: 0.35 }).observe(box);
-      else seen = true;
-      setStopped(stopped); go(0); requestAnimationFrame(tick);
+      box.classList.add('unseen');
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { box.classList.toggle('unseen', !en[0].isIntersecting); }, { threshold: 0.35 }).observe(box);
+      else box.classList.remove('unseen');
+      setStopped(stopped); go(0);
     })();
 
     /* ---------- carousel ---------- */
@@ -1085,6 +1082,18 @@
     steps.forEach(function (s) {
       s.addEventListener('mouseenter', function () { steps.forEach(function (x) { x.classList.toggle('on', x === s); }); });
     });
+
+    /* ---------- pause animations that are off screen ---------- */
+    if ('IntersectionObserver' in window && !reduce) {
+      var vis = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          var off = !en.isIntersecting;
+          en.target.classList.toggle('offscreen', off);
+          en.target.querySelectorAll('svg').forEach(function (v) { if (v.pauseAnimations) off ? v.pauseAnimations() : v.unpauseAnimations(); });
+        });
+      }, { rootMargin: '120px 0px' });
+      document.querySelectorAll('main > section, .site-footer').forEach(function (el) { vis.observe(el); });
+    }
 
     /* ---------- reveal on scroll ---------- */
     var els = document.querySelectorAll('.reveal');
