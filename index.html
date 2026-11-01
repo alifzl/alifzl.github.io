@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-WVV45676');</script>
+  <!-- Google Tag Manager (loaded after the page so it never delays first paint) -->
+  <script>window.dataLayer=window.dataLayer||[];window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  addEventListener('load',function(){var go=function(){var j=document.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id=GTM-WVV45676';document.head.appendChild(j);};
+  'requestIdleCallback' in window?requestIdleCallback(go,{timeout:2500}):setTimeout(go,1200);});</script>
   <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">
@@ -16,19 +14,21 @@
   <meta name="author" content="Ali Fazeli">
   <meta name="description" content="Ali Fazeli, MLOps &amp; Data Engineer with 9+ years building big-data platforms, streaming pipelines and AI infrastructure that pay for themselves.">
   <meta name="keywords" content="Ali Fazeli, alifzl, علی فاضلی, MLOps, Data Engineering, Big Data, AI Infrastructure, Data Platform, RAG, Streaming">
-  <meta property="og:image" content="https://www.alifzl.com/src/png/Preview-card-min.png">
+  <meta property="og:image" content="https://alifzl.com/src/opt/preview-card.jpg">
   <meta property="og:title" content="Ali Fazeli | Data &amp; MLOps Engineer">
   <meta property="og:description" content="Your data platform has a cost. I make it pay off.">
   <meta property="og:url" content="https://alifzl.com">
   <meta property="og:site_name" content="Ali Fazeli Portfolio">
   <title>Ali Fazeli | Data &amp; MLOps Engineer</title>
-  <link rel="icon" type="image/png" href="src/png/main-favicon.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..700&display=swap">
+  <link rel="icon" type="image/png" href="src/opt/favicon.png">
+  <link rel="preload" href="src/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    /* Inter Tight, self-hosted (variable 300-700) */
+    @font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(src/fonts/inter-tight-latin.woff2) format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: "Inter Tight"; font-style: normal; font-weight: 300 700; font-display: swap; src: url(src/fonts/inter-tight-latin-ext.woff2) format("woff2");
+      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
     :root {
       --teal-950: #071f20;
       --teal-900: #0c2c2d;
@@ -146,7 +146,7 @@
     .tab[aria-selected="true"]::after { transform: scaleX(1); transition: none; }
     @keyframes prog { from { transform: scaleX(0); } to { transform: scaleX(1); } }
     .tabs.auto .tab[aria-selected="true"]::after { animation: prog 7s linear both; }
-    .tabs.auto.hold .tab::after, .tabs.auto.unseen .tab::after { animation-play-state: paused; }
+    .tabs.auto.unseen .tab::after { animation-play-state: paused; }
     .tab:hover { color: var(--ink); background: #fafaf8; }
     .slides { overflow: hidden; touch-action: pan-y; }
     .track { display: flex; transition: transform .85s var(--ease); }
@@ -492,9 +492,9 @@
         <div class="hero-strip">
           <p>Recent work: founded a big-data visualization platform for the Iranian market, and shipped an LLM assistant running RAG&nbsp;+&nbsp;MCP in production.</p>
           <div class="stack-logos" aria-label="Core stack">
-            <span><img src="src/png/airflow.png" alt="">Airflow</span>
-            <span><img src="src/png/Kubernetes.png" alt="">Kubernetes</span>
-            <span><img src="src/png/doris.png" alt="">Apache Doris</span>
+            <span><img src="src/opt/airflow.webp" alt="" width="24" height="24" decoding="async">Airflow</span>
+            <span><img src="src/opt/kubernetes.webp" alt="" width="24" height="24" decoding="async">Kubernetes</span>
+            <span><img src="src/opt/doris.webp" alt="" width="24" height="24" decoding="async">Apache Doris</span>
           </div>
         </div>
       </div>
@@ -701,7 +701,7 @@
           <p class="lede">Data engineering and MLOps across a range of industries, from the first pipeline to AI in production.</p>
         </div>
         <div class="about reveal">
-          <div class="about-photo"><img src="src/webp/ali.webp" alt="Portrait of Ali Fazeli" loading="lazy"><span class="tag">Ali Fazeli · Tehran</span></div>
+          <div class="about-photo"><img src="src/opt/ali.webp" alt="Portrait of Ali Fazeli" width="828" height="891" loading="lazy" decoding="async"><span class="tag">Ali Fazeli · Tehran</span></div>
           <div class="about-body">
             <h3>I design and run the systems that move, model and serve data.</h3>
             <p>I'm skilled in data architecture, data modeling and ETL/ELT design, with deep Python and SQL expertise. I care about data quality and governance, so data stays reliable, consistent and secure long after the project is handed over.</p>
@@ -711,15 +711,15 @@
               <div><b>10+</b><small>core platform technologies</small></div>
             </div>
             <div class="stack" aria-label="Tech stack">
-              <span><img src="src/png/python.png" alt="">Python</span>
-              <span><img src="src/png/bash.png" alt="">Bash</span>
-              <span><img src="src/png/airflow.png" alt="">Apache Airflow</span>
-              <span><img src="src/png/Kubernetes.png" alt="">Kubernetes</span>
-              <span><img src="src/png/docker.png" alt="">Docker</span>
-              <span><img src="src/png/risingwave.png" alt="">RisingWave</span>
-              <span><img src="src/png/redpanda.png" alt="">Redpanda</span>
-              <span><img src="src/png/hadoop.png" alt="">Apache Hadoop</span>
-              <span><img src="src/png/doris.png" alt="">Apache Doris</span>
+              <span><img src="src/opt/python.webp" alt="" width="24" height="24" decoding="async">Python</span>
+              <span><img src="src/opt/bash.webp" alt="" width="24" height="24" decoding="async">Bash</span>
+              <span><img src="src/opt/airflow.webp" alt="" width="24" height="24" decoding="async">Apache Airflow</span>
+              <span><img src="src/opt/kubernetes.webp" alt="" width="24" height="24" decoding="async">Kubernetes</span>
+              <span><img src="src/opt/docker.webp" alt="" width="24" height="24" decoding="async">Docker</span>
+              <span><img src="src/opt/risingwave.webp" alt="" width="24" height="24" decoding="async">RisingWave</span>
+              <span><img src="src/opt/redpanda.webp" alt="" width="24" height="24" decoding="async">Redpanda</span>
+              <span><img src="src/opt/hadoop.webp" alt="" width="24" height="24" decoding="async">Apache Hadoop</span>
+              <span><img src="src/opt/doris.webp" alt="" width="24" height="24" decoding="async">Apache Doris</span>
             </div>
             <div class="actions">
               <a class="btn ink" href="src/pdf/Ali_Fazeli_Resume.pdf" target="_blank" rel="noopener"><span class="t">Download resume</span><span class="a"><svg><use href="#i-arrow"/></svg></span></a>
@@ -742,7 +742,7 @@
         </div>
         <div class="carousel reveal" id="carousel">
           <a class="case" href="https://zhaav.net/" target="_blank" rel="noopener">
-            <div class="case-img"><img src="src/webp/zhaav-bi.webp" alt="Zhaav BI dashboard" loading="lazy"><span class="tag">Big data · BI</span></div>
+            <div class="case-img"><img src="src/opt/zhaav-bi.webp" alt="Zhaav BI dashboard" width="820" height="513" loading="lazy" decoding="async"><span class="tag">Big data · BI</span></div>
             <div class="case-text">
               <h3>Zhaav: a big-data visualization platform</h3>
               <p>Founded and built a BI platform tailored to the Iranian market: ingestion, an analytical warehouse and interactive dashboards on top.</p>
@@ -751,7 +751,7 @@
             </div>
           </a>
           <a class="case" href="https://sas.zhaav.org" target="_blank" rel="noopener">
-            <div class="case-img"><img src="src/webp/zhaav-sas.webp" alt="Zhaav SAS assistant interface" loading="lazy"><span class="tag">LLM · RAG · MCP</span></div>
+            <div class="case-img"><img src="src/opt/zhaav-sas.webp" alt="Zhaav SAS assistant interface" width="820" height="467" loading="lazy" decoding="async"><span class="tag">LLM · RAG · MCP</span></div>
             <div class="case-text">
               <h3>Zhaav SAS: a smart assistant system</h3>
               <p>An assistant that combines LLMs with retrieval (RAG) and MCP tool access to deliver seamless, context-aware help grounded in real data.</p>
@@ -1093,10 +1093,6 @@
       document.getElementById('slide-prev').addEventListener('click', function () { go(idx - 1); });
       document.getElementById('slide-next').addEventListener('click', function () { go(idx + 1); });
       pauseBtn.addEventListener('click', function () { setStopped(!stopped); });
-      box.addEventListener('mouseenter', function () { box.classList.add('hold'); });
-      box.addEventListener('mouseleave', function () { box.classList.remove('hold'); });
-      box.addEventListener('focusin', function () { box.classList.add('hold'); });
-      box.addEventListener('focusout', function (e) { if (!box.contains(e.relatedTarget)) box.classList.remove('hold'); });
       var x0 = null, slides = document.getElementById('slides');
       slides.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
       slides.addEventListener('pointerup', function (e) {
@@ -1104,7 +1100,7 @@
         if (Math.abs(dx) > 50) go(idx + (dx < 0 ? 1 : -1));
       });
       box.classList.add('unseen');
-      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { box.classList.toggle('unseen', !en[0].isIntersecting); }, { threshold: 0.35 }).observe(box);
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { box.classList.toggle('unseen', !en[0].isIntersecting); }).observe(box);
       else box.classList.remove('unseen');
       setStopped(stopped); go(0);
     })();
